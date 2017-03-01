@@ -15,8 +15,8 @@ public class Prize {
 
 
     public Prize(int treasures, int level){
-        treasures = this.treasures;
-        level = this.level;
+        this.treasures = treasures;
+        this.level = level;
     }
     
     public int getTreasures(){

@@ -49,6 +49,31 @@ public class BadConsequence {
        return this.text;
     }
     
+    public int getLevels(){
+        return this.levels;
+    }
+    
+    public int getnVisibleTreasures(){
+        return this.nVisibleTreasures;
+    }
+    
+    public int getnHiddenTreasures(){
+        return this.nHiddenTreasures;
+    }
+    
+    public boolean getDeath(){
+        return this.death;
+    }
+    
+    public ArrayList<TreasureKind> getsVisibleTreasures(){
+        return this.specificVisibleTreasures;
+    }
+    
+    public ArrayList<TreasureKind> getsHiddenTreasures(){
+        return this.specificHiddenTreasures;
+    }
+
+    
 
 }
 

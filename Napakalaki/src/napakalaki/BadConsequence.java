@@ -118,13 +118,13 @@ public class BadConsequence {
     @Override
     public String toString(){
         if(death){
-            return "Mal Rollo: \" " + text +"\" . Pierdes todos tus niveles y todos tus objetos";
+            return "\"" + text +"\". Pierdes todos tus niveles y todos tus objetos.";
         }
         else if(nVisibleTreasures == -1){            
-            return "Mal Rollo: \" " + text +"\" . Pierdes " + specificVisibleTreasures + " visibles y" +specificVisibleTreasures +" ocultos.";
+            return "\"" + text +"\". Pierdes " + specificVisibleTreasures + " visibles y" +specificVisibleTreasures +" ocultos.";
         }
         else{
-            return "Mal Rollo: \" " + text +"\" . Pierdes " + Integer.toString(levels) + " niveles, "+ Integer.toString(nVisibleTreasures) + " tesoros visibles y " + Integer.toString(nHiddenTreasures) + " tesoros ocultos.";
+            return "\"" + text +"\". Pierdes " + Integer.toString(levels) + " niveles, "+ Integer.toString(nVisibleTreasures) + " tesoros visibles y " + Integer.toString(nHiddenTreasures) + " tesoros ocultos.";
         }
     }
     

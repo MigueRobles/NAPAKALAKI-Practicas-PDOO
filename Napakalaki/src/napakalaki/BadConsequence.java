@@ -19,8 +19,8 @@ public class BadConsequence {
     private int nHiddenTreasures;
     private boolean death;
     
-    private ArrayList<TreasureKind> specificVisibleTreasures = new ArrayList();
-    private ArrayList<TreasureKind> specificHiddenTreasures = new ArrayList();
+    private ArrayList<TreasureKind> specificVisibleTreasures;
+    private ArrayList<TreasureKind> specificHiddenTreasures;
     
     public BadConsequence(String text, int levels, int nVisible, int nHidden){
         
@@ -29,8 +29,8 @@ public class BadConsequence {
         this.levels = levels;
         this.nVisibleTreasures = nVisible;
         this.nHiddenTreasures = nHidden;
-        this.specificVisibleTreasures = null;
-        this.specificHiddenTreasures = null;
+        this.specificVisibleTreasures = new ArrayList();
+        this.specificHiddenTreasures = new ArrayList();
     }
     
     public BadConsequence(String text, boolean death){
@@ -40,8 +40,8 @@ public class BadConsequence {
         this.levels = 100;
         this.nVisibleTreasures = 100;
         this.nHiddenTreasures = 100;
-        this.specificVisibleTreasures = null;
-        this.specificHiddenTreasures = null;
+        this.specificVisibleTreasures = new ArrayList();
+        this.specificHiddenTreasures = new ArrayList();
    
     }
     
@@ -49,13 +49,44 @@ public class BadConsequence {
     
         this.text = text;
         this.levels = levels;
+        this.specificVisibleTreasures = new ArrayList();
         this.specificVisibleTreasures = tVisible;
+        this.specificHiddenTreasures = new ArrayList();
         this.specificHiddenTreasures = tHidden;
         this.death = false;
-        this.nVisibleTreasures = -1;
-        this.nHiddenTreasures = -1;
+        this.nVisibleTreasures = tVisible.size();
+        this.nHiddenTreasures = tHidden.size();
         
     }
+    /*   INNECESARIOS, se puede poner un array vacío en su lugar // BORRAR
+    public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible,int zero){
+    
+        this.text = text;
+        this.levels = levels;
+        this.specificVisibleTreasures = new ArrayList();
+        this.specificVisibleTreasures = tVisible;
+        this.specificHiddenTreasures = new ArrayList(); 
+        this.death = false;
+        this.nVisibleTreasures = specificVisibleTreasures.size();
+        zero = 0;
+        this.nHiddenTreasures = zero;
+    }
+    
+    public BadConsequence(String text, int levels, int zero, ArrayList<TreasureKind> tHidden){
+    
+        this.text = text;
+        this.levels = levels;
+        this.specificVisibleTreasures = new ArrayList();
+        this.specificHiddenTreasures = new ArrayList();
+        this.specificHiddenTreasures = tHidden;
+        this.death = false;
+        zero = 0;
+        this.nVisibleTreasures = zero;
+        this.nHiddenTreasures = tHidden.size();
+        
+    }
+    */
+    
     
     public void setText(String text){
        this.text = text;
@@ -115,13 +146,17 @@ public class BadConsequence {
     
     
     
-    @Override
+    
     public String toString(){
         if(death){
             return "\"" + text +"\". Pierdes todos tus niveles y todos tus objetos.";
         }
-        else if(nVisibleTreasures == -1){            
-            return "\"" + text +"\". Pierdes " + specificVisibleTreasures + " visibles y" +specificVisibleTreasures +" ocultos.";
+        else if(nVisibleTreasures.size() > 0){            
+            String mensaje;
+            mensaje = "\"" + text +"\". Pierdes "; // Hay que terminarlo
+            + specificVisibleTreasures +
+            
+            mensaje += " visibles y" +specificVisibleTreasures +" ocultos.";
         }
         else{
             return "\"" + text +"\". Pierdes " + Integer.toString(levels) + " niveles, "+ Integer.toString(nVisibleTreasures) + " tesoros visibles y " + Integer.toString(nHiddenTreasures) + " tesoros ocultos.";

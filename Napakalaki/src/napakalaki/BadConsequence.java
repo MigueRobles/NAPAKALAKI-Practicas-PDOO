@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author migue
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Robles Urquiza
  */
 public class BadConsequence {
     

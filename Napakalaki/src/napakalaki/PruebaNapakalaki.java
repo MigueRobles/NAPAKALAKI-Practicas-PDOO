@@ -7,7 +7,7 @@ package napakalaki;
 
 /**
  *
- * @author Jesús Sánchez de Lechina Tejada
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Robles Urquiza
  */
 public class PruebaNapakalaki {
 

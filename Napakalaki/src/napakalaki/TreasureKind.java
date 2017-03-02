@@ -7,7 +7,7 @@ package napakalaki;
 
 /**
  *
- * @author migue
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Robles Urquiza
  */
 public enum TreasureKind {
 

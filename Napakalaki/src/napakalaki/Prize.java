@@ -7,7 +7,7 @@ package napakalaki;
 
 /**
  *
- * @author cuack
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Robles Urquiza
  */
 public class Prize {
     private int treasures;

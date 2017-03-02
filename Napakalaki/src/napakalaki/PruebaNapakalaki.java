@@ -15,7 +15,12 @@ public class PruebaNapakalaki {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Prize premio = new Prize(2,1);
+        BadConsequence consecuencia = new BadConsequence("Mueres aplastado por una Descomposicion Cíclica Primaia", true);
+        Monster cegarra= new Monster("Congruencia Asesina", 15, premio, consecuencia);
+       
+        System.out.println (cegarra.toString());
     }
     
 }

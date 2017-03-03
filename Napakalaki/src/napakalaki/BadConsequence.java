@@ -151,13 +151,67 @@ public class BadConsequence {
         if(death){
             return "\"" + text +"\". Pierdes todos tus niveles y todos tus objetos.";
         }
-        else if(nVisibleTreasures.size() > 0){            
+        else if(nVisibleTreasures > 0 || nHiddenTreasures > 0){            
             String mensaje;
-            mensaje = "\"" + text +"\". Pierdes "; // Hay que terminarlo
-            + specificVisibleTreasures +
+            mensaje = "\"" + text +"\". Pierdes:\n "; 
+            System.out.print(nVisibleTreasures);
             
-            mensaje += " visibles y" +specificVisibleTreasures +" ocultos.";
-        }
+            if(nVisibleTreasures > 0){
+                String mensaje_visibles = Integer.toString(nVisibleTreasures) + " tesoros visibles: " ;
+                //System.out.print(mensaje_visibles);
+                
+                for(int i = 0; i < nVisibleTreasures; ++i){
+                    System.out.print(specificVisibleTreasures.get(i));
+                    switch (specificVisibleTreasures.get(i)){
+                        case HELMET: mensaje_visibles.concat("casco");
+                            break;
+                        case ONEHAND: mensaje_visibles.concat("arma de una mano");
+                            break;
+                        case BOTHHANDS: mensaje_visibles.concat("arma de dos manos");
+                            break;
+                        case SHOES: mensaje_visibles.concat("botas");
+                            break;
+                        case ARMOR: mensaje_visibles.concat("armadura");
+                    
+                    }
+                
+                    if(i < nVisibleTreasures)
+                        mensaje_visibles.concat(", ");
+                    else
+                        mensaje_visibles.concat(".\n");
+                }
+            mensaje.concat(mensaje_visibles);
+            System.out.print(mensaje_visibles);
+            }
+            
+            if(nHiddenTreasures > 0){
+                String mensaje_ocultos = Integer.toString(nHiddenTreasures) + " tesoro(s) oculto(s): " ;
+                for(int i = 0; i < nHiddenTreasures; ++i){
+                    switch (specificHiddenTreasures.get(i)){
+                        case HELMET: mensaje_ocultos.concat("casco");
+                            break;
+                        case ONEHAND: mensaje_ocultos.concat("arma de una mano");
+                            break;
+                        case BOTHHANDS: mensaje_ocultos.concat("arma de dos manos");
+                            break;
+                        case SHOES: mensaje_ocultos.concat("botas");
+                            break;
+                        case ARMOR: mensaje_ocultos.concat("armadura");
+                    
+                    }
+                
+                    if(i < nHiddenTreasures)
+                        mensaje_ocultos.concat(", ");
+                    else
+                        mensaje_ocultos.concat(".\n");
+                }
+            mensaje.concat(mensaje_ocultos);
+            }
+            
+            return mensaje;
+            }
+            
+        
         else{
             return "\"" + text +"\". Pierdes " + Integer.toString(levels) + " niveles, "+ Integer.toString(nVisibleTreasures) + " tesoros visibles y " + Integer.toString(nHiddenTreasures) + " tesoros ocultos.";
         }

@@ -37,9 +37,9 @@ public class BadConsequence {
         
         this.text = text;
         this.death = death;
-        this.levels = 100;
-        this.nVisibleTreasures = 100;
-        this.nHiddenTreasures = 100;
+        this.levels = 9;
+        this.nVisibleTreasures = 4;
+        this.nHiddenTreasures = 4;
         this.specificVisibleTreasures = new ArrayList();
         this.specificHiddenTreasures = new ArrayList();
    
@@ -124,65 +124,62 @@ public class BadConsequence {
         }
         else if(nVisibleTreasures > 0 || nHiddenTreasures > 0){            
             String mensaje;
-            mensaje = "\"" + text +"\". Pierdes:\n "; 
-            System.out.print(mensaje);
-            
+            mensaje = "\"" + text +"\". Debes descartarte de:\n"; 
+           
             if(nVisibleTreasures > 0){
-                String mensaje_visibles = Integer.toString(nVisibleTreasures) + " tesoros visibles: " ;
-                System.out.print(mensaje_visibles);
+                String mensaje_visibles = Integer.toString(nVisibleTreasures) + " tesoro(s) visible(s): " ;
                 
-                for(int i = 0; i < nVisibleTreasures; ++i){
-                    System.out.print(specificVisibleTreasures.get(i));
+                for(int i = 0; i < specificVisibleTreasures.size(); ++i){
                     switch (specificVisibleTreasures.get(i)){
-                        case HELMET: mensaje_visibles.concat("casco");
+                        case HELMET: mensaje_visibles += "cubrecabezas";
                             break;
-                        case ONEHAND: mensaje_visibles.concat("arma de una mano");
+                        case ONEHAND: mensaje_visibles += "arma de una mano";
                             break;
-                        case BOTHHANDS: mensaje_visibles.concat("arma de dos manos");
+                        case BOTHHANDS: mensaje_visibles +="arma de dos manos";
                             break;
-                        case SHOES: mensaje_visibles.concat("botas");
+                        case SHOES: mensaje_visibles += "calzado";
                             break;
-                        case ARMOR: mensaje_visibles.concat("armadura");
+                        case ARMOR: mensaje_visibles += "armadura";
                             break;
-                        default: mensaje_visibles.concat("a su elección");
-                            break;
-                    
+                       
                     }
-                
-                    if(i < nVisibleTreasures)
-                        mensaje_visibles.concat(", ");
+                   if(specificVisibleTreasures.isEmpty())
+                     mensaje_visibles +="a su elección";
+                            
+                    
+                    if(i < specificVisibleTreasures.size()-1)
+                        mensaje_visibles += ", ";
                     else
-                        mensaje_visibles.concat(".\n");
+                        mensaje_visibles += ".\n";
                 }
-            mensaje.concat(mensaje_visibles);
-            System.out.print(mensaje_visibles);
+            mensaje += mensaje_visibles;
             }
             
             if(nHiddenTreasures > 0){
                 String mensaje_ocultos = Integer.toString(nHiddenTreasures) + " tesoro(s) oculto(s): " ;
-                for(int i = 0; i < nHiddenTreasures; ++i){
+                for(int i = 0; i < specificHiddenTreasures.size(); ++i){
                     switch (specificHiddenTreasures.get(i)){
-                        case HELMET: mensaje_ocultos.concat("casco");
+                        case HELMET: mensaje_ocultos += "cubrecabezas";
                             break;
-                        case ONEHAND: mensaje_ocultos.concat("arma de una mano");
+                        case ONEHAND: mensaje_ocultos += "arma de una mano";
                             break;
-                        case BOTHHANDS: mensaje_ocultos.concat("arma de dos manos");
+                        case BOTHHANDS: mensaje_ocultos +="arma de dos manos";
                             break;
-                        case SHOES: mensaje_ocultos.concat("botas");
+                        case SHOES: mensaje_ocultos += "calzado";
                             break;
-                        case ARMOR: mensaje_ocultos.concat("armadura");
+                        case ARMOR: mensaje_ocultos += "armadura";
                             break;
-                        default: mensaje_ocultos.concat("a su elección");
-                            break;
-                    
+                                          
                     }
-                
-                    if(i < nHiddenTreasures)
-                        mensaje_ocultos.concat(", ");
+                    if(specificHiddenTreasures.isEmpty())
+                     mensaje_ocultos +="a su elección";
+                 
+                    if(i < specificHiddenTreasures.size() -1)
+                        mensaje_ocultos += ", ";
                     else
-                        mensaje_ocultos.concat(".\n");
+                        mensaje_ocultos += ".\n";
                 }
-            mensaje.concat(mensaje_ocultos);
+            mensaje += mensaje_ocultos ;
             }
             
             return mensaje;

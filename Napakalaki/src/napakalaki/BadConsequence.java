@@ -154,11 +154,11 @@ public class BadConsequence {
         else if(nVisibleTreasures > 0 || nHiddenTreasures > 0){            
             String mensaje;
             mensaje = "\"" + text +"\". Pierdes:\n "; 
-            System.out.print(nVisibleTreasures);
+            System.out.print(mensaje);
             
             if(nVisibleTreasures > 0){
                 String mensaje_visibles = Integer.toString(nVisibleTreasures) + " tesoros visibles: " ;
-                //System.out.print(mensaje_visibles);
+                System.out.print(mensaje_visibles);
                 
                 for(int i = 0; i < nVisibleTreasures; ++i){
                     System.out.print(specificVisibleTreasures.get(i));

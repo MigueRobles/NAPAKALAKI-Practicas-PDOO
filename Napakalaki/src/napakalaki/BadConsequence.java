@@ -58,35 +58,6 @@ public class BadConsequence {
         this.nHiddenTreasures = tHidden.size();
         
     }
-    /*   INNECESARIOS, se puede poner un array vacío en su lugar // BORRAR
-    public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible,int zero){
-    
-        this.text = text;
-        this.levels = levels;
-        this.specificVisibleTreasures = new ArrayList();
-        this.specificVisibleTreasures = tVisible;
-        this.specificHiddenTreasures = new ArrayList(); 
-        this.death = false;
-        this.nVisibleTreasures = specificVisibleTreasures.size();
-        zero = 0;
-        this.nHiddenTreasures = zero;
-    }
-    
-    public BadConsequence(String text, int levels, int zero, ArrayList<TreasureKind> tHidden){
-    
-        this.text = text;
-        this.levels = levels;
-        this.specificVisibleTreasures = new ArrayList();
-        this.specificHiddenTreasures = new ArrayList();
-        this.specificHiddenTreasures = tHidden;
-        this.death = false;
-        zero = 0;
-        this.nVisibleTreasures = zero;
-        this.nHiddenTreasures = tHidden.size();
-        
-    }
-    */
-    
     
     public void setText(String text){
        this.text = text;
@@ -172,6 +143,9 @@ public class BadConsequence {
                         case SHOES: mensaje_visibles.concat("botas");
                             break;
                         case ARMOR: mensaje_visibles.concat("armadura");
+                            break;
+                        default: mensaje_visibles.concat("a su elección");
+                            break;
                     
                     }
                 
@@ -197,6 +171,9 @@ public class BadConsequence {
                         case SHOES: mensaje_ocultos.concat("botas");
                             break;
                         case ARMOR: mensaje_ocultos.concat("armadura");
+                            break;
+                        default: mensaje_ocultos.concat("a su elección");
+                            break;
                     
                     }
                 

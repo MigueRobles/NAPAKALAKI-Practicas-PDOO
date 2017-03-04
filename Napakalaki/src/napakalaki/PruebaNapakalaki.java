@@ -20,9 +20,19 @@ public class PruebaNapakalaki {
      */
     public static void main(String[] args) {
         
+        
+        
         BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta",0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
         Prize prize = new Prize(2,1);
         monstruos.add(new Monster("Byakhees de bonanza", 8, prize, badConsequence));
+        
+        badConsequence = new BadConsequence("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles",2,5,0);
+        prize = new Prize(2,1);
+        monstruos.add(new Monster("Tongue", 19, prize, badConsequence));
+                   
+        badConsequence = new BadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos",3,Integer.MAX_VALUE,0);
+        prize = new Prize(2,1);
+        monstruos.add(new Monster("Bicéfalo", 21, prize, badConsequence));
         
         badConsequence = new BadConsequence("Embobados por el lindo primigenio te descartas de tu casco visible",0, new ArrayList(Arrays.asList(TreasureKind.HELMET)), new ArrayList());
         prize = new Prize(1,1);
@@ -88,13 +98,7 @@ public class PruebaNapakalaki {
         prize = new Prize(1,1);
         monstruos.add(new Monster("El espía sordo", 5, prize, badConsequence));
                    
-        badConsequence = new BadConsequence("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles",2,5,0);
-        prize = new Prize(2,1);
-        monstruos.add(new Monster("Tongue", 19, prize, badConsequence));
-                   
-        badConsequence = new BadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos",3,Integer.MAX_VALUE,0);
-        prize = new Prize(2,1);
-        monstruos.add(new Monster("Bicéfalo", 21, prize, badConsequence));
+        
                    
        for (Monster monstruo: monstruos){
             System.out.println (monstruo.toString());

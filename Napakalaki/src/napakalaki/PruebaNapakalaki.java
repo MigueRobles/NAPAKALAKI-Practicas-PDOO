@@ -18,6 +18,39 @@ public class PruebaNapakalaki {
     /**
      * @param args the command line arguments
      */
+    
+    static ArrayList<Monster> lvlTenUp(){
+        ArrayList<Monster> mons = new ArrayList();
+        for (Monster monstruo: monstruos)
+            if(monstruo.getCombatLevel() > 10)
+                mons.add(monstruo); 
+    
+    return mons;
+    }
+    static ArrayList<Monster> JustLvlBQ(){
+        ArrayList<Monster> mons = new ArrayList();
+        for (Monster monstruo: monstruos)
+            if(monstruo.getBadConsequence().getnVisibleTreasures() == 0 && monstruo.getBadConsequence().getnHiddenTreasures() == 0)
+                mons.add(monstruo); 
+    
+    return mons;
+    }
+     static ArrayList<Monster> PrizePlusOneLvl(){
+        ArrayList<Monster> mons = new ArrayList();
+        for (Monster monstruo: monstruos)
+            if(monstruo.getPrize().getLevel() > 1)
+                mons.add(monstruo); 
+    
+    return mons;
+    }
+     static ArrayList<Monster> BQSpecific(){
+        ArrayList<Monster> mons = new ArrayList();
+        for (Monster monstruo: monstruos)
+            if(monstruo.getBadConsequence().getsHiddenTreasures().isEmpty() && monstruo.getBadConsequence().getsVisibleTreasures().isEmpty())
+                mons.add(monstruo); 
+    
+    return mons;
+    }
     public static void main(String[] args) {
         
         
@@ -101,7 +134,32 @@ public class PruebaNapakalaki {
         
                    
        for (Monster monstruo: monstruos){
-            System.out.println (monstruo.toString());
+           System.out.println (monstruo.toString());
+        }
+       
+       ArrayList<Monster> nivel10 = lvlTenUp();
+       System.out.println ("------------------------");
+     
+       for (Monster monstruo: nivel10){
+            System.out.println (nivel10.toString());
+        }
+       ArrayList<Monster> JustLevel = JustLvlBQ();
+       System.out.println ("------------------------");
+     
+       for (Monster monstruo: JustLevel){
+            System.out.println (JustLevel.toString());
+        }
+       ArrayList<Monster> Prize1 = PrizePlusOneLvl();
+       System.out.println ("------------------------");
+     
+       for (Monster monstruo: Prize1){
+            System.out.println (Prize1.toString());
+        }
+        ArrayList<Monster> Specific = BQSpecific();
+       System.out.println ("------------------------");
+     
+       for (Monster monstruo: Specific){
+            System.out.println (Specific.toString());
         }
         
     }

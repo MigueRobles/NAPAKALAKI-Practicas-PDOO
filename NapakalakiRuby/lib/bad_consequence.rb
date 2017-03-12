@@ -3,7 +3,12 @@
 # and open the template in the editor.
 
 class BadConsequence
+
+  attr_accessor :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificHiddenTreasures, :specificVisibleTreasures
+  
   def initialize
     
   end
+  
+  
 end

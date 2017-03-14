@@ -6,15 +6,28 @@ class BadConsequence
 
   attr_accessor :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificHiddenTreasures, :specificVisibleTreasures
   
-  def initialize
+  def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
     
   end
+  
+  
+  def BadConsequence.newLevelNumberOfTreasures (aText, someLevels, someVisibleTreasures, someHiddenTreasures)
+  
+
+
+  end
+  def BadConsequence.newLevelSpecificTreasures (aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
+  
+  end
+  def BadConsequence.newDeath (aText)
+  
+  end
+  
   
   def to_s
     if (death)
       "Estás muerto, pierdes todos tus objetos y vuelves al nivel 1\n"
-    end
-    
+       
     else if(@nVisibleTreasures > 0 || @nHiddenTreasures > 0)
         text = @text + "\nDebes descartarte de:\n"
         if (@nVisibleTreasures > 0)
@@ -25,7 +38,9 @@ class BadConsequence
           
         end
     end
+    end
+  
   end
   
-  
 end
+  

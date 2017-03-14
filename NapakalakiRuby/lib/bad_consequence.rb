@@ -8,7 +8,14 @@ class BadConsequence
   
   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
     
-  end
+    @text = aText
+    @levels = someLevels
+    @nVisibleTreasures = someVisibleTreasures
+    @nhiddenTreasures = someHiddenTreasures
+    @death = death
+    @specificVisibleTreasures = someSpecificVisibleTreasures
+    @specificHiddeTreasures = someSpecificHiddenTreasures
+  end 
   
   
   def BadConsequence.newLevelNumberOfTreasures (aText, someLevels, someVisibleTreasures, someHiddenTreasures)

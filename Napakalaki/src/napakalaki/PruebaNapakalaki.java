@@ -119,7 +119,7 @@ public class PruebaNapakalaki {
         prize = new Prize(3,1);
         monstruos.add(new Monster("Yskhtihyssg-Goth", 14, prize, badConsequence));
                    
-        badConsequence = new BadConsequence("DLa familia te atrapa. Estás muerto",false);
+        badConsequence = new BadConsequence("La familia te atrapa. Estás muerto",false);
         prize = new Prize(3,1);
         monstruos.add(new Monster("Familia Feliz", 1, prize, badConsequence));
                    

@@ -5,8 +5,12 @@
 class Monster
   
   attr_accessor :name, :combatLevel, :badconsequence, :prize
-  def initialize
-    
+  
+  def initialize(name, combatLevel,badconsequence,prize)
+    @name = name
+    @combatLevel = combatLevel
+    @badconsequence = badconsequence
+    @prize = prize
   end
   
   def getTreasures          # Treasures que se obtienen al ganar

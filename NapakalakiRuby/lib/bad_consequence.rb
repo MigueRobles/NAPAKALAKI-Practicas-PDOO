@@ -34,7 +34,7 @@ def self.newLevelNumberofTreasures (aText, someLevels, someVisibleTreasures, som
   #Indica que el método new tiene visibilidad privada con: private_class_method :new
   def to_s
     if (death)
-      "Estás muerto, pierdes todos tus objetos y vuelves al nivel 1\n"
+      "Estas muerto, pierdes todos tus objetos y vuelves al nivel 1\n"
     end
       
     if(@nVisibleTreasures > 0 || @nHiddenTreasures > 0)

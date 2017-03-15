@@ -18,19 +18,20 @@ class BadConsequence
   end 
   
   
-  def BadConsequence.newLevelNumberOfTreasures (aText, someLevels, someVisibleTreasures, someHiddenTreasures)
-  
+def self.newLevelNumberofTreasures (aText, someLevels, someVisibleTreasures, someHiddenTreasures)
+    new(aText, someLevels, someVisibleTreasures, someHiddenTreasures, Array.new, Array.new, false)
+  end
 
+  def self.newLevelSpecificTreasures (aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
+    new(aText, someLevels, 0, 0, someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
+  end
 
-  end
-  def BadConsequence.newLevelSpecificTreasures (aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
-  
-  end
-  def BadConsequence.newDeath (aText)
-  
+  def self.newDeath (aText)
+    new(aText, 0, 0, 0, Array.new, Array.new, true)
   end
   
-  
+  #Falta esto:
+  #Indica que el método new tiene visibilidad privada con: private_class_method :new
   def to_s
     if (death)
       "Estás muerto, pierdes todos tus objetos y vuelves al nivel 1\n"

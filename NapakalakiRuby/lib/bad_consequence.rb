@@ -3,6 +3,7 @@
 # and open the template in the editor.
 
 class BadConsequence
+  MAX_VALUE=100
 
   attr_accessor :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificHiddenTreasures, :specificVisibleTreasures
   
@@ -16,7 +17,7 @@ class BadConsequence
     @specificVisibleTreasures = someSpecificVisibleTreasures
     @specificHiddeTreasures = someSpecificHiddenTreasures
   end 
-  
+    
   
 def self.newLevelNumberofTreasures (aText, someLevels, someVisibleTreasures, someHiddenTreasures)
     new(aText, someLevels, someVisibleTreasures, someHiddenTreasures, Array.new, Array.new, false)
@@ -37,20 +38,20 @@ def self.newLevelNumberofTreasures (aText, someLevels, someVisibleTreasures, som
       "Estas muerto, pierdes todos tus objetos y vuelves al nivel 1\n"
     end
       
-    if(@nVisibleTreasures > 0 || @nHiddenTreasures > 0)
+    if(@nVisibleTreasures.to_i  > 0 || @nHiddenTreasures.to_i  > 0)
         text = @text + "\nDebes descartarte de:\n"
           
-        if (@nVisibleTreasures > 0)
+        if (@nVisibleTreasures.to_i  > 0)
           
-          if (@nVisibleTreasures != MAX_VALUE) # Tal vez debamos definir esta constante en algún lado jeje 
+          if (@nVisibleTreasures.to_i  != MAX_VALUE) # Tal vez debamos definir esta constante en algún lado jeje 
           text += "#{@nVisibleTreasures} tesoros visibles:\n #{@specificVisibleTreasures}\n"  
           else
             text += "Todos los tesoros visibles\n"
           end
         end  
         
-      if (@nHiddenTreasures > 0)
-        if (@nHiddenTreasures != MAX_VALUE)
+      if (@nHiddenTreasures.to_i  > 0)
+        if (@nHiddenTreasures.to_i  != MAX_VALUE)
           text += "#{@nHiddenTreasures} tesoros ocultos:\n #{@specificHiddenTreasures}"
         else
           text += "Todos los tesoros visibles\n"

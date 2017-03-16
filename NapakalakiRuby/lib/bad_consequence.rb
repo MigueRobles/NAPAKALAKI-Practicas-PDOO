@@ -13,15 +13,15 @@ class BadConsequence
     @text = aText
     @levels = someLevels
     @nVisibleTreasures = someVisibleTreasures
-    @nhiddenTreasures = someHiddenTreasures
+    @nHiddenTreasures = someHiddenTreasures
     @death = death
     @specificVisibleTreasures = someSpecificVisibleTreasures
-    @specificHiddeTreasures = someSpecificHiddenTreasures
+    @specificHiddenTreasures = someSpecificHiddenTreasures
   end 
     
   
 def self.newLevelNumberofTreasures (aText, someLevels, someVisibleTreasures, someHiddenTreasures)
-    new(aText, someLevels, someVisibleTreasures, someHiddenTreasures, Array.new, Array.new, false)
+    new(aText, someLevels, someVisibleTreasures, someHiddenTreasures, Array.new(), Array.new(), false)
   end
 
   def self.newLevelSpecificTreasures (aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
@@ -29,32 +29,17 @@ def self.newLevelNumberofTreasures (aText, someLevels, someVisibleTreasures, som
   end
 
   def self.newDeath (aText)
-    new(aText, 0, 0, 0, Array.new, Array.new, true)
+    new(aText, 0, 0, 0, Array.new(), Array.new(), true)
   end
   
-  def to_s
-    if (death)
-      "Estas muerto, pierdes todos tus objetos y vuelves al nivel 1\n"
-    end
-      
-    if(@nVisibleTreasures.to_i  > 0 || @nHiddenTreasures.to_i  > 0)
-        text = @text + "\nDebes descartarte de:\n"
-          
-        if (@nVisibleTreasures.to_i  > 0)
-          
-          if (@nVisibleTreasures.to_i  != MAX_VALUE) # Tal vez debamos definir esta constante en algún lado jeje 
-          text += "#{@nVisibleTreasures} tesoros visibles:\n #{@specificVisibleTreasures}\n"  
-          else
-            text += "Todos los tesoros visibles\n"
-          end
-        end  
-        
-      if (@nHiddenTreasures.to_i  > 0)
-        if (@nHiddenTreasures.to_i  != MAX_VALUE)
-          text += "#{@nHiddenTreasures} tesoros ocultos:\n #{@specificHiddenTreasures}"
-        else
-          text += "Todos los tesoros visibles\n"
-        end
+ def to_s
+    if (@death == true)
+      "Text: #{@text} \nDeath: #{@death}"
+    else
+      if (@specificHiddenTreasures == Array.new() && @specificVisibleTreasures == Array.new())
+        "Text: #{@text} \nLevels: #{@levels} \nVisibleTreasures: #{@nVisibleTreasures} \nHiddenTreasures: #{@nHiddenTreasures}"
+      else
+        "Text: #{@text} \nSpecificVisibleTreasures: #{@specificVisibleTreasures} \nSpecificHiddenTreasures: #{@specificHiddenTreasures}"
       end
     end
   end

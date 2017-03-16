@@ -26,7 +26,7 @@ class Monster
   end
   
   def to_s
-    "Monster: #{@name} \nCombat level: #{@combatLevel} \nPrize: #{@prize.to_s} \nBad consequence: #{@badconsequence.to_s} "
+    "Name: #{@name} \nCombatLevel: #{@combatLevel} \nPrize: #{@prize} \nBadConsequence: #{@badconsequence} \n\n"
   end
   
 end

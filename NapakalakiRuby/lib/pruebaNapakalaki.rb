@@ -1,3 +1,4 @@
+#encoding: utf-8
 
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
@@ -6,7 +7,6 @@ require_relative "prize.rb"
 require_relative "bad_consequence.rb"
 require_relative "treasure_kind.rb"
 require_relative "monster.rb"
-# encoding: utf-8
 
 
 class Napakalaki

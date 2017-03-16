@@ -4,6 +4,7 @@
 
 class BadConsequence
   MAX_VALUE=100
+  private_class_method :new
 
   attr_accessor :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificHiddenTreasures, :specificVisibleTreasures
   
@@ -31,8 +32,6 @@ def self.newLevelNumberofTreasures (aText, someLevels, someVisibleTreasures, som
     new(aText, 0, 0, 0, Array.new, Array.new, true)
   end
   
-  #Falta esto:
-  #Indica que el método new tiene visibilidad privada con: private_class_method :new
   def to_s
     if (death)
       "Estas muerto, pierdes todos tus objetos y vuelves al nivel 1\n"

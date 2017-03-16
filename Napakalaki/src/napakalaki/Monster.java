@@ -55,6 +55,7 @@ public class Monster {
         this.badconsequence = bc;
     }
 
+    @Override
     public String toString(){
         return "Monster: " + name + " \nCombat level: " + Integer.toString(combatLevel) + " \nPrize: " + prize.toString() + "\nBad Consequence: " + badconsequence.toString() + "\n";
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package napakalaki;
+package NapakalakiGame;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,8 @@ import java.util.ArrayList;
  * @author Jesús Sánchez de Lechina Tejada & Miguel Robles Urquiza
  */
 public class BadConsequence {
-    
+    static final int MAXTREASURES = 10;
+            
     private String text;
     private int levels;
     private int nVisibleTreasures;

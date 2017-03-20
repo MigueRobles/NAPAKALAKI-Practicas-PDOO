@@ -53,10 +53,10 @@ public class Player {
         this.level += monster.getPrize().getLevel();
     }
     
-    public boolean canMakeTreasureVisible(Treasure t){
+    /* public boolean canMakeTreasureVisible(Treasure t){
         // TODO
     }
-    
+    */
     public int howManyVisibleTreasures(TreasureKind tkind){
         return this.visibleTreasures.size();
     }

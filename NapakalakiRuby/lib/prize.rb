@@ -1,4 +1,3 @@
-
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
 class Prize

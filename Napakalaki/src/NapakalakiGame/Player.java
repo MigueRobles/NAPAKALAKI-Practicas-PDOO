@@ -46,23 +46,23 @@ public class Player {
     }
     
     public void setPendingBadconsequence(BadConsequence bc){
-     // TODO   
+      this.pendingBadConsequence = bc;
     }
     
     public void applyPrize(Monster monster){
-        // TODO
+        this.level += monster.getPrize().getLevel();
     }
     
     public boolean canMakeTreasureVisible(Treasure t){
         // TODO
     }
     
-    public howManyVisibleTreasures(TreasureKind tkind){
-        // TODO
+    public int howManyVisibleTreasures(TreasureKind tkind){
+        return this.visibleTreasures.size();
     }
     
     public void dieIfNoTreasures(){
-        if (this.nTreasures == 0) // TODO meter esta variable de instancia
+        if (this.hiddenTreasures.size() == 0 && this.visibleTreasures.size() == 0) 
             this.dead = true;
     }
 
@@ -70,12 +70,12 @@ public class Player {
         return this.dead;
     }
     
-    public Treasure[] getHiddenTreasures(){
-        return this.treasure; // TODO Meter esta variable
+    public ArrayList<Treasure> getHiddenTreasures(){
+        return this.hiddenTreasures;
     }
     
-    public Treasure[] getVisibleTreasures(){
-        
+    public ArrayList<Treasure> getVisibleTreasures(){
+        return this.visibleTreasures;
     }
 
 }

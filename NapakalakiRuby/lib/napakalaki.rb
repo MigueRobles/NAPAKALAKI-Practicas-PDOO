@@ -1,7 +1,6 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
-
-  module NapakalakiGame
+module NapakalakiGame
   require_relative "prize"
   require_relative "bad_consequence"
   require_relative "treasure_kind"
@@ -15,7 +14,11 @@
     private
 
     def initialize
-
+      
+      @currentMonster = nil
+      @currentPlayer = nil
+      @players = Array.new
+      @dealer = nil
     end  
 
     def initPlayers(names)

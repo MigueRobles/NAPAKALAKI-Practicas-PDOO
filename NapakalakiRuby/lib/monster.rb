@@ -19,7 +19,7 @@ module NapakalakiGame
       @combatLevel
     end
     
-    def getBadConsecuence         
+    def getBadConsequence         
       @badConsecuence
     end
     

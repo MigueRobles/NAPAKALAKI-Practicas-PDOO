@@ -33,7 +33,7 @@ module NapakalakiGame
       puts "Lvl10Up >10"
       cadena = Array.new
       @@monsters.each do |monst|
-        cadena << monst if (monst.combatLevel > 10)
+        cadena << monst if (monst.getCombatLevel > 10)
         end
       cadena
     end
@@ -42,7 +42,7 @@ module NapakalakiGame
       puts "LoseJustLvl"
       cadena = Array.new
       @@monsters.each do |monst|
-        if(monst.badconsequence.levels != 0 && monst.badconsequence.death == false && monst.badconsequence.nVisibleTreasures == 0 && monst.badconsequence.nHiddenTreasures == 0 && monst.badconsequence.specificHiddenTreasures == Array.new && monst.badconsequence.specificVisibleTreasures == Array.new )
+        if(monst.getBadConsequence.levels != 0 && monst.getBadConsequence.death == false && monst.getBadConsequence.nVisibleTreasures == 0 && monst.getBadConsequence.nHiddenTreasures == 0 && monst.getBadConsequence.specificHiddenTreasures == Array.new && monst.getBadConsequence.specificVisibleTreasures == Array.new )
           cadena << monst
         end     
       end
@@ -53,7 +53,7 @@ module NapakalakiGame
       puts "Up23Lvl"
       cadena = Array.new
       @@monsters.each do |monst|
-        cadena << monst if (monst.prize.levels > 1 )
+        cadena << monst if (monst.prize.getLevels > 1 )
       end
       cadena
     end
@@ -62,12 +62,12 @@ module NapakalakiGame
       puts "LoseObject"
       cadena = Array.new
          @@monsters.each do |monst| 
-          monst.badconsequence.specificVisibleTreasures.each do |test|
+          monst.getBadConsequence.specificVisibleTreasures.each do |test|
             if (test == obj)
               cadena << monst
             end
           end      
-            monst.badconsequence.specificHiddenTreasures.each do |test|
+            monst.getBadConsequence.specificHiddenTreasures.each do |test|
               cadena << monst if (test == obj)
             end
           end

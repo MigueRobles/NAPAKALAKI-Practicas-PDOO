@@ -39,7 +39,7 @@ module NapakalakiGame
 
     def getCombatlevel
       clevel = @level
-      @specificVisibleTreasures.each { |trea| clevel += trea.getBonus }
+      @VisibleTreasures.each { |trea| clevel += trea.getBonus }
       return clevel
     end
 
@@ -56,13 +56,13 @@ module NapakalakiGame
     end
 
     def dieIfNoTreasures
-      if @specificVisibleTreasures.empty? and @specificHiddenTreasures.empty?
+      if @VisibleTreasures.empty? and @HiddenTreasures.empty?
       @dead = true
       end
     end
 
     def validState
-      return true if (@pendingBadConsequence.isEmpty() == true && @hiddenTreasures < 5)
+      return true if (@pendingBadConsequence.isEmpty() == true && @hiddenTreasures.length < 5)
       
       return false
     end

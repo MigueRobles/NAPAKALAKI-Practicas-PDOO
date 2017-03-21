@@ -29,39 +29,58 @@ public class Player {
         return this.name;
     }
     
-    public void bringToLife(){
+    private void bringToLife(){
         this.dead = false;
     }
     
-    public int getCombatLevel(){
+    private int getCombatLevel(){
+        int total = this.level;
+        for(int i = 0; i < this.visibleTreasures.size(); i++){
+            total += this.visibleTreasures.get(i).getBonus();
+        }
+        return total;
+    }
+    
+    public int getLevels(){
         return this.level;
     }
     
-    public void incrementLevels(int levels){
+    private void incrementLevels(int levels){
         this.level += levels;
     }
 
-    public void decrementLevels(int levels){
+    private void decrementLevels(int levels){
         this.level -= levels;
     }
     
-    public void setPendingBadconsequence(BadConsequence bc){
+    private void setPendingBadconsequence(BadConsequence bc){
       this.pendingBadConsequence = bc;
     }
     
-    public void applyPrize(Monster monster){
+    private void applyPrize(Monster monster){
         this.level += monster.getPrize().getLevel();
+        // TODO Añadir los tesoros ganados
     }
     
-    /* public boolean canMakeTreasureVisible(Treasure t){
+    /*
+    private void applyBadConsequence(Monster monster){
+        // TODO
+    }
+    
+    private boolean canMakeTreasureVisible(Treasure t){
         // TODO
     }
     */
-    public int howManyVisibleTreasures(TreasureKind tkind){
-        return this.visibleTreasures.size();
+    private int howManyVisibleTreasures(TreasureKind tkind){
+        int total = this.level;
+        for(int i = 0; i < this.visibleTreasures.size(); i++){
+            if(this.visibleTreasures.get(i).getType() == tkind)
+                total += this.visibleTreasures.get(i).getBonus();
+        }
+        return total;
     }
     
-    public void dieIfNoTreasures(){
+    private void dieIfNoTreasures(){
         if (this.hiddenTreasures.size() == 0 && this.visibleTreasures.size() == 0) 
             this.dead = true;
     }
@@ -78,6 +97,30 @@ public class Player {
         return this.visibleTreasures;
     }
 
+    /* TODO
+    public CombatResult combat(Monster monster){
+        
+        return
+    }
+    */
+    
+    public void makeTreasureVisible(Treasure t){
+        // TODO
+    }
+    
+    public void discardVisibleTreasure(Treasure t){
+        // TODO
+    }
+    
+    public void discardHiddenTreasure(Treasure t){
+        // TODO
+    }
+    
+    public boolean validState(){
+        if()
+    }
+    
+    
 }
 
 

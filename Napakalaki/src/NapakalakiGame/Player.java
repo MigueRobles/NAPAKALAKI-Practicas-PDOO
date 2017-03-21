@@ -13,10 +13,11 @@ public class Player {
     private boolean dead = true;
     private boolean canISteal = true;
     private static int INITIAL_LEVEL = 1;
+    private Player enemy;
     
     private ArrayList<Treasure> hiddenTreasures = new ArrayList();
     private ArrayList<Treasure> visibleTreasures = new ArrayList();
-    private BadConsequence pendingBadConsequence;
+    private ArrayList<BadConsequence> pendingBadConsequence = new ArrayList();
     
     public Player(String name){
         this.name = name;
@@ -53,7 +54,7 @@ public class Player {
         this.level -= levels;
     }
     
-    private void setPendingBadconsequence(BadConsequence bc){
+    private void setPendingBadconsequence(ArrayList<BadConsequence> bc){
       this.pendingBadConsequence = bc;
     }
     
@@ -117,9 +118,50 @@ public class Player {
     }
     
     public boolean validState(){
-        if()
+        if(!this.pendingBadConsequence.isEmpty() && this.hiddenTreasures.size() < 5)
+            return true;
+        else 
+            return false;
     }
     
+    public void initTreasures(){
+        // TODO
+    }
+    
+    /*
+    public Treasure stealTreasure(){
+        // TODO
+    }
+    */
+    
+    public void setEnemy(Player enemy){
+        this.enemy = enemy;
+    }
+    
+    /*
+    private giveMeATreasure(){
+        // TODO
+    }
+*/
+    
+    public boolean canISteal(){
+        return this.canISteal;
+    }
+    
+    private boolean canYouGiveMeATreasure(){
+        return (this.hiddenTreasures.size() > 0);
+    }
+    
+    
+    private void haveStolen(){
+        this.canISteal = false;
+    }
+    
+    /*
+    public void discardAllTreasures(){
+        //TODO
+    }
+    */
     
 }
 

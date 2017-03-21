@@ -30,14 +30,7 @@ module NapakalakiGame
     def getTreasuresGained         
       @prize.getTreasures
     end
-
- 
     
-     
-    
-    
-
-
     def to_s
       "Name: #{@name} \nCombatLevel: #{@combatLevel} \nPrize: #{@prize} \nBadConsequence: #{@badConsequence} \n\n"
     end

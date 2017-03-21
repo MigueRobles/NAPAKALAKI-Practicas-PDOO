@@ -191,6 +191,10 @@ module NapakalakiGame
     def initCards()
 
     end
+    
+    def getInstance()
+      
+    end
 
   end
 

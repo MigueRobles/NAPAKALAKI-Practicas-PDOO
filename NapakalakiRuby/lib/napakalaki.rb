@@ -19,6 +19,7 @@ module NapakalakiGame
       @currentPlayer = nil
       @players = Array.new
       @dealer = nil
+      
     end  
 
     def initPlayers(names)

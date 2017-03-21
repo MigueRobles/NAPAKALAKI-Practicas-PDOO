@@ -9,6 +9,10 @@ module NapakalakiGame
 
     def nextNumber
         return 1 + rand(6)
-      end
+    end
+    
+    def getInstance()
+      
+    end
   end
 end

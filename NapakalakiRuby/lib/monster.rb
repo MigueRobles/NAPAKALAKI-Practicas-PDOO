@@ -20,7 +20,7 @@ module NapakalakiGame
     end
     
     def getBadConsequence         
-      @badConsecuence
+      @badConsequence
     end
     
     def getTreasuresGained          # Número de treasures que se obtienen al ganar

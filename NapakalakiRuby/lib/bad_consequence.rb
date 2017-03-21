@@ -41,7 +41,11 @@ module NapakalakiGame
       
     end
     
-   def to_s
+    def getLevels
+      @levels      
+    end
+    
+    def to_s
       if (@death == true)
         "Text: #{@text} \nDeath: #{@death}"
       else

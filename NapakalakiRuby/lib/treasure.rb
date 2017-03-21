@@ -15,9 +15,9 @@ module NapakalakiGame
        @bonus = bonus
        @type = t
       end
-      def getName()
+      
+      def getName
         @name
-
       end
 
       def getBonus

@@ -13,11 +13,11 @@ module NapakalakiGame
       @prize = prize
     end
 
-    def getTreasures          # Treasures que se obtienen al ganar
-      @prize.treasures
+    def getTreasuresGained          # Número de treasures que se obtienen al ganar
+      @prize.treasures.size()
     end
 
-    def getLevels             # Levels que se obtienen al ganar
+    def getLevelsGained             # Levels que se obtienen al ganar
       @prize.levels
     end
 

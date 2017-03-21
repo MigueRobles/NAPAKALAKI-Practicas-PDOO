@@ -20,6 +20,14 @@ module NapakalakiGame
     end
     
     def getBadConsecuence         
+      @badConsecuence
+    end
+    
+    def getTreasuresGained          # Número de treasures que se obtienen al ganar
+      @prize.getTreasures.size()
+    end
+
+    def getLevelsGained             # Levels que se obtienen al ganar
       @prize.getLevels
     end
     

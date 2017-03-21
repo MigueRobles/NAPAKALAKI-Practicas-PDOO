@@ -57,11 +57,11 @@ class Player
     @badConsequence = b
   end
   
-  def dieIfNoTreasures
+  def dieIfNoTreasures()
     @dead = true
   end
   
-  def validState
+  def validState()
     
     return true if (@badConsequence.isEmpty() == true && @hiddenTreasures < 5 && @visibleTreasures < 5)
     
@@ -77,28 +77,28 @@ class Player
     end 
   end
   
-  def getLevels
+  def getLevels()s
     @level
   end
   
-  def canISteal
+  def canISteal()
     @canISteal
   end
   
-  def haveStolen
+  def haveStolen()
     @canISteal = false
   end
   
-  def canYouGiveMeATreasure
+  def canYouGiveMeATreasure()
     return true if (@HiddenTreasures.size() > 0)
     return false
   end
   
-  def getHiddenTreasures
+  def getHiddenTreasures()
     @hiddenTreasures
   end
   
-  def getVisibleTreasures
+  def getVisibleTreasures()
     @visibleTreasures
   end
   
@@ -130,19 +130,19 @@ class Player
     
   end
   
-  def initTreasures
+  def initTreasures()
     
   end
 
-  def stealTreasure
+  def stealTreasure()
     
   end
   
-  def giveMeATreasure
+  def giveMeATreasure()
     
   end
   
-  def discardAllTreasures
+  def discardAllTreasures()
     
   end
   

@@ -5,14 +5,16 @@ module NapakalakiGame
   require "singleton"
 
   class Dice
+    
+    def inicialize
+      
+    end
+    
     include Singleton
 
     def nextNumber
         return 1 + rand(6)
     end
     
-    def getInstance()
-      
-    end
   end
 end

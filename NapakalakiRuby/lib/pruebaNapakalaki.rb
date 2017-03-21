@@ -15,7 +15,7 @@ module NapakalakiGame
     premio = Prize.new(Array.new, 15)
       puts premio.to_s
       puts
-    bc = BadConsequence.newLevelNumberofTreasures("Lose the Game", 23, 2, 3)
+    bc = BadConsequence.newLevelNumberOfTreasures("Lose the Game", 23, 2, 3)
       puts bc.to_s
       puts
 
@@ -95,7 +95,7 @@ module NapakalakiGame
     @@monsters << Monster.new("Demonios de Magaluf", 2, bc, prize)
 
     prize = Prize.new(3, 1)
-    bc = BadConsequence.newLevelNumberofTreasures("Pierdes todos tus tesoros visibles.", 0, 5, 0)
+    bc = BadConsequence.newLevelNumberOfTreasures("Pierdes todos tus tesoros visibles.", 0, 5, 0)
     @@monsters << Monster.new("El gorron en el umbral", 13, bc, prize)
 
     prize = Prize.new(2, 1)
@@ -107,11 +107,11 @@ module NapakalakiGame
     @@monsters << Monster.new("Necrofago", 13, bc, prize)
 
     prize = Prize.new(3, 2)
-    bc = BadConsequence.newLevelNumberofTreasures("Pierdes 5 niveles y 3 tesoros visibles.", 5, 3, 0)
+    bc = BadConsequence.newLevelNumberOfTreasures("Pierdes 5 niveles y 3 tesoros visibles.", 5, 3, 0)
     @@monsters << Monster.new("El rey de rosado", 11, bc, prize)
 
     prize = Prize.new(1, 1)
-    bc = BadConsequence.newLevelNumberofTreasures("Toses los pulmones y pierdes 2 niveles.", 2, 0, 0)
+    bc = BadConsequence.newLevelNumberOfTreasures("Toses los pulmones y pierdes 2 niveles.", 2, 0, 0)
     @@monsters << Monster.new("Flecher", 2, bc, prize)
 
     prize = Prize.new(2, 1)
@@ -119,7 +119,7 @@ module NapakalakiGame
     @@monsters << Monster.new("Los hondos", 8, bc, prize)
 
     prize = Prize.new(2, 1)
-    bc = BadConsequence.newLevelNumberofTreasures("Pierdes 2 niveles y 2 tesoros ocultos.", 2, 0, 2)
+    bc = BadConsequence.newLevelNumberOfTreasures("Pierdes 2 niveles y 2 tesoros ocultos.", 2, 0, 2)
     @@monsters << Monster.new("Semillas Cthulhu", 4, bc, prize)
 
     prize = Prize.new(2, 1)
@@ -127,7 +127,7 @@ module NapakalakiGame
     @@monsters << Monster.new("Dameargo", 1, bc, prize)
 
     prize = Prize.new(2, 1)
-    bc = BadConsequence.newLevelNumberofTreasures("Da mucho asquito. Pierdes 3 niveles.", 3, 0, 0)
+    bc = BadConsequence.newLevelNumberOfTreasures("Da mucho asquito. Pierdes 3 niveles.", 3, 0, 0)
     @@monsters << Monster.new("Pollipolipo volante", 3, bc, prize)
 
     prize = Prize.new(3, 1)
@@ -147,7 +147,7 @@ module NapakalakiGame
     @@monsters << Monster.new("El espia sordo", 5, bc, prize)
 
     prize = Prize.new(2, 1)
-    bc = BadConsequence.newLevelNumberofTreasures("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0)
+    bc = BadConsequence.newLevelNumberOfTreasures("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0)
     @@monsters << Monster.new("Tongue", 19, bc, prize)
     #REVISAR EL ULTIMO MONSTRUO
     prize = Prize.new(2, 1)

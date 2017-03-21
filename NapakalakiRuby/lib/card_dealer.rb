@@ -5,12 +5,18 @@ module NapakalakiGame
   require "singleton"
 
   class Card_dealer
+    
+    
     def initialize
+      
+      @unusedTreasures = Array.new()
+      @unusedMonsters = Array.new()
+      @usedTreasures = Array.new()
+      @usedMonsters = Array.new()
 
     end
 
-    def initTreasureCardDeck
-      @unusedTreasures = Array.new()
+    def initTreasureCardDeck()      
 
       @unusedTreasures << Treasure.new("¡Sí mi amo!", 4, [TreasureKind::HELMET])
 
@@ -76,10 +82,8 @@ module NapakalakiGame
 
     end
 
-    def initMonsterCardDeck
-      #
-      @unusedMonsters = Array.new
-
+    def initMonsterCardDeck()
+      
       prize = Prize.new(2, 1)
       bc = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta.", 0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
       @unusedMonsters << Monster.new("3 Byakhees de bonanza", 8, bc, prize)
@@ -158,20 +162,20 @@ module NapakalakiGame
 
     end
 
-    def shuffleTreasures()
-
+    def shuffleTreasures()   
+      @unusedTreasures.shuffle()      
     end
 
-    def shuffleMonsters()
-
+    def shuffleMonsters()      
+      @unusedMonsters.shuffle()
     end
 
     def giveTreasureBack(t)
-
+       @usedTreasures << t
     end
 
     def giveMonsterBack(m)
-
+       @usedMonsters << m
     end 
 
     def nextTreasure()

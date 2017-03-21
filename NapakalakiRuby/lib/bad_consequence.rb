@@ -4,10 +4,9 @@
 module NapakalakiGame
   class BadConsequence
     
-    MAX_VALUE=100
+    @@MAXTREASURES = 10
     private_class_method :new
 
-    attr_accessor :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificHiddenTreasures, :specificVisibleTreasures
 
     def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
 
@@ -57,5 +56,35 @@ module NapakalakiGame
         end
       end
     end
+    
+    def getNVisibleTreasures
+      @nVisibleTreasures
+    end
+    
+    def getNHiddenTreasures
+      @nHiddenTreasures
+    end
+    
+    def getSpecificVisibleTreasures
+      @specificVisibleTreasures
+    end
+    
+    def getHiddenVisibleTreasures
+      @specificHiddenTreasures
+    end
+=begin  
+    def substracVisibleTreasure(t)
+      
+    end
+       
+    def substracHiddenTreasure(t)
+      
+    end
+    
+    def adjustToFitTreasureLists(v,h)
+      
+    end
+=end
+    
   end
 end

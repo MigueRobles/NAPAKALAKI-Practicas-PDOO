@@ -3,6 +3,7 @@
 
 module NapakalakiGame
   class BadConsequence
+    
     MAX_VALUE=100
     private_class_method :new
 

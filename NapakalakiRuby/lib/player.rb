@@ -21,7 +21,8 @@ module NapakalakiGame
       @CanISteal = true
       @hiddenTreasures = Array.new()
       @visibleTreasures = Array.new()
-      @badConsequence = BadConsequence.new()
+      @pendingBadConsequence = BadConsequence.new()
+      @enemy = Player.new()
     end
 
     def getName()
@@ -38,25 +39,20 @@ module NapakalakiGame
 
     def getCombatlevel()
       clevel = @level
-
       @specificVisibleTreasures.each { |trea| clevel += trea.getBonus }
-
       return clevel
-
     end
 
     def incrementLevels(i)
-
       @level += i    
-
     end
 
     def decrementLevels(i)
       @level -= i
     end
 
-    def setPendingBadConsequence(b)#Duda
-      @badConsequence = b
+    def setPendingBadConsequence(b)
+      @pendingBadConsequence = b
     end
 
     def dieIfNoTreasures()
@@ -64,9 +60,8 @@ module NapakalakiGame
     end
 
     def validState()
-
-      return true if (@badConsequence.isEmpty() == true && @hiddenTreasures < 5 && @visibleTreasures < 5)
-
+      return true if (@pendingBadConsequence.isEmpty() == true && @hiddenTreasures < 5 && @visibleTreasures < 5)
+      
       return false
     end
 
@@ -79,8 +74,12 @@ module NapakalakiGame
       end 
     end
 
-    def getLevels()s
+    def getLevels()
       @level
+    end
+    
+    def setEnemy(en)
+      @enemy = en
     end
 
     def canISteal()
@@ -106,11 +105,22 @@ module NapakalakiGame
 
     def applyPrize(m)
       @level += m.levels
-
+      m.treasure.each do |tesoro| 
+        @hiddenTreasures << tesoro
+      end
     end
 
-    def applyBadConsequence(m)
-
+    def applyBadConsequence(b)
+      if(b.death == true)
+        @levels = 1
+        @hiddenTreasures.clear()
+        @visibleTreasures.clear()
+        @pendingBadConsequence.clear() # Para comprobar el estado válido vemos si no tiene ningún mal rollo por cumplir
+      end
+      
+    else 
+      @levels -= b.levels
+      
     end
 
     def canMakeTreasureVisible(t)

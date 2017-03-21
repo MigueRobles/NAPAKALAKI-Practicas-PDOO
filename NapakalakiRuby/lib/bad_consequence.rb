@@ -20,7 +20,7 @@ module NapakalakiGame
     end 
 
 
-  def self.newLevelNumberofTreasures (aText, someLevels, someVisibleTreasures, someHiddenTreasures)
+  def self.newLevelNumberOfTreasures (aText, someLevels, someVisibleTreasures, someHiddenTreasures)
       new(aText, someLevels, someVisibleTreasures, someHiddenTreasures, Array.new(), Array.new(), false)
     end
 
@@ -32,6 +32,15 @@ module NapakalakiGame
       new(aText, 0, 0, 0, Array.new(), Array.new(), true)
     end
 
+    def isEmpty
+      if(@nHiddenTreasures == 0 && @nVisibleTreasures == 0)
+        true
+      else
+        false
+      end
+      
+    end
+    
    def to_s
       if (@death == true)
         "Text: #{@text} \nDeath: #{@death}"

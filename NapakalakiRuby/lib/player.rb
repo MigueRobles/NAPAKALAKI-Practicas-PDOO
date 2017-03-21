@@ -9,7 +9,7 @@ module NapakalakiGame
   require_relative "treasure"
 
   class Player
-    MAXLEVEL = 10
+    @@MAXLEVEL = 10
 
 
 
@@ -21,23 +21,23 @@ module NapakalakiGame
       @CanISteal = true
       @hiddenTreasures = Array.new()
       @visibleTreasures = Array.new()
-      @pendingBadConsequence = BadConsequence.new()
-      @enemy = Player.new()
+      @pendingBadConsequence = nil
+      @enemy = nil
     end
 
-    def getName()
+    def getName
       @name
     end
 
-    def bringtoLife()
+    def bringtoLife
       @dead = false
     end
 
-    def isDead()
+    def isDead
       @dead
     end
 
-    def getCombatlevel()
+    def getCombatlevel
       clevel = @level
       @specificVisibleTreasures.each { |trea| clevel += trea.getBonus }
       return clevel
@@ -55,12 +55,14 @@ module NapakalakiGame
       @pendingBadConsequence = b
     end
 
-    def dieIfNoTreasures()
+    def dieIfNoTreasures
+      if @specificVisibleTreasures.empty? and @specificHiddenTreasures.empty?
       @dead = true
+      end
     end
 
-    def validState()
-      return true if (@pendingBadConsequence.isEmpty() == true && @hiddenTreasures < 5 && @visibleTreasures < 5)
+    def validState
+      return true if (@pendingBadConsequence.isEmpty() == true && @hiddenTreasures < 5)
       
       return false
     end
@@ -68,13 +70,14 @@ module NapakalakiGame
     def howManyVisibleTreasures(tKind)
       i = 0
       @visibleTreasures.each do |t|
-        if (t == tKind)
+        if (t.getType == tKind)
           i += 1
         end
       end 
+      i
     end
 
-    def getLevels()
+    def getLevels
       @level
     end
     
@@ -82,24 +85,24 @@ module NapakalakiGame
       @enemy = en
     end
 
-    def canISteal()
+    def canISteal
       @canISteal
     end
 
-    def haveStolen()
+    def haveStolen
       @canISteal = false
     end
 
-    def canYouGiveMeATreasure()
+    def canYouGiveMeATreasure
       return true if (@HiddenTreasures.size() > 0)
       return false
     end
 
-    def getHiddenTreasures()
+    def getHiddenTreasures
       @hiddenTreasures
     end
 
-    def getVisibleTreasures()
+    def getVisibleTreasures
       @visibleTreasures
     end
 
@@ -143,19 +146,19 @@ module NapakalakiGame
 
     end
 
-    def initTreasures()
+    def initTreasures
 
     end
 
-    def stealTreasure()
+    def stealTreasure
 
     end
 
-    def giveMeATreasure()
+    def giveMeATreasure
 
     end
 
-    def discardAllTreasures()
+    def discardAllTreasures
 
     end
 

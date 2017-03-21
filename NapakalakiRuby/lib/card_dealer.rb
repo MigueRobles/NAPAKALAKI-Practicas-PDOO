@@ -6,6 +6,8 @@ module NapakalakiGame
 
   class Card_dealer
     
+    include Singleton
+    
     
     def initialize
       

@@ -33,7 +33,7 @@ module NapakalakiGame
     end
 
     def isEmpty
-      if(@nHiddenTreasures == 0 && @nVisibleTreasures == 0)
+      if(@nHiddenTreasures == 0 and @nVisibleTreasures == 0 and @specificVisibleTreasures == Array.new and :specificHiddenTreasures == Array.new())
         true
       else
         false

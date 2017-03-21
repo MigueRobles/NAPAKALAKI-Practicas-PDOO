@@ -4,29 +4,42 @@
 module NapakalakiGame
   class Monster
 
-    attr_accessor :name, :combatLevel, :badconsequence, :prize
-
-    def initialize(name, combatLevel,badconsequence,prize)
-      @name = name
-      @combatLevel = combatLevel
-      @badconsequence = badconsequence
-      @prize = prize
+    def initialize(n, l,b,p)
+      @name = n
+      @combatLevel = l
+      @badConsequence = b
+      @prize = p
+    end   
+    
+    def getName
+      @name
     end
 
-    def getTreasures          # Treasures que se obtienen al ganar
-      @prize.treasures
+    def getCombatLevel
+      @combatLevel
+    end
+    
+    def getBadConsecuence         
+      @prize.getLevels
+    end
+    
+    def getLevelsGained         
+      @prize.getLevels
+    end
+    
+    def getTreasuresGained         
+      @prize.getTreasures
     end
 
-    def getLevels             # Levels que se obtienen al ganar
-      @prize.levels
-    end
+ 
+    
+     
+    
+    
 
-    def getKill               # Indica si el monstruo tiene la capacidad de matar
-      @badconsequence.death
-    end
 
     def to_s
-      "Name: #{@name} \nCombatLevel: #{@combatLevel} \nPrize: #{@prize} \nBadConsequence: #{@badconsequence} \n\n"
+      "Name: #{@name} \nCombatLevel: #{@combatLevel} \nPrize: #{@prize} \nBadConsequence: #{@badConsequence} \n\n"
     end
 
   end

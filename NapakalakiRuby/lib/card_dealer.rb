@@ -169,12 +169,29 @@ module NapakalakiGame
   # Métodos para probar los privados
 =begin
     def testprivate
-      initTreasureCardDeck
+      obejto.initTreasureCardDeck
+      obejto.initMonsterCardDeck
       
+  # barajar
       @unusedMonsters.each do |monster|
         puts monster.to_s
       end
       
+  # comprobar que se ha barajado
+      objeto.shuffleMonsters
+      @unusedMonsters.each do |monster|
+        puts monster.to_s
+      end
+  # barajar
+      @unusedTreasures.each do |t|
+        puts t.to_s
+      end
+      
+  # comprobar que se ha barajado
+      objeto.shuffleTreasures
+      @unusedTreasures.each do |t|
+        puts t.to_s
+      end      
       
     end
     

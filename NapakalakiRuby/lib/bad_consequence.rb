@@ -1,6 +1,10 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
 
+  require_relative "monster"
+  require_relative "prize"
+  require_relative "treasure_kind"
+
 module NapakalakiGame
   class BadConsequence
     

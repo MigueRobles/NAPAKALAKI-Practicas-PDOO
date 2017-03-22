@@ -253,11 +253,13 @@ module NapakalakiGame
     puts p1.validState
     
   c = CardDealer.instance
+=begin  # Métodos que solo funcionarán si los metodos privados de cardDealer se hacen públicos
     c.initTreasureCardDeck
     c.initMonsterCardDeck
     c.shuffleMonsters
-    c.giveTreasureBack(t)
-    c.giveMonsterBack(m)
+=end
+  c.giveTreasureBack(t)
+  c.giveMonsterBack(m)
 
   
 end

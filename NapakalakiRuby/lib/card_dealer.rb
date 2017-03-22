@@ -140,17 +140,7 @@ module NapakalakiGame
     end
 
     def shuffleMonsters()  
-      @unusedMonsters.each do |monster|
-        puts monster.to_s
-      end
-      @unusedMonsters.shuffle!
-      puts
-      puts
-      puts
-      
-      @unusedMonsters.each do |monster|
-        puts monster.to_s
-      end
+      @unusedMonsters.shuffle!     
     end
 
     def giveTreasureBack(t)
@@ -174,38 +164,8 @@ module NapakalakiGame
     end
 =end  
 
-    #private :initTreasureCardDeck, :initMonsterCardDeck, :shuffleTreasures, :shuffleMonsters
+    private :initTreasureCardDeck, :initMonsterCardDeck, :shuffleTreasures, :shuffleMonsters
     
-  # Métodos para probar los privados
-=begin
-    def testprivate
-      obejto.initTreasureCardDeck
-      obejto.initMonsterCardDeck
-      
-  # barajar
-      @unusedMonsters.each do |monster|
-        puts monster.to_s
-      end
-      
-  # comprobar que se ha barajado
-      objeto.shuffleMonsters
-      @unusedMonsters.each do |monster|
-        puts monster.to_s
-      end
-  # barajar
-      @unusedTreasures.each do |t|
-        puts t.to_s
-      end
-      
-  # comprobar que se ha barajado
-      objeto.shuffleTreasures
-      @unusedTreasures.each do |t|
-        puts t.to_s
-      end      
-      
-    end
-    
-=end
   
     end
 

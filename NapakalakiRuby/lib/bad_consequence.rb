@@ -69,8 +69,12 @@ module NapakalakiGame
       @specificVisibleTreasures
     end
     
-    def getHiddenVisibleTreasures
+    def getSpecificHiddenTreasures
       @specificHiddenTreasures
+    end
+    
+    def getDeath
+      @death
     end
 =begin  
     def substracVisibleTreasure(t)

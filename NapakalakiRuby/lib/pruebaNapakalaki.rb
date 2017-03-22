@@ -42,7 +42,7 @@ module NapakalakiGame
       puts "LoseJustLvl"
       cadena = Array.new
       @@monsters.each do |monst|
-        if(monst.getBadConsequence.getLevels != 0 && monst.getBadConsequence.death == false && monst.getBadConsequence.nVisibleTreasures == 0 && monst.getBadConsequence.nHiddenTreasures == 0 && monst.getBadConsequence.specificHiddenTreasures == Array.new && monst.getBadConsequence.specificVisibleTreasures == Array.new )
+        if(monst.getBadConsequence.getLevels != 0 && monst.getBadConsequence.getDeath == false && monst.getBadConsequence.getNVisibleTreasures == 0 && monst.getBadConsequence.getNHiddenTreasures == 0 && monst.getBadConsequence.getSpecificHiddenTreasures == Array.new && monst.getBadConsequence.getSpecificVisibleTreasures == Array.new )
           cadena << monst
         end     
       end
@@ -62,12 +62,12 @@ module NapakalakiGame
       puts "LoseObject"
       cadena = Array.new
          @@monsters.each do |monst| 
-          monst.getBadConsequence.specificVisibleTreasures.each do |test|
+          monst.getBadConsequence.getSpecificVisibleTreasures.each do |test|
             if (test == obj)
               cadena << monst
             end
           end      
-            monst.getBadConsequence.specificHiddenTreasures.each do |test|
+            monst.getBadConsequence.getSpecificHiddenTreasures.each do |test|
               cadena << monst if (test == obj)
             end
           end
@@ -207,4 +207,5 @@ module NapakalakiGame
     end
 
   end
+  
 end

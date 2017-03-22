@@ -253,7 +253,9 @@ module NapakalakiGame
     puts p1.validState
     
   c = CardDealer.instance
-    #c.testprivate
+    c.initTreasureCardDeck
+    c.initMonsterCardDeck
+    c.shuffleMonsters
     c.giveTreasureBack(t)
     c.giveMonsterBack(m)
 

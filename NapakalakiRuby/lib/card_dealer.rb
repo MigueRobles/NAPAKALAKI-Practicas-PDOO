@@ -74,7 +74,7 @@ module NapakalakiGame
       @unusedMonsters << Monster.new("Demonios de Magaluf", 2, bc, prize)
 
       prize = Prize.new(3, 1)
-      bc = BadConsequence.newLevelNumberofTreasures("Pierdes todos tus tesoros visibles.", 0, 5, 0)
+      bc = BadConsequence.newLevelNumberOfTreasures("Pierdes todos tus tesoros visibles.", 0, 5, 0)
       @unusedMonsters << Monster.new("El gorrón en el umbral", 13, bc, prize)
 
       prize = Prize.new(2, 1)
@@ -86,19 +86,19 @@ module NapakalakiGame
       @unusedMonsters << Monster.new("Necrófago", 13, bc, prize)
 
       prize = Prize.new(3, 2)
-      bc = BadConsequence.newLevelNumberofTreasures("Pierdes 5 niveles y 3 tesoros visibles.", 5, 3, 0)
+      bc = BadConsequence.newLevelNumberOfTreasures("Pierdes 5 niveles y 3 tesoros visibles.", 5, 3, 0)
       @unusedMonsters << Monster.new("El rey de rosado", 11, bc, prize)
 
       prize = Prize.new(1, 1)
-      bc = BadConsequence.newLevelNumberofTreasures("Toses los pulmones y pierdes 2 niveles.", 2, 0, 0)
+      bc = BadConsequence.newLevelNumberOfTreasures("Toses los pulmones y pierdes 2 niveles.", 2, 0, 0)
       @unusedMonsters << Monster.new("Flecher", 2, bc, prize)
 
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newDeath("Estos monstruos resultan bastantes superficiales y te aburren mortalmente. Estas muerto.")
+      bc = BadConsequence.newDeath("Estos monstruos resultan bastantes superficiales y te aburren mortalmente. Estas muerto.",true)
       @unusedMonsters << Monster.new("Los hondos", 8, bc, prize)
 
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelNumberofTreasures("Pierdes 2 niveles y 2 tesoros ocultos.", 2, 0, 2)
+      bc = BadConsequence.newLevelNumberOfTreasures("Pierdes 2 niveles y 2 tesoros ocultos.", 2, 0, 2)
       @unusedMonsters << Monster.new("Semillas Cthulhu", 4, bc, prize)
 
       prize = Prize.new(2, 1)
@@ -106,15 +106,15 @@ module NapakalakiGame
       @unusedMonsters << Monster.new("Dameargo", 1, bc, prize)
 
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelNumberofTreasures("Da mucho asquito. Pierdes 3 niveles.", 3, 0, 0)
+      bc = BadConsequence.newLevelNumberOfTreasures("Da mucho asquito. Pierdes 3 niveles.", 3, 0, 0)
       @unusedMonsters << Monster.new("Pollipólipo volante", 3, bc, prize)
 
       prize = Prize.new(3, 1)
-      bc = BadConsequence.newDeath("No le hace gracia que pronuncien mal su nombre. Estas muerto.")
+      bc = BadConsequence.newDeath("No le hace gracia que pronuncien mal su nombre. Estas muerto.", true)
       @unusedMonsters << Monster.new("Yskhtihyssg-Goth", 14, bc, prize)
 
       prize = Prize.new(3, 1)
-      bc = BadConsequence.newDeath("La familia te atrapa. Estás muerto.")
+      bc = BadConsequence.newDeath("La familia te atrapa. Estás muerto.", true)
       @unusedMonsters << Monster.new("Familia feliz", 1, bc, prize)
 
       prize = Prize.new(2, 1)
@@ -126,7 +126,7 @@ module NapakalakiGame
       @unusedMonsters << Monster.new("El espía sordo", 5, bc, prize)
 
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelNumberofTreasures("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0)
+      bc = BadConsequence.newLevelNumberOfTreasures("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0)
       @unusedMonsters << Monster.new("Tongue", 19, bc, prize)
 
       prize = Prize.new(2, 1)
@@ -136,11 +136,21 @@ module NapakalakiGame
     end
 
     def shuffleTreasures()   
-      @unusedTreasures.shuffle()      
+      @unusedTreasures.shuffle!     
     end
 
-    def shuffleMonsters()      
-      @unusedMonsters.shuffle()
+    def shuffleMonsters()  
+      @unusedMonsters.each do |monster|
+        puts monster.to_s
+      end
+      @unusedMonsters.shuffle!
+      puts
+      puts
+      puts
+      
+      @unusedMonsters.each do |monster|
+        puts monster.to_s
+      end
     end
 
     def giveTreasureBack(t)
@@ -164,7 +174,7 @@ module NapakalakiGame
     end
 =end  
 
-    private :initTreasureCardDeck, :initMonsterCardDeck, :shuffleTreasures, :shuffleMonsters
+    #private :initTreasureCardDeck, :initMonsterCardDeck, :shuffleTreasures, :shuffleMonsters
     
   # Métodos para probar los privados
 =begin

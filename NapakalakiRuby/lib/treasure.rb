@@ -2,10 +2,10 @@
 #     Jesús Sánchez de Lechina Tejada
 
 #encoding: utf-8
+  require_relative "treasure_kind"
 
 module NapakalakiGame
 
-  require_relative "treasure_kind"
 
 
   class Treasure

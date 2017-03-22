@@ -2,16 +2,16 @@
 
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
-module NapakalakiGame
 
   require_relative "prize.rb"
   require_relative "bad_consequence.rb"
   require_relative "treasure_kind.rb"
   require_relative "monster.rb"
-
+  
+module NapakalakiGame
 
   class Napakalaki  
-
+=begin
     premio = Prize.new(Array.new, 15)
       puts premio.to_s
       puts
@@ -205,7 +205,28 @@ module NapakalakiGame
     prueba.each do |j|
       puts j.to_s
     end
-
+=end   
+    
+  
   end
+  
+  premio = Prize.new(Array.new, 15)
+    puts premio.to_s
+    puts
+  bc = BadConsequence.newLevelNumberOfTreasures("Lose the Game", 23, 0, 0)
+    puts bc.to_s
+    puts bc.isEmpty
+    puts
+
+  bc = BadConsequence.newLevelNumberOfTreasures("Amapola", 23, 2, 3)
+    puts bc.to_s
+    puts bc.isEmpty
+    puts
+    
+  d = Dice.new
+    puts d.nextNumber
+    puts
+    
+
   
 end

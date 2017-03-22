@@ -1,12 +1,12 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
-
-module NapakalakiGame
-
   require_relative "treasure"
   require_relative "bad_consequence"
   require_relative "treasure_kind.rb"
   require_relative "treasure"
+
+module NapakalakiGame
+
 
   class Player
     @@MAXLEVEL = 10

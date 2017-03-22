@@ -1,11 +1,13 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
-module NapakalakiGame
   require_relative "prize"
   require_relative "bad_consequence"
   require_relative "treasure_kind"
   require_relative "monster"
   require "singleton"
+  
+module NapakalakiGame
+
 
   class Napakalaki 
 

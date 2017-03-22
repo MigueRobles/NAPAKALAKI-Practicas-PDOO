@@ -1,8 +1,8 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
+  require "singleton"
 
 module NapakalakiGame
-  require "singleton"
 
   class Card_dealer
     

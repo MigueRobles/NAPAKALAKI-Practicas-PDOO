@@ -3,7 +3,8 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
 
-  require_relative "prize"
+require_relative "prize"
+require_relative "card_dealer"
 require_relative "bad_consequence"
 require_relative "treasure_kind"
 require_relative "monster"
@@ -213,7 +214,7 @@ module NapakalakiGame
   
   end
   
-  premio = Prize.new(Array.new, 15)
+  premio = Prize.new(5, 15)
     puts premio.to_s
     puts
   bc = BadConsequence.newLevelNumberOfTreasures("Lose the Game", 23, 0, 0)
@@ -230,6 +231,30 @@ module NapakalakiGame
     puts d.nextNumber
     puts
     
+  m = Monster.new("Yskhtihyssg-Goth", 14, bc, premio)
+    puts m.getLevelsGained
+    puts m.getTreasuresGained
+    puts 
+    
+  t = Treasure.new("¡Sí mi amo!", 4, [TreasureKind::HELMET])
+    puts t.getName
+    puts t.getBonus
+    puts t.getType
+    puts
+    
+  p1 = Player.new("Urqui")
+  p2 = Player.new("Pedos")
+
+    puts p1.isDead
+    puts p1.getName
+    puts p1.getLevels
+    puts p1.setEnemy(p2)
+    puts p1.canISteal
+    puts p1.validState
+    
+  c = Card_dealer.instance
+    c.giveTreasureBack(t)
+    c.giveMonsterBack(m)
 
   
 end

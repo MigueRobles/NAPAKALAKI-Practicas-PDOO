@@ -16,8 +16,8 @@ module NapakalakiGame
       @level = 1
       @dead = true
       @canISteal = true
-      @hiddenTreasures = Array.new()
-      @visibleTreasures = Array.new()
+      @hiddenTreasures = Array.new
+      @visibleTreasures = Array.new
       @pendingBadConsequence = nil
       @enemy = nil
     end
@@ -96,6 +96,7 @@ module NapakalakiGame
     end
 
     def validState
+      return true if (@pendingBadConsequence == nil)
       return true if (@pendingBadConsequence.isEmpty() == true && @hiddenTreasures.length < 5)
       
       return false

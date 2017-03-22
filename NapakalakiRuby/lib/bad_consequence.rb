@@ -28,8 +28,8 @@ module NapakalakiGame
       new(aText, someLevels, 0, 0, someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
     end
 
-    def self.newDeath (aText)
-      new(aText, 0, 0, 0, Array.new(), Array.new(), true)
+    def self.newDeath (aText, death)
+      new(aText, 0, 0, 0, Array.new(), Array.new(), death)
     end
 
     def isEmpty

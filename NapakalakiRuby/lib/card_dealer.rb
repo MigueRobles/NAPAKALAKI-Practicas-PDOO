@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
   require "singleton"

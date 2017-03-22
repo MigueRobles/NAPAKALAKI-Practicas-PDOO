@@ -3,7 +3,6 @@
   require_relative "treasure"
   require_relative "bad_consequence"
   require_relative "treasure_kind.rb"
-  require_relative "treasure"
 
 module NapakalakiGame
 
@@ -27,11 +26,11 @@ module NapakalakiGame
       @name
     end
 
-    def bringtoLife
+    def bringToLife
       @dead = false
     end
 
-    def getCombatlevel
+    def getCombatLevel
       clevel = @level
       @VisibleTreasures.each { |trea| clevel += trea.getBonus }
       return clevel
@@ -62,11 +61,10 @@ module NapakalakiGame
         @hiddenTreasures.clear()
         @visibleTreasures.clear()
         @pendingBadConsequence.clear() # Para comprobar el estado válido vemos si no tiene ningún mal rollo por cumplir
+            
+      else 
+        @levels -= b.levels
       end
-      
-    else 
-      @levels -= b.levels
-      
     end   
     
     def howManyVisibleTreasures(tKind)

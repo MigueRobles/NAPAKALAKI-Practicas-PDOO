@@ -5,11 +5,7 @@
 module NapakalakiGame
 
   class Dice
-    
-    def inicialize
-      
-    end
-    
+     
     include Singleton
 
     def nextNumber

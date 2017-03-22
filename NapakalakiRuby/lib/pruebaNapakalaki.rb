@@ -252,7 +252,8 @@ module NapakalakiGame
     puts p1.canISteal
     puts p1.validState
     
-  c = Card_dealer.instance
+  c = CardDealer.instance
+    #c.testprivate
     c.giveTreasureBack(t)
     c.giveMonsterBack(m)
 

@@ -6,7 +6,7 @@
 
 module NapakalakiGame
 
-  class Card_dealer
+  class CardDealer
     
     include Singleton    
     
@@ -163,6 +163,23 @@ module NapakalakiGame
 
     end
 =end  
-  end
+
+    private :initTreasureCardDeck, :initMonsterCardDeck, :shuffleTreasures, :shuffleMonsters
+    
+  # Métodos para probar los privados
+=begin
+    def testprivate
+      initTreasureCardDeck
+      
+      @unusedMonsters.each do |monster|
+        puts monster.to_s
+      end
+      
+      
+    end
+    
+=end
+  
+    end
 
 end

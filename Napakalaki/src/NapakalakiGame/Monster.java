@@ -7,7 +7,6 @@ package NapakalakiGame;
 public class Monster {
     private String name;
     private int combatLevel;
-
     private Prize prize;
     private BadConsequence badconsequence;
     
@@ -18,38 +17,11 @@ public class Monster {
         this.badconsequence = bc;
     }
     
-    public String getString(){
-        return name;
-    }
+    public String getString(){ return name; }    
+    public int getCombatLevel(){ return combatLevel; }    
+    public Prize getPrize(){ return prize; }    
+    public BadConsequence getBadConsequence(){ return badconsequence; }   
     
-    public int getCombatLevel(){
-        return combatLevel;
-    }
-    
-    public Prize getPrize(){
-        return prize;
-    }
-    
-    public BadConsequence getBadConsequence(){
-        return badconsequence;
-    }
-    
-    public void setName(String name){
-        this.name = name;
-    }
-    
-    public void setCombatLevel(int level){
-        this.combatLevel = level;
-    }
-    
-    public void setPrize(Prize prize){
-        this.prize = prize;
-    }
-    
-    public void setBadConsequence(BadConsequence bc){
-        this.badconsequence = bc;
-    }
-
     @Override
     public String toString(){
         return "Monster: " + name + " \nCombat level: " + Integer.toString(combatLevel) + " \nPrize: " + prize.toString() + "\nBad Consequence: " + badconsequence.toString() + "\n";

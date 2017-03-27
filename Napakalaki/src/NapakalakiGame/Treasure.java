@@ -15,15 +15,12 @@ class Treasure {
         this.treasurekind = t;
     }
     
-    public String getName(){
-        return this.name;
-    }
+    public String getName(){ return name; }    
+    public int getBonus(){ return bonus; }    
+    public TreasureKind getType(){ return treasurekind; }
     
-    public int getBonus(){
-        return this.bonus;
-    }
-    
-    public TreasureKind getType(){
-        return this.treasurekind;
+     @Override
+    public String toString() {
+        return "Treasure: "  + name + " Type: " + bonus + " Bonus: " + treasurekind + '\n';
     }
 }

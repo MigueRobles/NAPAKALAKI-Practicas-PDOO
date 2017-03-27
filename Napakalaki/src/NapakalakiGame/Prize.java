@@ -14,16 +14,11 @@ public class Prize {
         this.level = level;
     }
     
-    public int getTreasures(){
-        return this.treasures;
-    }
-    
-    public int getLevel(){
-        return this.level;    
-    } 
+    public int getTreasures(){ return treasures; }    
+    public int getLevel(){ return level; } 
    
     public String toString(){
-        return "Treasures = " + Integer.toString(treasures) + " / Levels = " + Integer.toString(level);
+        return "Treasures: " + Integer.toString(treasures) + " / Levels: " + Integer.toString(level);
       }
 }
 

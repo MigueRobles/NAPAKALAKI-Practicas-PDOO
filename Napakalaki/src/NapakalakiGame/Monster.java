@@ -17,10 +17,12 @@ public class Monster {
         this.badconsequence = bc;
     }
     
-    public String getString(){ return name; }    
+    public String getName(){ return name; }    
     public int getCombatLevel(){ return combatLevel; }    
-    public Prize getPrize(){ return prize; }    
     public BadConsequence getBadConsequence(){ return badconsequence; }   
+    public int getLevelsGained(){ return prize.getLevel(); }    
+    public int getTreasuresGained(){ return prize.getTreasures(); }    
+
     
     @Override
     public String toString(){

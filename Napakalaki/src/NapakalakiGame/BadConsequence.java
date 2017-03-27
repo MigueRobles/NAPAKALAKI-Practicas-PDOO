@@ -164,5 +164,10 @@ public class BadConsequence {
          return "Text:" + text + "\n Levels:  " + levels + "\n Tesoros visibles: " + nVisibleTreasures + "\n Tesoros ocultos: " + nHiddenTreasures;
         }
     }
+    
+    public void substractVisibleTreasures(Treasure t) {}
+    public void substractHiddenTreasures(Treasure t) {}
+    //public BadConsequence adjustToFitTreasureLists(ArrayList<TreasureKind> v,ArrayList<TreasureKind> h){}
+
 }
 

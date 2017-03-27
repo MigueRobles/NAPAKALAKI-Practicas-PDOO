@@ -2,7 +2,7 @@ package NapakalakiGame;
 
 /**
  *
- * @author migue
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
 public class Napakalaki {
     

@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author Jesús Sánchez de Lechina Tejada & Miguel Robles Urquiza
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
 public class PruebaNapakalaki {
     

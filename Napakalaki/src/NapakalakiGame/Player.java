@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Miguel y Jesús
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
 public class Player {
     private String name;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Jesús Sánchez de Lechina Tejada & Miguel Robles Urquiza
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
 public class BadConsequence {
     static final int MAXTREASURES = 10;

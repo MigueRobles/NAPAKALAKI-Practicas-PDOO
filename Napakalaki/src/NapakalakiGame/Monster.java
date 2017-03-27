@@ -2,7 +2,7 @@ package NapakalakiGame;
 
 /**
  *
- * @author Miguel Robles Urquiza & Jesús Sánchez de Lechina Tejada
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
 public class Monster {
     private String name;

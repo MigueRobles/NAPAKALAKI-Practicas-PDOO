@@ -2,7 +2,7 @@ package NapakalakiGame;
 
 /**
  *
- * @author Jesús y miguel
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
 class Treasure {
     private String name;

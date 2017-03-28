@@ -1,5 +1,4 @@
 package NapakalakiGame;
-import static NapakalakiGame.PruebaNapakalaki.monstruos;
 import java.util.ArrayList;//Se ve que para inicializar listas asi va guay, cosas de Netbeans
 import java.util.Arrays;//Idem
 import java.util.Collections;

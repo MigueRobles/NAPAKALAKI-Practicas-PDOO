@@ -18,9 +18,7 @@ public class BadConsequence {
     private ArrayList<TreasureKind> specificHiddenTreasures = new ArrayList();
     
     public boolean isEmpty(){
-        if(nHiddenTreasures == 0 && nVisibleTreasures == 0 && specificVisibleTreasures == new ArrayList() && specificHiddenTreasures == new ArrayList())
-          return true;
-        return false;
+        return nHiddenTreasures == 0 && nVisibleTreasures == 0 && specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty();
     
     }
     
@@ -152,16 +150,16 @@ public class BadConsequence {
             return "\"" + text +"\"" ;
         }
         else if(specificVisibleTreasures.size() > 0 &&  specificHiddenTreasures.size() > 0){     
-         return "Text:" + text + "\n Levels:  " + levels + "\n Tesoros visibles: "+ specificVisibleTreasures + "\n Tesoros ocultos: "+ specificHiddenTreasures;            
+         return text + "\nLevels: " + levels + "\nTesoros visibles: "+ specificVisibleTreasures + "\nTesoros ocultos: "+ specificHiddenTreasures;            
         }
         else if(specificVisibleTreasures.size() > 0){        
-         return "Text:" + text + "\n Levels:  " + levels + "\n Tesoros visibles: " + specificVisibleTreasures;
+         return text + "\nLevels: " + levels + "\nTesoros visibles: " + specificVisibleTreasures;
         }
         else if(specificHiddenTreasures.size() > 0){
-         return "Text:" + text + "\n Levels:  " + levels + "\n Tesoros ocultos: " + specificHiddenTreasures;
+         return text + "\nLevels  " + levels + "\nTesoros ocultos: " + specificHiddenTreasures;
         }         
         else{
-         return "Text:" + text + "\n Levels:  " + levels + "\n Tesoros visibles: " + nVisibleTreasures + "\n Tesoros ocultos: " + nHiddenTreasures;
+         return text + "\nLevels  " + levels + "\nTesoros visibles: " + nVisibleTreasures + "\nTesoros ocultos: " + nHiddenTreasures;
         }
     }
     

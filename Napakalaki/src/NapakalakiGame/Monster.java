@@ -10,11 +10,11 @@ public class Monster {
     private Prize prize;
     private BadConsequence badconsequence;
     
-    public Monster(String name, int level, Prize prize, BadConsequence bc){
+    public Monster(String name, int level, BadConsequence bc, Prize prize){
         this.name = name;
         this.combatLevel = level;
-        this.prize = prize;
         this.badconsequence = bc;
+        this.prize = prize;
     }
     
     public String getName(){ return name; }    

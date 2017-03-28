@@ -13,6 +13,10 @@ public class Prize {
         this.treasures = treasures;
         this.level = level;
     }
+
+    Prize() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public int getTreasures(){ return treasures; }    
     public int getLevel(){ return level; } 

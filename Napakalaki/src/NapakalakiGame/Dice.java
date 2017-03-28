@@ -1,5 +1,4 @@
 package NapakalakiGame;
-import java.util.Random;
 
 
 /**
@@ -10,7 +9,7 @@ public class Dice {
     
   private static  Dice instance = null;
  
-  private Dice() { }
+  Dice() { }
  
   public static Dice getInstance() {
  
@@ -19,10 +18,8 @@ public class Dice {
         return instance;
     }
   public int nextNumber() {
-        Random rnd = new Random();    
-        // rnd.nextInt devuelve un int aleatorio, el 6 dice la longitud del rango y 
-        //el 0 es el valor inicial
-        return (int)(rnd.nextInt() * 6 + 0);
+       return  (int) (Math.random() * (6)) +1;
+
     }
     
 }

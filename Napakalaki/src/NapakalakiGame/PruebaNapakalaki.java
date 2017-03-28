@@ -9,11 +9,8 @@ import java.util.Arrays;
  */
 public class PruebaNapakalaki {
     
-    static ArrayList<Monster> monstruos = new ArrayList();
-    /**
-     * @param args the command line arguments
-     */
-    
+   // static ArrayList<Monster> monstruos = new ArrayList();
+   /*
     static ArrayList<Monster> lvlTenUp(){
         ArrayList<Monster> mons = new ArrayList();
         for (Monster monstruo: monstruos)
@@ -46,10 +43,11 @@ public class PruebaNapakalaki {
     
     return mons;
     }
+    */
     public static void main(String[] args) {
         
         
-        
+        /*
         BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta",0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
         Prize prize = new Prize(2,1);
         monstruos.add(new Monster("Byakhees de bonanza", 8, prize, badConsequence));
@@ -158,6 +156,56 @@ public class PruebaNapakalaki {
         }
         
     }
+    */
     
+    Prize prize = new Prize(5,15);
+    System.out.println(prize.toString());
+    System.out.println();
+
+        
+    BadConsequence bc = new BadConsequence("Lose the Game", 23, 0, 0);
+    System.out.println(bc.toString());
+    System.out.println(bc.isEmpty());
+    System.out.println();
+
+    
+
+    bc = new BadConsequence("Amapola", 23, 2, 3);
+    System.out.println(bc.toString());
+    System.out.println(bc.isEmpty());
+    System.out.println();
+    
+    
+    Dice d = new Dice();
+    System.out.println(d.nextNumber());
+    System.out.println();
+    
+    
+    Monster m = new Monster("Yskhtihyssg-Goth", 14, bc, prize);
+    System.out.println(m.getLevelsGained());
+    System.out.println(m.getTreasuresGained());
+    System.out.println();
+   
+    Treasure t = new Treasure("¡Sí mi amo!", 4, TreasureKind.HELMET);
+    System.out.println(t.getName());
+    System.out.println(t.getBonus());
+    System.out.println(t.getType());
+    System.out.println();
+    
+    Player p1 = new Player("Urqui");
+    Player p2 = new Player("Chino");
+    System.out.println(p1.isDead());
+    System.out.println(p1.getName());
+    System.out.println(p1.getLevels());
+    p1.setEnemy(p2);
+    System.out.println(p1.canISteal());
+    System.out.println(p1.validState());
+    System.out.println();
+
+    
+    CardDealer c = new CardDealer();
+    //Probados todos lo metodos que eran privados
+
+  }
 }
 

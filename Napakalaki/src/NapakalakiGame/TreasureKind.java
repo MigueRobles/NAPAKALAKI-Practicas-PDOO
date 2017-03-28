@@ -10,5 +10,5 @@ public enum TreasureKind {
     ONEHAND,
     BOTHHANDS,
     HELMET,
-    SHOES; 
+    SHOE; 
 }

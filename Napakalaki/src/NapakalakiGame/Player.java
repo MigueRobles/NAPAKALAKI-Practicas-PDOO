@@ -28,6 +28,8 @@ public class Player {
         level = INITIAL_LEVEL;
         dead = true;
         canISteal = true;
+        enemy = null;
+        pendingBadConsequence = new BadConsequence(new String(),true);
     }
     
     public String getName(){ return name; }
@@ -101,7 +103,7 @@ public class Player {
     }
     */
     
-    public boolean validState(){ return !pendingBadConsequence.isEmpty() && this.hiddenTreasures.size() < 5; }
+    public boolean validState(){ return pendingBadConsequence.isEmpty() && hiddenTreasures.size() < 5; }
     /*
     public void initTreasures(){
         // TODO

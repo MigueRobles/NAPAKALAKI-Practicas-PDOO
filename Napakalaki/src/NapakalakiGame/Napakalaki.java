@@ -17,7 +17,7 @@ public class Napakalaki {
     private ArrayList<Player> players;
     
     private Napakalaki() {
-        currentMonster=new Monster(new String(), 1, new Prize(0,0), new BadConsequence(new String(),true));
+            currentMonster=new Monster(new String(), 1,new BadConsequence(new String(),true), new Prize(0,0));
         dealer=new CardDealer();
         currentPlayer=new Player(new String());
         players=new ArrayList();

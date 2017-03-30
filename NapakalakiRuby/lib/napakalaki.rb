@@ -25,7 +25,7 @@ module NapakalakiGame
     end  
 
     def initPlayers(names)
-
+      
     end
 
     def nextPlayer

@@ -163,7 +163,9 @@ public class BadConsequence {
         }
     }
     
-    public void substractVisibleTreasures(Treasure t) {}
+    public void substractVisibleTreasures(Treasure t) {
+    
+    }
     public void substractHiddenTreasures(Treasure t) {}
     //public BadConsequence adjustToFitTreasureLists(ArrayList<TreasureKind> v,ArrayList<TreasureKind> h){}
 

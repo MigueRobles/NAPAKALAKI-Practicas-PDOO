@@ -142,15 +142,44 @@ public class CardDealer {
         return instance;
     }
     
-    /*
+    
     public Treasure nextTreasure() {
         
+        if(unusedTreasures.isEmpty()){
+            ArrayList<Treasure> aux_t = usedTreasures;
+            usedTreasures = unusedTreasures;
+            unusedTreasures = aux_t;            
+            shuffleTreasures();
+        }
+        
+        Treasure aux = unusedTreasures.get(0);
+        usedTreasures.add(aux);
+        unusedTreasures.remove(0);
+        return aux;
     }
     
     public Monster NextMonster() {
+    
+    if(unusedMonster.isEmpty()){
+            ArrayList<Monster> aux_t = usedMonster;
+            usedMonster = unusedMonster;
+            unusedMonster = aux_t;      
+            shuffleTreasures();
+            System.out.println(usedMonster);
+            System.out.println(unusedMonster);
+        }
+        
+        Monster aux = unusedMonster.get(0);
+        System.out.println(usedMonster);
+        System.out.println(unusedMonster);
+        usedMonster.add(aux);
+        unusedMonster.remove(0);
+        System.out.println(usedMonster);
+        System.out.println(unusedMonster);
+        return aux;
         
     }
-    */
+    
     public void giveTreasureBack (Treasure t) { usedTreasures.add(t); }    
     public void giveMonsterBack (Monster m) { usedMonster.add(m); }
     /*

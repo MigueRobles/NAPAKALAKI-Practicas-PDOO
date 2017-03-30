@@ -17,7 +17,7 @@ public class CardDealer {
     private ArrayList<Treasure> unusedTreasures = new ArrayList();
     
     
-    private void initTreasureCardDealer() {
+    private void initTreasureCardDeck() {
         
       unusedTreasures.add(new Treasure("¡Sí mi amo!", 4, TreasureKind.HELMET));
       unusedTreasures.add(new Treasure("Botas de investigación", 3, TreasureKind.SHOE));
@@ -52,7 +52,7 @@ public class CardDealer {
       unusedTreasures.add(new Treasure("Zapato deja-amigos", 1, TreasureKind.SHOE));
           }
     
-    private void initMonsterCardDealer() {
+    private void initMonsterCardDeck() {
         
         BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta",0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
         Prize prize = new Prize(2,1);
@@ -144,7 +144,7 @@ public class CardDealer {
     
     
     public Treasure nextTreasure() {
-        
+        initTreasureCardDeck();
         if(unusedTreasures.isEmpty()){
             ArrayList<Treasure> aux_t = usedTreasures;
             usedTreasures = unusedTreasures;
@@ -152,30 +152,25 @@ public class CardDealer {
             shuffleTreasures();
         }
         
-        Treasure aux = unusedTreasures.get(0);
+        Treasure aux;
+        aux = unusedTreasures.get(0);
         usedTreasures.add(aux);
         unusedTreasures.remove(0);
         return aux;
     }
     
-    public Monster NextMonster() {
-    
-    if(unusedMonster.isEmpty()){
+    public Monster nextMonster() {
+         
+       if(unusedMonster.isEmpty()){
             ArrayList<Monster> aux_t = usedMonster;
             usedMonster = unusedMonster;
             unusedMonster = aux_t;      
             shuffleTreasures();
-            System.out.println(usedMonster);
-            System.out.println(unusedMonster);
         }
         
         Monster aux = unusedMonster.get(0);
-        System.out.println(usedMonster);
-        System.out.println(unusedMonster);
         usedMonster.add(aux);
         unusedMonster.remove(0);
-        System.out.println(usedMonster);
-        System.out.println(unusedMonster);
         return aux;
         
     }

@@ -205,8 +205,7 @@ public class PruebaNapakalaki {
     
     CardDealer c = new CardDealer();
     //Probados todos lo metodos que eran privados
-    c.nextTreasure();
-    
+      
   }
 }
 

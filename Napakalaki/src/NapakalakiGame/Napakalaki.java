@@ -18,22 +18,27 @@ public class Napakalaki {
     private ArrayList<Player> players;
     
     private Napakalaki() {
-            currentMonster=new Monster(new String(), 1,new BadConsequence(new String(),true), new Prize(0,0));
+        currentMonster=new Monster(new String(), 1,new BadConsequence(new String(),true), new Prize(0,0));
         dealer=new CardDealer();
         currentPlayer=new Player(new String());
         players=new ArrayList();
     }
     
     private void initPlayers(ArrayList<String> names) {
-        int i = 0;
         for (String s: names){            
             Player p = new Player(s);
             players.add(p);
         }
     
     }
+    
+    private Player nextPlayer() {
+        if(currentPlayer.getName() == new String()){
+            //Completar generación de número aleatorio para ver quien empieza
+        }
+            
+    }
     /*
-    private Player nextPlayer() {}
     private boolean nextTurnAllowed() {}
     */
     private void setEnemies() {

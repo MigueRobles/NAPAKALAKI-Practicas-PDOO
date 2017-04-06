@@ -10,3 +10,5 @@ En este repositorio se desarrollará el juego *"Napakalaki"*, para ello se traba
 
 
 *Nota: Advertimos de que estas prácticas pueden contener errores, así pues esperamos que sirva de orientación, más que como una solución final.
+
+![Napakalaki](/Cartas/napakalaki.png)

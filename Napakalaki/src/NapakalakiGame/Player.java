@@ -58,11 +58,14 @@ public class Player {
     private void applyBadConsequence(Monster monster){
         // TODO
     }
-    
-    private boolean canMakeTreasureVisible(Treasure t){
-        // TODO
-    }
     */
+    private boolean canMakeTreasureVisible(Treasure t){
+        
+        for (Treasure trea: visibleTreasures)
+            if(visibleTreasures.size() < 5 && )
+        
+    }
+    
     private int howManyVisibleTreasures(TreasureKind tkind){
         int total = 0;
         for(int i = 0; i < visibleTreasures.size(); i++){

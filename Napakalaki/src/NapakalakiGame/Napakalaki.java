@@ -77,7 +77,7 @@ public class Napakalaki {
     public void discardVisibleTreasures(ArrayList<Treasure> Treasures) {}    
     public void discardHiddenTreasures(ArrayList<Treasure> Treasures) {}
     public void makeTreasuresVisible(Treasure treasures) {} 
-    public void initGame(ArrayList<String> players){}
+    
     */
     public Player getCurrentPlayer() {
         return currentPlayer;
@@ -91,6 +91,15 @@ public class Napakalaki {
     public boolean endOfGame(CombatResult result) {
         return result == CombatResult.WINGAME;
     
+    }
+    
+    public void initGame(ArrayList<String> players){
+        for(String name:players)
+            this.players.add(new Player(name));
+        for(Player p:this.players){
+            setEnemies(); // EN CONSTRUCCIÓN
+        }
+            
     }
 
     

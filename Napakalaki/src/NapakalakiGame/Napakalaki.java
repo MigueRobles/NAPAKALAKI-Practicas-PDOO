@@ -16,6 +16,7 @@ public class Napakalaki {
     private CardDealer dealer;
     private Player currentPlayer;
     private ArrayList<Player> players;
+    private int turno;
     
     private Napakalaki() {
         currentMonster=new Monster(new String(), 1,new BadConsequence(new String(),true), new Prize(0,0));
@@ -33,23 +34,32 @@ public class Napakalaki {
     }
     
     private Player nextPlayer() {
-        if(currentPlayer.getName() == new String()){
-            //Completar generación de número aleatorio para ver quien empieza
+        if(currentPlayer.getName() == new String()){         // Indica si aún no se ha elegido un jugador en el primer turno
+            turno = (int) (Math.random() * (players.size()));
         }
-            
+        else {
+            turno = (turno + 1) % players.size();
+        }
+        currentPlayer = players.get(turno);
+        
+        return currentPlayer;
     }
-    /*
-    private boolean nextTurnAllowed() {}
-    */
+    
+    private boolean nextTurnAllowed() {
+    if(currentPlayer.getName() == new String()){         // Alternativa a currentPlayer == null, comprobando si ha sido inicializado
+        return true;
+    }
+    else
+        return currentPlayer.validState();
+    }   
+    
     private void setEnemies() {
     ArrayList<Player> pl = players;
     Collections.shuffle(pl);
     
-     for (Player p1: players){
-          for (Player p2: pl){
-            p1.setEnemy(p2);
+     for (int i = 0; i < players.size();i++){
+            players.get(i).setEnemy(pl.get(i));
             }
-        }
     }
 
     public static Napakalaki getInstance() {

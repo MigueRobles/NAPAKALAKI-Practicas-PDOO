@@ -115,7 +115,7 @@ module NapakalakiGame
     end
     
     def canYouGiveMeATreasure
-      return true if (@HiddenTreasures.size() > 0)
+      return true if (@hiddenTreasures.size() > 0)
       return false
     end
 

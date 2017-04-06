@@ -60,9 +60,28 @@ public class Player {
     }
     */
     private boolean canMakeTreasureVisible(Treasure t){
-        
-        for (Treasure trea: visibleTreasures)
-            if(visibleTreasures.size() < 5 && )
+       
+        if(t.getType() != TreasureKind.ONEHAND && t.getType() != TreasureKind.BOTHHANDS){
+            for (Treasure trea: visibleTreasures)
+                if(trea.getType() == t.getType())
+                    return false;
+            return true;
+        }
+        else{
+            int mano = 0;
+            int manos = 0;
+            for (Treasure trea: visibleTreasures){
+                if(trea.getType() == TreasureKind.ONEHAND)
+                  mano++;
+                if(trea.getType() == TreasureKind.BOTHHANDS)
+                  manos++;
+            }
+         if(mano == 0 && manos == 0)
+             return true;
+         
+        return mano == 1 && t.getType() == TreasureKind.ONEHAND && manos == 0;
+       
+        }              
         
     }
     
@@ -120,11 +139,17 @@ public class Player {
     
     public void setEnemy(Player enemy){ enemy = enemy; }
     
-    /*
-    private giveMeATreasure(){
-        // TODO
+
+    private Treasure giveMeATreasure(){
+        int i;
+        i = (int) (Math.random() * (hiddenTreasures.size()));
+        Treasure tr;        
+        tr = new Treasure(hiddenTreasures.get(i).getName(),hiddenTreasures.get(i).getBonus(),hiddenTreasures.get(i).getType());
+        hiddenTreasures.remove(hiddenTreasures.get(i));  
+        
+       return tr;
     }
-*/
+
     
     public boolean canISteal(){return canISteal; }    
     private boolean canYouGiveMeATreasure(){ return (hiddenTreasures.size() > 0); }

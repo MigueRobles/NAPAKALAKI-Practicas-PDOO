@@ -48,17 +48,31 @@ public class Player {
     private void incrementLevels(int l){ level += l; }
     private void decrementLevels(int l){ level -= l; }    
     private void setPendingBadconsequence(BadConsequence b){ pendingBadConsequence = b;} 
-    /*
-    private void applyPrize(Monster monster){ level += monster.getLevelsGained();
-    // TODO Añadir los tesoros ganados
-    }
-    */
     
-    /*
-    private void applyBadConsequence(Monster monster){
-        // TODO
+    private void applyPrize(Monster monster){ 
+        incrementLevels(monster.getLevelsGained());
+        int nTreasures = monster.getTreasuresGained();
+        
+        if(nTreasures > 0){
+         CardDealer dealer = new CardDealer();
+         dealer = CardDealer.getInstance();
+         int i;
+         for(i= 1; i < nTreasures; i++)
+         hiddenTreasures.add(dealer.nextTreasure());
+        }
     }
-    */
+    
+    
+    
+    private void applyBadConsequence(Monster monster){
+       decrementLevels(monster.getBadConsequence().getLevels());
+       
+       BadConsequence b = monster.getBadConsequence();
+       BadConsequence pendingBad = b.adjustToFitTreasureList(visibleTreasures, hiddenTreasures);       
+       setPendingBadconsequence(pendingBad);
+      
+    }
+    
     private boolean canMakeTreasureVisible(Treasure t){
        
         if(t.getType() != TreasureKind.ONEHAND && t.getType() != TreasureKind.BOTHHANDS){
@@ -135,7 +149,7 @@ public class Player {
     public Treasure stealTreasure(){
         // TODO
     }
-    */
+    /¡*/
     
     public void setEnemy(Player enemy){ enemy = enemy; }
     

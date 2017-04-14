@@ -75,16 +75,31 @@ public class Napakalaki {
     
     public void discardVisibleTreasures(ArrayList<Treasure> Treasures) {
         for(Treasure treasure:Treasures){
-            currentPlayer.discardVisibleTreasure(treasure);
+            this.currentPlayer.discardVisibleTreasure(treasure);  // TODO: Definir este método en player
+            this.dealer.giveTreasureBack(treasure);
         }
     }    
-    /*
-    public CombatResult developCombat() {}
-    public void discardHiddenTreasures(ArrayList<Treasure> Treasures) {}
-    public void makeTreasuresVisible(Treasure treasures) {} 
     
-    */
-    public Player getCurrentPlayer() {
+    public void discardHiddenTreasures(ArrayList<Treasure> treasures) {
+        for(Treasure treasure:treasures){
+            this.currentPlayer.discarHiddenTreasure(treasure);  // TODO: Definir este método en player
+            this.dealer.giveTreasureBack(treasure);
+        }
+    }
+    
+    public CombatResult developCombat() {
+        CombatResult result = this.currentPlayer.combat(this.currentMonster);
+        this.dealer.giveMonsterBack(this.currentMonster);
+        return result;
+    }
+    
+    public void makeTreasuresVisible(ArrayList<Treasure> treasures) {
+        for(Treasure treasure:treasures){
+            this.currentPlayer.makeTreasureVisible(treasure);
+        }
+    } 
+    
+        public Player getCurrentPlayer() {
         return currentPlayer;
     }
     public Monster getCurrentMonster() {

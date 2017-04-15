@@ -15,6 +15,12 @@ class Treasure {
         this.treasurekind = t;
     }
     
+    public Treasure(Treasure t){
+        this.name = t.getName();
+        this.bonus = t.getBonus();
+        this.treasurekind = t.getType();
+    }
+    
     public String getName(){ return name; }    
     public int getBonus(){ return bonus; }    
     public TreasureKind getType(){ return treasurekind; }

@@ -54,11 +54,9 @@ public class Player {
         int nTreasures = monster.getTreasuresGained();
         
         if(nTreasures > 0){
-         CardDealer dealer = new CardDealer();
-         dealer = CardDealer.getInstance();
-         int i;
-         for(i= 1; i < nTreasures; i++)
-         hiddenTreasures.add(dealer.nextTreasure());
+         CardDealer dealer = CardDealer.getInstance();
+         for(int i = 1; i < nTreasures; i++)
+            hiddenTreasures.add(dealer.nextTreasure());
         }
     }
     
@@ -156,11 +154,20 @@ public class Player {
         // TODO
     }
     */
-    /*
+    
     public Treasure stealTreasure(){
-        // TODO
+        
+        if(canISteal()){
+            if(this.enemy.canYouGiveMeATreasure()) {
+                Treasure treasure = new Treasure(this.enemy.giveMeATreasure());
+                this.hiddenTreasures.add(treasure);
+                haveStolen();
+                return treasure;
+            }
+        }
+        return null;
     }
-    /¡*/
+    
     
     public void setEnemy(Player enemy){ enemy = enemy; }
     

@@ -175,7 +175,53 @@ public class BadConsequence {
             nHiddenTreasures--;
         }
     }
-    //public BadConsequence adjustToFitTreasureLists(ArrayList<TreasureKind> v,ArrayList<TreasureKind> h){}
+    
+    /*  adjustToFitTreasureList:
+    
+        Distingue si es el tipo de mal rollo que se basa en el número de tesoros (no especificados) o en un vector de específicos y usa el 
+        constructor correspondiente. El primero sólo ajusta los valores, usa el constructor y devuelve el bc. El otro busca si los tesoros que
+        se pretenden eliminar están entre los tesoros del jugador para añadirlos al mal rollo final. Al finalizar se devuelve el mal rollo resultante.
+    
+    */
+    public BadConsequence adjustToFitTreasureLists(ArrayList<TreasureKind> v,ArrayList<TreasureKind> h){
+        if(this.nHiddenTreasures > 0 || this.nVisibleTreasures > 0) {
+            int n_visibles, n_ocultos;
+
+            if(this.nHiddenTreasures > h.size())
+                n_ocultos = h.size();
+            else
+                n_ocultos = this.nHiddenTreasures;
+
+            if(this.nVisibleTreasures > v.size())
+                n_visibles = v.size();
+            else
+                n_visibles = this.nVisibleTreasures;
+
+            BadConsequence final_bc = new BadConsequence(this.text, this.levels, n_visibles, n_ocultos);
+            
+            return final_bc;    
+        }
+        else {
+            ArrayList<TreasureKind> v_visible = new ArrayList();
+            ArrayList<TreasureKind> v_oculto = new ArrayList();
+            
+            for(TreasureKind visible:this.specificVisibleTreasures){
+                if(v.contains(visible))
+                    v_visible.add(visible);
+            }
+            
+            for(TreasureKind oculto:this.specificHiddenTreasures){
+                if(h.contains(oculto))
+                    v_oculto.add(oculto);
+            }
+            
+            BadConsequence final_bc = new BadConsequence(this.text, this.levels, v_visible, v_oculto);
+        
+            return final_bc;    
+        }
+        
+        
+    }
 
 }
 

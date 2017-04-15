@@ -82,7 +82,7 @@ public class Napakalaki {
     
     public void discardHiddenTreasures(ArrayList<Treasure> treasures) {
         for(Treasure treasure:treasures){
-            this.currentPlayer.discarHiddenTreasure(treasure);  // TODO: Definir este método en player
+            this.currentPlayer.discardHiddenTreasure(treasure);  // TODO: Definir este método en player
             this.dealer.giveTreasureBack(treasure);
         }
     }

@@ -68,7 +68,18 @@ public class Player {
        decrementLevels(monster.getBadConsequence().getLevels());
        
        BadConsequence b = monster.getBadConsequence();
-       BadConsequence pendingBad = b.adjustToFitTreasureList(visibleTreasures, hiddenTreasures);       
+       
+       ArrayList<TreasureKind> v_treasures = new ArrayList();
+       ArrayList<TreasureKind> h_treasures = new ArrayList();
+       
+       for(Treasure t:this.visibleTreasures)
+           v_treasures.add(t.getType());
+       
+       for(Treasure t:this.hiddenTreasures)
+           h_treasures.add(t.getType());
+       
+       
+       BadConsequence pendingBad = b.adjustToFitTreasureLists(v_treasures, h_treasures);
        setPendingBadconsequence(pendingBad);
       
     }

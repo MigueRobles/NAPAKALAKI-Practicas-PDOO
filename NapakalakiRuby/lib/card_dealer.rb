@@ -23,7 +23,7 @@ module NapakalakiGame
 
     end
 
-    def initTreasureCardDeck()      
+    def initTreasureCardDeck     
 
       @unusedTreasures << Treasure.new("¡Sí mi amo!", 4, [TreasureKind::HELMET])
       @unusedTreasures << Treasure.new("Botas de investigación", 3, [TreasureKind::SHOES])
@@ -59,7 +59,7 @@ module NapakalakiGame
 
     end
 
-    def initMonsterCardDeck()
+    def initMonsterCardDeck
       
       prize = Prize.new(2, 1)
       bc = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta.", 0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
@@ -139,11 +139,11 @@ module NapakalakiGame
 
     end
 
-    def shuffleTreasures()   
+    def shuffleTreasures
       @unusedTreasures.shuffle!     
     end
 
-    def shuffleMonsters()  
+    def shuffleMonsters
       @unusedMonsters.shuffle!     
     end
 
@@ -155,8 +155,8 @@ module NapakalakiGame
        @usedMonsters << m
     end 
     
-    def nextTreasure()
-      initTreasureCardDeck()
+    def nextTreasure
+      initTreasureCardDeck
 
         if(@unusedTreasures == Array.new )
             
@@ -173,15 +173,31 @@ module NapakalakiGame
       aux
     
     end
-=begin
-    def nextMonster()
-s
+
+    def nextMonster
+      
+      initMonsterCardDeck
+
+        if(@unusedMonster == Array.new )
+            
+            ArrayList<Monster> aux_t = @usedMonster
+            @usedMonster = @unusedMonster
+            @unusedMonster = aux_t           
+            shuffleMonster
+        end
+
+      aux = Monster.new()
+      aux = @unusedMonster.get(0)
+      @usedMonster.add(aux)
+      @unusedMonster.remove(0)
+      aux
+      
     end
 
-    def initCards()
-
+    def initCards
+      initMonsterCardDeck
+      initTreasureCardDeck
     end
-=end  
 
     private :initTreasureCardDeck, :initMonsterCardDeck, :shuffleTreasures, :shuffleMonsters
     

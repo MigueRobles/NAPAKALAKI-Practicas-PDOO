@@ -80,19 +80,55 @@ module NapakalakiGame
     def getDeath
       @death
     end
-=begin  
+
     def substracVisibleTreasure(t)
-      
-    end
-       
-    def substracHiddenTreasure(t)
-      
+      @specificVisibleTreasures.remove(t.getType()) if (@specificVisibleTreasures.contains(t.getType))
     end
     
+    def substracHiddenTreasure(t)
+      @specificHiddenTreasures.remove(t.getType()) if (@specificHiddenTreasures.contains(t.getType))
+     
+    end        
+   
     def adjustToFitTreasureLists(v,h)
-      
+        if(@nHiddenTreasures > 0 || @nVisibleTreasures > 0) 
+            n_visibles
+            n_ocultos
+
+            if(@nHiddenTreasures > h.size())
+                n_ocultos = h.size();
+            else
+                n_ocultos = @nHiddenTreasures;
+            end
+            if(@nVisibleTreasures > v.size())
+                n_visibles = v.size();
+            else
+                n_visibles = @nVisibleTreasures;
+            end
+            final_bc = new BadConsequence(this.text, this.levels, n_visibles, n_ocultos)
+            
+            return final_bc   
+        
+        else 
+                    
+            @@specificVisibleTreasures.each do |visible|    
+              if(v.contains(visible))
+                      v_visible.add(visible);
+              end
+            end
+            
+             @@specificVisibleTreasures.each do |oculto|    
+              if(h.contains(oculto))
+                      v_oculto.add(oculto);
+              end
+            end
+            
+            final_bc = new BadConsequence(this.text, this.levels, v_visible, v_oculto);
+        end
+            return final_bc;    
+        
     end
-=end
+
     
   end
 end

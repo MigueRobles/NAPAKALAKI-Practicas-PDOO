@@ -21,15 +21,26 @@ module NapakalakiGame
       @currentPlayer = nil
       @players = Array.new
       @dealer = nil
+      @turno 
       
     end  
 
     def initPlayers(names)
-      
+      @@names.each do |name|         
+            p = new Player(name);
+            @players.add(p);
     end
 
     def nextPlayer
-
+        if(@currentPlayer.getName == Array.new)
+            turno = 1 + rand(@players.size)
+        
+        else 
+            turno = (turno + 1) % players.size
+        end
+        currentPlayer = players.get(turno);
+        
+        return currentPlayer;
     end
 
     def nextTurnAllowed

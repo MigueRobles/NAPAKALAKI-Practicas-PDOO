@@ -1,4 +1,3 @@
-
 package NapakalakiGame;
 
 import java.util.ArrayList;
@@ -8,8 +7,8 @@ import java.util.ArrayList;
  * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
 public class Player {
-    private static final int INITIAL_LEVEL = 1;
-    private static final int MAX_LEVEL = 10;
+    static final int INITIALLEVEL = 1;
+    static final int MAXLEVEL = 10;
 
 
     private final String name;
@@ -25,7 +24,7 @@ public class Player {
     
     public Player(String name){
         this.name = name;
-        level = INITIAL_LEVEL;
+        level = INITIALLEVEL;
         dead = true;
         canISteal = true;
         enemy = null;
@@ -126,40 +125,84 @@ public class Player {
     public ArrayList<Treasure> getHiddenTreasures(){ return hiddenTreasures; }    
     public ArrayList<Treasure> getVisibleTreasures(){ return visibleTreasures; }
 
-    /* TODO
+    
     public CombatResult combat(Monster monster){
+        int myLevel = getCombatLevel();
+        int monsterLevel = monster.getCombatLevel();
+        if(!canISteal){
+            Dice dice = Dice.getInstance();
+            int number = dice.nextNumber();
+            if(number < 3)
+                monsterLevel += enemy.getCombatLevel();            
+        }
+        if(myLevel > monsterLevel){
+            applyPrize(monster);
+            if(myLevel >= MAXLEVEL)
+                return CombatResult.WINGAME;
+            return CombatResult.WIN;
+        }
+        else{
+            applyBadConsequence(monster);
+            return CombatResult.LOSE;
+        }
         
-        return
     }
-    */
-    /*
+    
+    
     public void makeTreasureVisible(Treasure t){
-        // TODO
+        boolean canI = canMakeTreasureVisible(t);
+        if(canI)
+            visibleTreasures.add(t);
+        else
+            hiddenTreasures.remove(t);
     }
-    */
-    /*
+    
+    
     public void discardVisibleTreasure(Treasure t){
-        // TODO
+        visibleTreasures.remove(t); 
+        if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty())){
+            pendingBadConsequence.substractVisibleTreasures(t);
+        }
+        dieIfNoTreasures();        
     }
-    */
-    /*
+    
+    
+    
     public void discardHiddenTreasure(Treasure t){
-        // TODO
+        hiddenTreasures.remove(t); 
+        if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty())){
+            pendingBadConsequence.substractHiddenTreasures(t);
+        }
+        dieIfNoTreasures();      
     }
-    */
+    
     
     public boolean validState(){ return pendingBadConsequence.isEmpty() && hiddenTreasures.size() < 5; }
-    /*
+    
     public void initTreasures(){
-        // TODO
+        CardDealer dealer = CardDealer.getInstance();
+        Dice dice = Dice.getInstance();
+        bringToLife();
+        Treasure treasure = dealer.nextTreasure();
+        hiddenTreasures.add(treasure);
+        int number = dice.nextNumber();
+        if(number > 1){
+            treasure = dealer.nextTreasure();
+            hiddenTreasures.add(treasure);
+        }
+        if(number == 6){
+            treasure = dealer.nextTreasure();
+            hiddenTreasures.add(treasure);
+        }      
+                
     }
-    */
+    
     
     public Treasure stealTreasure(){
         
         if(canISteal()){
             if(this.enemy.canYouGiveMeATreasure()) {
-                Treasure treasure = new Treasure(this.enemy.giveMeATreasure());
+                Treasure treasure = this.enemy.giveMeATreasure();
                 this.hiddenTreasures.add(treasure);
                 haveStolen();
                 return treasure;
@@ -189,11 +232,17 @@ public class Player {
     
     private void haveStolen(){ canISteal = false; }
     
-    /*
+    
     public void discardAllTreasures(){
-        //TODO
+        ArrayList<Treasure> hcopy = new ArrayList(hiddenTreasures);
+        ArrayList<Treasure> vcopy = new ArrayList(visibleTreasures);
+
+        for (Treasure trea: vcopy)
+            discardVisibleTreasure(trea);
+        for (Treasure trea: hcopy)
+            discardHiddenTreasure(trea);
     }
-    */
+    
     
 }
 

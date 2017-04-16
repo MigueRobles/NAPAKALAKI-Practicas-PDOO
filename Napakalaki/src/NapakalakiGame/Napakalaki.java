@@ -34,12 +34,12 @@ public class Napakalaki {
     }
     
     private Player nextPlayer() {
-        if(currentPlayer.getName() == new String()){         // Indica si aún no se ha elegido un jugador en el primer turno
-            turno = (int) (Math.random() * (players.size()));
-        }
-        else {
+        if(currentPlayer.getName() == new String){        // Indica si aún no se ha elegido un jugador en el primer turno
+            turno = 1 + rand(@players.size)
+        
+        else 
             turno = (turno + 1) % players.size();
-        }
+        end
         currentPlayer = players.get(turno);
         
         return currentPlayer;

@@ -154,13 +154,28 @@ module NapakalakiGame
     def giveMonsterBack(m)
        @usedMonsters << m
     end 
-=begin
+    
     def nextTreasure()
+      initTreasureCardDeck()
 
+        if(@unusedTreasures == Array.new )
+            
+            ArrayList<Treasure> aux_t = @usedTreasures
+            @usedTreasures = @unusedTreasures
+            @unusedTreasures = aux_t           
+            shuffleTreasures
+        end
+
+      aux = Treasure.new()
+      aux = @unusedTreasures.get(0)
+      @usedTreasures.add(aux)
+      @unusedTreasures.remove(0)
+      aux
+    
     end
-
+=begin
     def nextMonster()
-
+s
     end
 
     def initCards()

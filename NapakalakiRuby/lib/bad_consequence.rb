@@ -92,8 +92,7 @@ module NapakalakiGame
    
     def adjustToFitTreasureLists(v,h)
         if(@nHiddenTreasures > 0 || @nVisibleTreasures > 0) 
-            n_visibles
-            n_ocultos
+            
 
             if(@nHiddenTreasures > h.size())
                 n_ocultos = h.size();
@@ -110,20 +109,18 @@ module NapakalakiGame
             return final_bc   
         
         else 
-                    
-            @@specificVisibleTreasures.each do |visible|    
-              if(v.contains(visible))
-                      v_visible.add(visible);
+            @specificVisibleTreasures.each do |visible|    
+              if(v.include?(visible))
+                      @v_visible.push(visible);
+              end
+            end
+             @specificVisibleTreasures.each do |oculto|    
+              if(h.include?(oculto))
+                      @v_oculto.push(oculto);
               end
             end
             
-             @@specificVisibleTreasures.each do |oculto|    
-              if(h.contains(oculto))
-                      v_oculto.add(oculto);
-              end
-            end
-            
-            final_bc = new BadConsequence(this.text, this.levels, v_visible, v_oculto);
+            final_bc = BadConsequence.newLevelSpecificTreasures(@text, @levels, @v_visible, @v_oculto);
         end
             return final_bc;    
         

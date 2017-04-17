@@ -30,7 +30,7 @@ module NapakalakiGame
     
     def to_s
       c_level = getCombatLevel
-      "#{@name}, nivel de combate: #{c_level}"
+      "#{@name} \nNivel del jugador: #{@level}\nNivel de combate: #{c_level}"
     end
     def getName
       @name

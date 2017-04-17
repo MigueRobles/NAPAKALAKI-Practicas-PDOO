@@ -145,7 +145,6 @@ module NapakalakiGame
    def canMakeTreasureVisible(t)
       
       if (t.getType != TreasureKind::ONEHAND && t.getType != TreasureKind::BOTHHANDS)
-        puts "No es manos"
           return false if (treasureInUse(t.getType))
       return true
       else                                          
@@ -202,7 +201,7 @@ module NapakalakiGame
       canI = canMakeTreasureVisible(t)
       if (canI)
         @visibleTreasures << t
-        @hiddenTreasures.delete_at(@hiddenTreasures.index(t)||@hiddenTreasures.length)
+        @hiddenTreasures.delete(t)
       end
     end
 

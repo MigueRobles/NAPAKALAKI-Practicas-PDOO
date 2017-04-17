@@ -27,6 +27,10 @@ module NapakalakiGame
       @@MAXLEVEL
     end
     
+    def to_s
+      c_level = getCombatLevel
+      "#{@name}, nivel de combate: #{c_level}"
+    end
     def getName
       @name
     end
@@ -37,7 +41,7 @@ module NapakalakiGame
 
     def getCombatLevel
       clevel = @level
-      @VisibleTreasures.each { |trea| clevel += trea.getBonus }
+      @visibleTreasures.each { |trea| clevel += trea.getBonus }
       return clevel
     end
 

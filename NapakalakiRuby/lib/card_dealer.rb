@@ -180,10 +180,10 @@ module NapakalakiGame
 
         if(@unusedMonster == nil )
             
-            ArrayList<Monster> aux_t = @usedMonster
+            aux_t = @usedMonster
             @usedMonster = @unusedMonster
             @unusedMonster = aux_t           
-            shuffleMonster
+            shuffleMonsters
         end
 
       aux = @unusedMonster.get(0)

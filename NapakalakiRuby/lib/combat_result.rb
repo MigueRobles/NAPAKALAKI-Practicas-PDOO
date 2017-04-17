@@ -2,7 +2,7 @@
 #     Jesús Sánchez de Lechina Tejada
 
 module NapakalakiGame
-  module Combat_Result
+  module CombatResult
 
       WINGAME = :wingame
       WIN = :win

@@ -123,11 +123,8 @@ public class Napakalaki {
     }
     
     public void initGame(ArrayList<String> players){
-        for(String name:players)
-            this.players.add(new Player(name));
-        for(Player p:this.players){
-            setEnemies(); 
-        }
+        initPlayers(players);
+        setEnemies();
         this.dealer.initCards();
         nextTurn();   
     }

@@ -3,7 +3,8 @@
   require_relative "treasure"
   require_relative "dice"
   require_relative "bad_consequence"
-  require_relative "treasure_kind.rb"
+  require_relative "treasure_kind"
+  require_relative "combat_result"
 
 module NapakalakiGame
 

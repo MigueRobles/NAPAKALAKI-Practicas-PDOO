@@ -104,7 +104,7 @@ module NapakalakiGame
             else
                 n_visibles = @nVisibleTreasures;
             end
-            final_bc = new BadConsequence(this.text, this.levels, n_visibles, n_ocultos)
+            final_bc =BadConsequence.newLevelNumberOfTreasures(@text, @levels, n_visibles, n_ocultos)
             
             return final_bc   
         

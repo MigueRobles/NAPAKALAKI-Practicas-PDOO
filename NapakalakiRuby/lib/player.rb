@@ -21,11 +21,15 @@ module NapakalakiGame
       @pendingBadConsequence = nil
       @enemy = nil
     end
-
+    
+    def self.MAXLEVEL
+      @@MAXLEVEL
+    end
+    
     def getName
       @name
     end
-
+    
     def bringToLife
       @dead = false
     end
@@ -271,7 +275,6 @@ module NapakalakiGame
     end
     
   private :bringToLife, :getCombatLevel, :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence, :canMakeTreasureVisible, :howManyVisibleTreasures, :dieIfNoTreasures, :giveMeATreasure, :canYouGiveMeATreasure, :haveStolen
-
     
   end
 

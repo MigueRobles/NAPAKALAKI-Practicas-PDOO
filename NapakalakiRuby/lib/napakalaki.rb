@@ -16,77 +16,118 @@ module NapakalakiGame
     private
 
     def initialize
-      
-      @currentMonster = nil
       @currentPlayer = nil
       @players = Array.new
-      @dealer = nil
-      @turno 
-      
-    end  
+      @currentMonster = nil
+      @dealer = CardDealer.instance
+    end
 
     def initPlayers(names)
-      @@names.each do |name|         
-            p = new Player(name);
-            @players.add(p);
+
+      names.each do |name|
+        @players << Player.new(name)
+      end
+
     end
 
     def nextPlayer
-        if(@currentPlayer.getName == Array.new)
-            turno = 1 + rand(@players.size)
-        
-        else 
-            turno = (turno + 1) % players.size
+      if (@currentPlayer == nil)
+        indice = rand(@players.length)
+        @currentPlayer = @players[indice]
+        return @players[indice]
+      else
+        indice = @players.index(@currentPlayer)
+        if (indice == @players.size - 1)
+          indice = -1
         end
-        currentPlayer = players.get(turno);
-        
-        return currentPlayer;
+        @currentPlayer = @players[indice+1]
+        return @players[indice+1]
+      end
     end
 
     def nextTurnAllowed
-
+      if (@currentPlayer == nil)
+        return true
+      else  
+        return @currentPlayer.validState()
+      end
     end
 
     def setEnemies
-
+      @players.each do |player|
+        indice = rand(@players.length)
+        while (indice == @players.index(player))
+          indice = rand(@players.length)
+        end
+        player.setEnemy(@players[indice])
+      end 
     end  
 
     public
 
     def developCombat
-
+      combatResult = @currentPlayer.combat(@currentMonster)
+      @dealer.giveMonsterBack(@currentMonster)
+      return combatResult
     end
 
-    def discardVisibleTreasures
-
+    def discardVisibleTreasures(treasures)
+      treasures.each do |treasure|
+        @currentPlayer.discardVisibleTreasure(treasure)
+        @dealer.giveTreasureBack(treasure)
+      end
     end
 
-    def discardHiddenTreasures
-
+    def discardHiddenTreasures (treasures)
+      treasures.each do |treasure|
+        @currentPlayer.discardHiddenTreasure(treasure)
+        @dealer.giveTreasureBack(treasure)
+      end
     end
 
-    def makeTreasuresVisible
-
+    def makeTreasuresVisible (treasures)
+      treasures.each do |treasure|
+        @currentPlayer.makeTreasureVisible(treasure)
+      end
     end  
 
-    def initGame(players)
-
+    def initGame(names)
+      initPlayers(names)
+      setEnemies()
+      @dealer.initCards
+      nextTurn()
     end
 
     def getCurrentPlayer
-
+      @currentPlayer
     end
 
     def getCurrentMonster
-
+      @currentMonster
     end
 
     def nextTurn
-
+      stateOK = nextTurnAllowed()
+      if(stateOK == true)
+        @currentMonster = @dealer.nextMonster()
+        @currentPlayer = nextPlayer()
+        dead = @currentPlayer.isDead()
+        if(dead == true)
+          #@currentPlayer.discardAllTreasures() 
+          #esto no está en el diagrama (preguntar???)
+          @currentPlayer.initTreasures()
+        end
+      end
+      return stateOK
     end
 
     def endOfGame(result)
-
+      if (result == CombatResult::WINGAME)
+        return true
+      else
+        return false
+      end
     end
+    
   end
 end

@@ -74,14 +74,13 @@ public class Napakalaki {
     
     public void discardVisibleTreasures(ArrayList<Treasure> Treasures) {
         for(Treasure treasure:Treasures){
-            this.currentPlayer.discardVisibleTreasure(treasure);  // TODO: Definir este método en player
-            this.dealer.giveTreasureBack(treasure);
+            this.currentPlayer.discardVisibleTreasure(treasure);  
         }
     }    
     
     public void discardHiddenTreasures(ArrayList<Treasure> treasures) {
         for(Treasure treasure:treasures){
-            this.currentPlayer.discardHiddenTreasure(treasure);  // TODO: Definir este método en player
+            this.currentPlayer.discardHiddenTreasure(treasure);  
             this.dealer.giveTreasureBack(treasure);
         }
     }

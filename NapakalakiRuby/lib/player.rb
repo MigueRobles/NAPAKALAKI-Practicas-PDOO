@@ -116,7 +116,7 @@ module NapakalakiGame
 
     def validState
       return true if (@pendingBadConsequence == nil)
-      return true if (@pendingBadConsequence.isEmpty && @hiddenTreasures.length < 5)
+      return true if (a.isEmpty && @hiddenTreasures.length < 5)
       
       return false
     end

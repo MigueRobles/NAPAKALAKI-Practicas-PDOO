@@ -273,6 +273,7 @@ module NapakalakiGame
     
   private :bringToLife, :getCombatLevel, :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence, :canMakeTreasureVisible, :howManyVisibleTreasures, :dieIfNoTreasures, :haveStolen
   protected :canYouGiveMeATreasure, :giveMeATreasure
+  
   end
 
 end

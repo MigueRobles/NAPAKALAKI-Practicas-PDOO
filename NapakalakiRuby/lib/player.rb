@@ -77,6 +77,7 @@ module NapakalakiGame
     end
 
     def applyBadConsequence(m)
+
       badConsequence = m.getBadConsequence
       nLevels = badConsequence.getLevels
       decrementLevels(nLevels)

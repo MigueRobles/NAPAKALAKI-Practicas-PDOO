@@ -143,33 +143,24 @@ module NapakalakiGame
 
    def canMakeTreasureVisible(t)
       
-      if (t.getType == TreasureKind::ONEHAND)         # Para una mano
-        if (treasureInUse(TreasureKind::BOTHHANDS))   # Si tenemos equipada una de dos manos
-          return false
-        else                                          # Si no tenemos de dos manos, ¿Cuántas de 1 mano?
-          una_mano = 0
-          @visibleTreasures.each do |i|
-            if (TreasureKind::ONEHAND == i.getType)
-              una_mano += 1
-            end
-          end
-          if (una_mano >= 2)                          # Si tenemos 2 o más -> No
-            return false
-          end
+      if (t.getType != TreasureKind::ONEHAND && t.getType != TreasureKind::BOTHHANDS)
+        puts "No es manos"
+          return false if (treasureInUse(t.getType))
+      return true
+      else                                          
+        una_mano = 0
+        dos_manos = 0
+        @visibleTreasures.each do |i|
+          puts i
+          una_mano += 1 if (TreasureKind::ONEHAND == i.getType)
+          dos_manos += 1 if (TreasureKind::BOTHHANDS == i.getType)
+
         end
-        
-      else
-        if (t.getType == TreasureKind::BOTHHANDS)     # Para dos manos
-          if (treasureInUse(TreasureKind::BOTHHANDS) || treasureInUse(TreasureKind::ONEHAND))
-            return false
-          end
-        else
-          if (treasureInUse(t.getType))               # Resto del tipo de tesoros
-            return false
-          end
+        if (una_mano == 0 && dos_manos == 0)                        
+          return true
         end
       end
-      return true
+      return mano == 1 && t.getType() == TreasureKind.ONEHAND && manos == 0;
     end
         
     def treasureInUse (type)

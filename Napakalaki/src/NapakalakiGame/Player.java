@@ -151,10 +151,10 @@ public class Player {
     
     public void makeTreasureVisible(Treasure t){
         boolean canI = canMakeTreasureVisible(t);
-        if(canI)
+        if(canI){
             visibleTreasures.add(t);
-        else
             hiddenTreasures.remove(t);
+        }
     }
     
     

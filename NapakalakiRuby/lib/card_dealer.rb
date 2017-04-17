@@ -178,7 +178,7 @@ module NapakalakiGame
       
       initMonsterCardDeck
 
-        if(@unusedMonster == Array.new )
+        if(@unusedMonster == nil )
             
             ArrayList<Monster> aux_t = @usedMonster
             @usedMonster = @unusedMonster
@@ -186,7 +186,6 @@ module NapakalakiGame
             shuffleMonster
         end
 
-      aux = Monster.new()
       aux = @unusedMonster.get(0)
       @usedMonster.add(aux)
       @unusedMonster.remove(0)

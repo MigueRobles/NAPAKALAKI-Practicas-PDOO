@@ -97,7 +97,7 @@ module NapakalakiGame
     end
     
     def dieIfNoTreasures
-      if @VisibleTreasures.empty? and @HiddenTreasures.empty?
+      if @visibleTreasures.empty? and @hiddenTreasures.empty?
       @dead = true
       end
     end
@@ -116,7 +116,7 @@ module NapakalakiGame
 
     def validState
       return true if (@pendingBadConsequence == nil)
-      return true if (@pendingBadConsequence.isEmpty == true && @hiddenTreasures.length < 5)
+      return true if (@pendingBadConsequence.isEmpty && @hiddenTreasures.length < 5)
       
       return false
     end
@@ -160,7 +160,7 @@ module NapakalakiGame
           return true
         end
       end
-      return mano == 1 && t.getType() == TreasureKind.ONEHAND && manos == 0;
+      return una_mano == 1 && t.getType() == TreasureKind::ONEHAND && dos_manos == 0;
     end
         
     def treasureInUse (type)

@@ -81,11 +81,11 @@ module NapakalakiGame
       @death
     end
 
-    def substracVisibleTreasure(t)
+    def substractVisibleTreasure(t)
       @specificVisibleTreasures.remove(t.getType()) if (@specificVisibleTreasures.contains(t.getType))
     end
     
-    def substracHiddenTreasure(t)
+    def substractHiddenTreasure(t)
       @specificHiddenTreasures.remove(t.getType()) if (@specificHiddenTreasures.contains(t.getType))
      
     end        

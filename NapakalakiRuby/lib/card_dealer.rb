@@ -62,19 +62,19 @@ module NapakalakiGame
     def initMonsterCardDeck
       
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta.", 0, TreasureKind::ARMOR, TreasureKind::ARMOR)
+      bc = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta.", 0, [TreasureKind::ARMOR], TreasureKind::ARMOR)
       @unusedMonsters << Monster.new("3 Byakhees de bonanza", 8, bc, prize)
 
       prize = Prize.new(1, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Embobados con el lindo primigenio te descartas de tu casco visible.", 0, TreasureKind::HELMET, Array.new)
+      bc = BadConsequence.newLevelSpecificTreasures("Embobados con el lindo primigenio te descartas de tu casco visible.", 0, [TreasureKind::HELMET], Array.new)
       @unusedMonsters << Monster.new("Tenochtitlan", 2, bc, prize)
 
       prize = Prize.new(1, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("El primordial bostezo contagioso. Pierdes el calzado visible.", 0, TreasureKind::SHOES, Array.new)
+      bc = BadConsequence.newLevelSpecificTreasures("El primordial bostezo contagioso. Pierdes el calzado visible.", 0, [TreasureKind::SHOES], Array.new)
       @unusedMonsters << Monster.new("El sopor de Dunwich", 2, bc, prize)
 
       prize = Prize.new(4, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta.", 0, TreasureKind::ONEHAND, TreasureKind::ONEHAND)
+      bc = BadConsequence.newLevelSpecificTreasures("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta.", 0, [TreasureKind::ONEHAND], [TreasureKind::ONEHAND])
       @unusedMonsters << Monster.new("Demonios de Magaluf", 2, bc, prize)
 
       prize = Prize.new(3, 1)
@@ -82,11 +82,11 @@ module NapakalakiGame
       @unusedMonsters << Monster.new("El gorrón en el umbral", 13, bc, prize)
 
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Pierdes la armadura visible.", 0, TreasureKind::ARMOR, Array.new)
+      bc = BadConsequence.newLevelSpecificTreasures("Pierdes la armadura visible.", 0, [TreasureKind::ARMOR], Array.new)
       @unusedMonsters << Monster.new("H.P. Munchcraft", 6, bc, prize)
 
       prize = Prize.new(1, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Sientes bichos bajo la ropa. Descarta la armadura visible.", 0, TreasureKind::ARMOR, Array.new)
+      bc = BadConsequence.newLevelSpecificTreasures("Sientes bichos bajo la ropa. Descarta la armadura visible.", 0, [TreasureKind::ARMOR], Array.new)
       @unusedMonsters << Monster.new("Necrófago", 13, bc, prize)
 
       prize = Prize.new(3, 2)
@@ -106,7 +106,7 @@ module NapakalakiGame
       @unusedMonsters << Monster.new("Semillas Cthulhu", 4, bc, prize)
 
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Te intentas escaquear. Pierdes una mano visible.", 0, TreasureKind::ONEHAND, Array.new)
+      bc = BadConsequence.newLevelSpecificTreasures("Te intentas escaquear. Pierdes una mano visible.", 0, [TreasureKind::ONEHAND], Array.new)
       @unusedMonsters << Monster.new("Dameargo", 1, bc, prize)
 
       prize = Prize.new(2, 1)
@@ -122,11 +122,11 @@ module NapakalakiGame
       @unusedMonsters << Monster.new("Familia feliz", 1, bc, prize)
 
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("La quinta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visible.", 2, TreasureKind::BOTHHANDS, Array.new)
+      bc = BadConsequence.newLevelSpecificTreasures("La quinta directiva primaria te obliga a perder 2 niveles y un tesoro 2 manos visible.", 2, [TreasureKind::BOTHHANDS], Array.new)
       @unusedMonsters << Monster.new("Roboggoth", 8, bc, prize)
 
       prize = Prize.new(1, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Te asusta en la noche. Pierdes un casco visible.", 0, TreasureKind::HELMET, Array.new)
+      bc = BadConsequence.newLevelSpecificTreasures("Te asusta en la noche. Pierdes un casco visible.", 0, [TreasureKind::HELMET], Array.new)
       @unusedMonsters << Monster.new("El espía sordo", 5, bc, prize)
 
       prize = Prize.new(2, 1)

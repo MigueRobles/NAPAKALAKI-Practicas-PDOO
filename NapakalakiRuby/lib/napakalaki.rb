@@ -1,10 +1,13 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
   require_relative "prize"
+  require_relative "player"
+  require_relative "card_dealer"
   require_relative "bad_consequence"
   require_relative "treasure_kind"
   require_relative "monster"
   require "singleton"
+  
   
 module NapakalakiGame
 
@@ -19,11 +22,12 @@ module NapakalakiGame
       @currentPlayer = nil
       @players = Array.new
       @currentMonster = nil
-      @dealer = nil
+      @dealer = CardDealer.instance
+
     end
 
     def initPlayers(names)
-
+      
       names.each do |name|
         @players << Player.new(name)
       end

@@ -32,6 +32,10 @@ module NapakalakiGame
       c_level = getCombatLevel
       "#{@name} \nNivel del jugador: #{@level}\nNivel de combate: #{c_level}"
     end
+    
+    def checkPending
+      puts @pendingBadConsequence.to_s
+    end
     def getName
       @name
     end

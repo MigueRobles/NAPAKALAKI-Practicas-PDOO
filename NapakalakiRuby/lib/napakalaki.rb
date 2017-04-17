@@ -118,6 +118,8 @@ module NapakalakiGame
         if(@currentPlayer.isDead)
             @currentPlayer.initTreasures
         end
+      else
+        @currentPlayer.checkPending
       end
       return stateOK
     end

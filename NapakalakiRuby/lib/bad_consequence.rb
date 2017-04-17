@@ -51,12 +51,12 @@ module NapakalakiGame
     
     def to_s
       if (@death == true)
-        "Text: #{@text} \nDeath: #{@death}"
+        " #{@text} \nDeath: #{@death}"
       else
         if (@specificHiddenTreasures == Array.new() && @specificVisibleTreasures == Array.new())
-          "Text: #{@text} \nLevels: #{@levels} \nVisibleTreasures: #{@nVisibleTreasures} \nHiddenTreasures: #{@nHiddenTreasures}"
+          " #{@text} \nLevels: #{@levels} \nVisibleTreasures: #{@nVisibleTreasures} \nHiddenTreasures: #{@nHiddenTreasures}"
         else
-          "Text: #{@text} \nSpecificVisibleTreasures: #{@specificVisibleTreasures} \nSpecificHiddenTreasures: #{@specificHiddenTreasures}"
+          " #{@text} \nSpecificVisibleTreasures: #{@specificVisibleTreasures} \nSpecificHiddenTreasures: #{@specificHiddenTreasures}"
         end
       end
     end
@@ -90,44 +90,38 @@ module NapakalakiGame
      
     end        
    
-        def adjustToFitTreasureLists (v,h) 
-      
+    def adjustToFitTreasureLists(v, h)
       if (@death == true)
         return BadConsequence.newDeath(@text, true)
       end
       
-      if (@nHiddenTreasures == 0 && @nVisibleTreasures == 0)
-        return BadConsequence.newLevelNumberOfTreasures(@text, @levels, @nVisibleTreasures, @nHiddenTreasures)
-      else
-         visibleKind = Array.new
-        hiddenKind = Array.new
-        visibleToLose = Array.new
-        hiddenToLose = Array.new
-
-        v.each do |treasure|
-          visibleKind << treasure.getType
+      if (!isEmpty) 
+        if(@nVisibleTreasures  <= v.size)
+          nVT = @nVisibleTreasures
+        else
+          nVT = v.size
         end
-
-        h.each do |treasure|
-          hiddenKind << treasure.getType
+        
+        if (@nHiddenTreasures <= h.size)
+          nHT = @nHiddenTreasures 
+        else 
+          nHT = h.size
         end
-
-        @specificVisibleTreasures.each do |kind|
-          if (visibleToLose.count(kind) < visibleKind.count(kind))
-            visibleToLose << kind
-          end
+        
+        if(nVT != 0 || nHT != 0)
+          return BadConsequence.newLevelNumberOfTreasures("Badconsequence pendiente", 0, nVT,nHT)
         end
-
-        @specificHiddenTreasures.each do |kind|
-          if (hiddenToLose.count(kind) < hiddenKind.count(kind))
-            hiddenToLose << kind
-          end
-        end
-
-        return BadConsequence.newLevelSpecificTreasures(@text, @levels, visibleToLose, hiddenToLose)
-      end
-      
+        
+        vTypes = v.collect{ |vis| vis.getType}
+        hTypes = h.collect{ |hid| hid.getType}
+        
+        specVT = @specificVisibleTreasures & vTypes
+        specHT = @specificHiddenTreasures & hTypes
+        
+      return BadConsequence.newLevelSpecificTreasures("Bad Consequence Pendiente", 0, specVT, specHT)
+      end  
     end
+    
 
     
   end

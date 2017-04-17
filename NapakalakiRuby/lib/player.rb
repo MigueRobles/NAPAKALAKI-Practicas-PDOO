@@ -76,8 +76,8 @@ module NapakalakiGame
       end
     end
 
-    def applyBadConsequence(b)
-      badConsequence = m.getBadconsequence
+    def applyBadConsequence(m)
+      badConsequence = m.getBadConsequence
       nLevels = badConsequence.getLevels
       decrementLevels(nLevels)
       pendingBad = badConsequence.adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)

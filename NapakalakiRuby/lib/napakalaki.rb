@@ -49,7 +49,7 @@ module NapakalakiGame
       if (@currentPlayer == nil)
         return true
       else  
-        return @currentPlayer.validState()
+        return @currentPlayer.validState
       end
     end
 
@@ -93,9 +93,9 @@ module NapakalakiGame
 
     def initGame(names)
       initPlayers(names)
-      setEnemies()
+      setEnemies
       @dealer.initCards
-      nextTurn()
+      nextTurn
     end
 
     def getCurrentPlayer
@@ -108,25 +108,18 @@ module NapakalakiGame
 
     def nextTurn
       stateOK = nextTurnAllowed()
-      if(stateOK == true)
-        @currentMonster = @dealer.nextMonster()
-        @currentPlayer = nextPlayer()
-        dead = @currentPlayer.isDead()
-        if(dead == true)
-          #@currentPlayer.discardAllTreasures() 
-          #esto no está en el diagrama (preguntar???)
-          @currentPlayer.initTreasures()
+      if(stateOK)
+        @currentMonster = @dealer.nextMonster
+        @currentPlayer = nextPlayer
+        if(@currentPlayer.isDead)
+            @currentPlayer.initTreasures
         end
       end
       return stateOK
     end
 
     def endOfGame(result)
-      if (result == CombatResult::WINGAME)
-        return true
-      else
-        return false
-      end
+      return result == CombatResult::WINGAME
     end
     
   end

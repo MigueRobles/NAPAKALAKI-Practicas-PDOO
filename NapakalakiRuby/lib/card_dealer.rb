@@ -160,35 +160,33 @@ module NapakalakiGame
 
         if(@unusedTreasures == Array.new )
             
-            ArrayList<Treasure> aux_t = @usedTreasures
+             aux_t = @usedTreasures
             @usedTreasures = @unusedTreasures
             @unusedTreasures = aux_t           
             shuffleTreasures
         end
 
-      aux = Treasure.new()
-      aux = @unusedTreasures.get(0)
-      @usedTreasures.add(aux)
-      @unusedTreasures.remove(0)
+     
+      aux = @unusedTreasures[0]
+      @usedTreasures << aux
+      @unusedTreasures.delete_at(0)
       aux
     
     end
 
     def nextMonster
       
-      initMonsterCardDeck
-
-        if(@unusedMonster == nil )
+        if(@unusedMonsters == Array.new )
             
-            aux_t = @usedMonster
-            @usedMonster = @unusedMonster
-            @unusedMonster = aux_t           
+            aux_t = @usedMonsters
+            @usedMonster = @unusedMonsters
+            @unusedMonsters = aux_t           
             shuffleMonsters
         end
 
-      aux = @unusedMonster.get(0)
-      @usedMonster.add(aux)
-      @unusedMonster.remove(0)
+      aux = @unusedMonsters[0]
+      @usedMonsters << aux
+      @unusedMonsters.delete_at(0)
       aux
       
     end
@@ -196,6 +194,8 @@ module NapakalakiGame
     def initCards
       initMonsterCardDeck
       initTreasureCardDeck
+      shuffleTreasures
+      shuffleMonsters
     end
 
     private :initTreasureCardDeck, :initMonsterCardDeck, :shuffleTreasures, :shuffleMonsters

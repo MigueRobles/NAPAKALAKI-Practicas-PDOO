@@ -1,6 +1,7 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
   require_relative "treasure"
+  require_relative "dice"
   require_relative "bad_consequence"
   require_relative "treasure_kind.rb"
 

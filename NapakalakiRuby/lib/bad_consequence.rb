@@ -33,7 +33,7 @@ module NapakalakiGame
     end
 
     def self.newDeath (aText, death)
-      new(aText, 0, 0, 0, Array.new(), Array.new(), death)
+      new(aText, Player.MAXLEVEL, MAXTREASURES, MAXTREASURES, Array.new(), Array.new(), death)
     end
 
     def isEmpty

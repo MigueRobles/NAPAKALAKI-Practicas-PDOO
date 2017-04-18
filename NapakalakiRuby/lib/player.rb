@@ -59,7 +59,7 @@ module NapakalakiGame
     end
 
     def decrementLevels(i)
-      if (i>@level)
+      if (i>=@level)
         @level = 1
       else
         @level -= i

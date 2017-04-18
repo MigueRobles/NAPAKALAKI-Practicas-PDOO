@@ -62,7 +62,7 @@ module NapakalakiGame
     def initMonsterCardDeck
       
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta.", 0, [TreasureKind::ARMOR], TreasureKind::ARMOR)
+      bc = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta.", 0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
       @unusedMonsters << Monster.new("3 Byakhees de bonanza", 8, bc, prize)
 
       prize = Prize.new(1, 1)

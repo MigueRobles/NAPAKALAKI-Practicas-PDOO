@@ -10,6 +10,10 @@ module NapakalakiGame
     
     @@MAXTREASURES = 10
     private_class_method :new
+    attr_reader :nVisibleTreasures
+    attr_reader :nHiddenTreasures
+    attr_reader :specificVisibleTreasures
+    attr_reader :specificHiddenTreasures
 
 
     def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
@@ -82,46 +86,64 @@ module NapakalakiGame
     end
 
     def substractVisibleTreasure(t)
-      @specificVisibleTreasures.delete_at(@specificVisibleTreasures.index(t.getType())) if (@specificVisibleTreasures.include?(t.getType))
+      if !isEmpty
+        if @specificVisibleTreasures.empty?
+          @specificVisibleTreasures.delete t.getType 
+        else
+          @nVisibleTreasures = [0,@nVisibleTreasures -1].max
+        end
+      end
     end
     
     def substractHiddenTreasure(t)
-      @specificHiddenTreasures.delete_at(@specificHiddenTreasures.index(t.getType())) if (@specificHiddenTreasures.include?(t.getType))
-     
-    end        
+      if !isEmpty
+        if !@specificHiddenTreasures.empty?
+          @specificHiddenTreasures.delete t.getType
+          @specificHiddenTreasures.size
+        else
+          @nHiddenTreasures = [0, @nHiddenTreasures -1].max
+          @nHiddenTreasures
+        end
+      end
+    end
+            
    
     def adjustToFitTreasureLists(v, h)
-      if (@death == true)
-        return BadConsequence.newDeath(@text, true)
+      if !isEmpty
+        nVisibleTreasures = [@nVisibleTreasures, v.size].min
+        nHiddenTreasures = [@nHiddenTreasures, h.size].min
+        
+        visibleTypes = v.collect { |t| t.getType }
+        hiddenTypes = h.collect { |t| t.getType}
+        specificVisibleTreasures = Array.new
+        cpySpecificVisibleTreasures = @specificVisibleTreasures.clone
+        specificHiddenTreasures = Array.new
+        cpySpecificHiddenTreasures = @specificHiddenTreasures.clone
+        
+        visibleTypes.each do |t|
+          if cpySpecificVisibleTreasures.include?(t)
+            specificVisibleTreasures << t
+            cpySpecificVisibleTreasures.delete t
+          end
+        end
+        hiddenTypes.each do |t|
+          if cpySpecificHiddenTreasures.include?(t)
+            specificHiddenTreasures << t
+            cpySpecificHiddenTreasures.delete t
+          end
+        end
+        
+        if specificHiddenTreasures.empty? && specificVisibleTreasures.empty?
+          BadConsequence.newLevelNumberOfTreasures @text, @levels, nVisibleTreasures, nHiddenTreasures
+        else
+          BadConsequence.newLevelSpecificTreasures @text, @levels, specificVisibleTreasures, specificHiddenTreasures
+        end
+        
+      else
+        self
       end
       
-      if (!isEmpty) 
-        if(@nVisibleTreasures  <= v.size)
-          nVT = @nVisibleTreasures
-        else
-          nVT = v.size
-        end
-        
-        if (@nHiddenTreasures <= h.size)
-          nHT = @nHiddenTreasures 
-        else 
-          nHT = h.size
-        end
-        
-        if(nVT != 0 || nHT != 0)
-          return BadConsequence.newLevelNumberOfTreasures("Badconsequence pendiente", 0, nVT,nHT)
-        end
-        
-        vTypes = v.collect{ |vis| vis.getType}
-        hTypes = h.collect{ |hid| hid.getType}
-        
-        specVT = @specificVisibleTreasures & vTypes
-        specHT = @specificHiddenTreasures & hTypes
-        
-      return BadConsequence.newLevelSpecificTreasures("Bad Consequence Pendiente", 0, specVT, specHT)
-      end  
     end
-    
 
     
   end

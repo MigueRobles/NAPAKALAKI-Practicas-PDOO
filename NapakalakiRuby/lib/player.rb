@@ -209,21 +209,23 @@ module NapakalakiGame
       end
     end
 
-        def discardVisibleTreasure(t)
-      @visibleTreasures.delete_at(@visibleTreasures.index(t)||@hiddenTreasures.length)
+    def discardVisibleTreasure(t)
+      @visibleTreasures.delete(t)
       if (@pendingBadConsequence != nil && @pendingBadConsequence.isEmpty() == false)
-        @pendingBadConsequence.substractVisibleTreasure(t)
+        if @pendingBadConsequence.nVisibleTreasures == 0 && @pendingBadConsequence.nHiddenTreasures == 0
+          @pendingBadConsequence = nil
+        end
       end
       
-      dieIfNoTreasures()
+      dieIfNoTreasures
     end
 
     def discardHiddenTreasure(t)
-      @hiddenTreasures.delete_at(@hiddenTreasures.index(t) || @hiddenTreasures.length)
-      if (@pendingBadConsequence != nil)
-        if(@pendingBadConsequence.isEmpty() == false)
-          @pendingBadConsequence.substractHiddenTreasure(t)
-        end
+      @hiddenTreasures.delete(t)
+      if (@pendingBadConsequence != nil && @pendingBadConsequence.isEmpty() == false)
+          if @pendingBadConsequence.nHiddenTreasures == 0 && @pendingBadConsequence.nVisibleTreasures == 0
+          @pendingBadConsequence = nil
+          end
       end
       dieIfNoTreasures
     end
@@ -261,7 +263,9 @@ module NapakalakiGame
 
     def giveMeATreasure
       indice = rand(@hiddenTreasures.size)
-      return @hiddenTreasures[indice]
+      tr = @hiddenTreasures[indice]
+      @hiddenTreasures.delete_at(indice)
+      return tr
     end
 
     def discardAllTreasures
@@ -275,8 +279,8 @@ module NapakalakiGame
       end
     end
     
-  private :bringToLife, :getCombatLevel, :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence, :canMakeTreasureVisible, :howManyVisibleTreasures, :dieIfNoTreasures, :haveStolen
-  protected :canYouGiveMeATreasure, :giveMeATreasure
+  private :bringToLife, :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence, :canMakeTreasureVisible, :howManyVisibleTreasures, :dieIfNoTreasures, :haveStolen
+  protected :canYouGiveMeATreasure, :giveMeATreasure, :getCombatLevel
   
   end
 

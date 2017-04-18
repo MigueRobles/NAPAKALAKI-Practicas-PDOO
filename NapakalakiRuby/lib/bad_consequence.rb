@@ -33,7 +33,7 @@ module NapakalakiGame
     end
 
     def self.newLevelSpecificTreasures (aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
-      new(aText, someLevels, 0, 0, someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
+      new(aText, someLevels, 0, 0 , someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
     end
 
     def self.newDeath (aText, death)
@@ -87,8 +87,9 @@ module NapakalakiGame
 
     def substractVisibleTreasure(t)
       if !isEmpty
-        if @specificVisibleTreasures.empty?
-          @specificVisibleTreasures.delete t.getType 
+        if !@specificVisibleTreasures.empty?
+          @specificVisibleTreasures.delete t.getType
+          @nVisibleTreasures = @specificVisibleTreasures.size 
         else
           @nVisibleTreasures = [0,@nVisibleTreasures -1].max
         end
@@ -99,6 +100,7 @@ module NapakalakiGame
       if !isEmpty
         if !@specificHiddenTreasures.empty?
           @specificHiddenTreasures.delete t.getType
+          @nHiddenTreasures = @specificHiddenTreasures.size 
         else
           @nHiddenTreasures = [0, @nHiddenTreasures -1].max
         end

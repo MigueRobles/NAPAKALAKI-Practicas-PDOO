@@ -119,10 +119,7 @@ module NapakalakiGame
     end
 
     def validState
-      return true if (@pendingBadConsequence == nil)
-      return true if (@pendingBadConsequence.isEmpty && @hiddenTreasures.length < 5)
-      
-      return false
+      @hiddenTreasures.length <= 4 && (@pendingBadConsequence == nil || @pendingBadConsequence.isEmpty)      
     end
 
     def getLevels
@@ -212,7 +209,7 @@ module NapakalakiGame
     def discardVisibleTreasure(t)
       @visibleTreasures.delete(t)
       if (@pendingBadConsequence != nil && @pendingBadConsequence.isEmpty() == false)
-        @pendingBadConsecuence.substractVisibleTreasure t
+        @pendingBadConsequence.substractVisibleTreasure t
         if @pendingBadConsequence.nVisibleTreasures == 0 && @pendingBadConsequence.nHiddenTreasures == 0
           @pendingBadConsequence = nil
         end
@@ -224,7 +221,7 @@ module NapakalakiGame
     def discardHiddenTreasure(t)
       @hiddenTreasures.delete(t)
       if (@pendingBadConsequence != nil && @pendingBadConsequence.isEmpty() == false)
-          @pendingBadConsecuence.substractHiddenTreasure t
+          @pendingBadConsequence.substractHiddenTreasure t
           if @pendingBadConsequence.nHiddenTreasures == 0 && @pendingBadConsequence.nVisibleTreasures != 0
           @pendingBadConsequence = nil
           end

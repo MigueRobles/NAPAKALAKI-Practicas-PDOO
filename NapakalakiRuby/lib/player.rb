@@ -212,6 +212,7 @@ module NapakalakiGame
     def discardVisibleTreasure(t)
       @visibleTreasures.delete(t)
       if (@pendingBadConsequence != nil && @pendingBadConsequence.isEmpty() == false)
+        @pendingBadConsecuence.substractVisibleTreasure t
         if @pendingBadConsequence.nVisibleTreasures == 0 && @pendingBadConsequence.nHiddenTreasures == 0
           @pendingBadConsequence = nil
         end
@@ -223,7 +224,8 @@ module NapakalakiGame
     def discardHiddenTreasure(t)
       @hiddenTreasures.delete(t)
       if (@pendingBadConsequence != nil && @pendingBadConsequence.isEmpty() == false)
-          if @pendingBadConsequence.nHiddenTreasures == 0 && @pendingBadConsequence.nVisibleTreasures == 0
+          @pendingBadConsecuence.substractHiddenTreasure t
+          if @pendingBadConsequence.nHiddenTreasures == 0 && @pendingBadConsequence.nVisibleTreasures != 0
           @pendingBadConsequence = nil
           end
       end

@@ -99,10 +99,8 @@ module NapakalakiGame
       if !isEmpty
         if !@specificHiddenTreasures.empty?
           @specificHiddenTreasures.delete t.getType
-          @specificHiddenTreasures.size
         else
           @nHiddenTreasures = [0, @nHiddenTreasures -1].max
-          @nHiddenTreasures
         end
       end
     end

@@ -128,5 +128,6 @@ module NapakalakiGame
       return result == CombatResult::WINGAME
     end
     
+    private :initPlayers, :nextPlayer, :nextTurnAllowed, :setEnemies
   end
 end

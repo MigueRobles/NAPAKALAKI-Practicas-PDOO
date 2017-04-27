@@ -142,21 +142,21 @@ module NapakalakiGame
 
 # ===== Especiales para sectarios ======      
       prize = Prize.new(3, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Pierdes una mano visible", 0, [TreasureKind::ONEHAND,TreasureKind::ONEHAND,TreasureKind::BOTHHANDS], Array.new)
-      @unusedMonsters << Monster.new("Bicéfalo", 21, bc, prize,0)
+      bc = BadConsequence.newLevelSpecificTreasures("Pierdes una mano visible", 0, [TreasureKind::ONEHAND], Array.new)
+      @unusedMonsters << Monster.new("El mal indecible impronunciable", 10, bc, prize,-2)
 
       
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.", 3, [TreasureKind::ONEHAND,TreasureKind::ONEHAND,TreasureKind::BOTHHANDS], Array.new)
-      @unusedMonsters << Monster.new("Bicéfalo", 21, bc, prize,0)
+      bc = BadConsequence.newLevelSpecificTreasures("Pierdes tus tesoros visibles. Jajaja.", 0, 5, 0)
+      @unusedMonsters << Monster.new("Testigos oculares", 6, bc, prize,2)
+
+      prize = Prize.new(2, 5)
+      bc = BadConsequence.newLevelSpecificTreasures("Hoy no es tu día de suerte. Mueres.", true)
+      @unusedMonsters << Monster.new("El gran cthulu", 20, bc, prize,4)
 
       prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.", 3, [TreasureKind::ONEHAND,TreasureKind::ONEHAND,TreasureKind::BOTHHANDS], Array.new)
-      @unusedMonsters << Monster.new("Bicéfalo", 21, bc, prize,0)
-
-      prize = Prize.new(2, 1)
-      bc = BadConsequence.newLevelSpecificTreasures("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.", 3, [TreasureKind::ONEHAND,TreasureKind::ONEHAND,TreasureKind::BOTHHANDS], Array.new)
-      @unusedMonsters << Monster.new("Bicéfalo", 21, bc, prize,0)
+      bc = BadConsequence.newLevelSpecificTreasures("El gobierno te recorta 2 niveles.", 0, 0, 0)
+      @unusedMonsters << Monster.new("Serpiente Político", 8, bc, prize,-2)
       
       prize = Prize.new(2, 1)
       bc = BadConsequence.newLevelSpecificTreasures("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.", 3, [TreasureKind::ONEHAND,TreasureKind::ONEHAND,TreasureKind::BOTHHANDS], Array.new)

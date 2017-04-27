@@ -4,11 +4,12 @@
 module NapakalakiGame
   class Monster
 
-    def initialize(n, l,b,p)
+    def initialize(n, l, b, p, cl)
       @name = n
       @combatLevel = l
       @badConsequence = b
       @prize = p
+      @levelChangeAgainstCultistPlayer = cl
     end   
     
     def getName

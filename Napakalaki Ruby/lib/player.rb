@@ -24,6 +24,19 @@ module NapakalakiGame
       @enemy = nil
     end
     
+    def newCopy(p)
+      np = new(p.getName)
+      np.setVT Array.new p.getVT
+      np.setHT Array.new p.getHT
+      np.setLevel p.getLevels
+      np.setDead p.isDead
+      np.setCanI p.getCanI
+      np.setEnemy p.getEnemy
+      np.setPendingBadConsequence p.getPendingBadConsequence
+      
+      np
+    end
+    
     def self.MAXLEVEL
       @@MAXLEVEL
     end
@@ -36,10 +49,7 @@ module NapakalakiGame
     def checkPending
       puts @pendingBadConsequence.to_s
     end
-    def getName
-      @name
-    end
-    
+      
     def bringToLife
       @dead = false
     end
@@ -49,6 +59,18 @@ module NapakalakiGame
       @visibleTreasures.each { |trea| clevel += trea.getBonus }
       return clevel
     end
+    
+    def getOponentLevel m 
+      m.getCombatLevel
+    end
+    
+    def shouldConvert
+      d = Dice.Instance
+      d.nextNumber
+      true if(d == 6)
+      false
+    end
+    
 
     def incrementLevels(i)
       if ((@level+i)>10)
@@ -66,9 +88,7 @@ module NapakalakiGame
       end
     end
 
-    def setPendingBadConsequence(b)
-      @pendingBadConsequence = b
-    end
+ 
     
     def applyPrize(m)
       incrementLevels(m.getLevelsGained)
@@ -106,10 +126,22 @@ module NapakalakiGame
       end
     end
     
+    def validState
+      @hiddenTreasures.length <= 4 && (@pendingBadConsequence == nil || @pendingBadConsequence.isEmpty)      
+    end 
+    
     def isDead
       @dead
+    end 
+    
+    def getCanI
+      @canISteal
     end    
     
+    def getName
+      @name
+    end
+     
     def getHiddenTreasures
       @hiddenTreasures
     end
@@ -118,17 +150,34 @@ module NapakalakiGame
       @visibleTreasures
     end
 
-    def validState
-      @hiddenTreasures.length <= 4 && (@pendingBadConsequence == nil || @pendingBadConsequence.isEmpty)      
-    end
-
     def getLevels
       @level
+    end
+    
+    def getEnemy
+      @enemy
+    end
+    
+    def getPendingBadConsequence
+      @pendingBadConsequence
     end
     
     def setEnemy(enemy)
       @enemy = enemy
     end
+    
+    def setVT(vt)
+      @visibleTreasures = vt
+    end
+    
+    def setHT(ht)
+      @hiddenTreasures = ht
+    end
+    
+    def setPendingBadConsequence(b)
+      @pendingBadConsequence = b
+    end
+    
 
     def canISteal
       @canISteal

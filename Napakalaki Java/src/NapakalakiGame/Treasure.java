@@ -4,7 +4,7 @@ package NapakalakiGame;
  *
  * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
-class Treasure {
+public class Treasure {
     private String name;
     private int bonus;
     private TreasureKind treasurekind;

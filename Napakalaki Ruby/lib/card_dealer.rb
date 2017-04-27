@@ -20,6 +20,8 @@ module NapakalakiGame
       @unusedMonsters = Array.new()
       @usedTreasures = Array.new()
       @usedMonsters = Array.new()
+      @unusedCultist = Array.new()
+      @usedCultist = Array.new()
 
     end
 
@@ -139,6 +141,18 @@ module NapakalakiGame
 
     end
 
+    def initCultistCardDeck
+      @cultist = Cultist.new("Sectario: +1 por cada sectario en juego",1)
+      @unusedCultist << @cultist
+      @unusedCultist << @cultist
+      @unusedCultist << @cultist
+      @unusedCultist << @cultist
+      
+      @cultist = Cultist.new("Sectario: +2 por cada sectario en juego",2)
+      @unusedCultist << @cultist
+      @unusedCultist << @cultist
+    end
+    
     def shuffleTreasures
       @unusedTreasures.shuffle!     
     end
@@ -147,6 +161,9 @@ module NapakalakiGame
       @unusedMonsters.shuffle!     
     end
 
+    def shuffleCultist
+      @unusedCultist.shuffle!
+    end
     def giveTreasureBack(t)
        @usedTreasures << t
     end
@@ -189,6 +206,20 @@ module NapakalakiGame
       @unusedMonsters.delete_at(0)
       aux
       
+    end
+    
+    def nextCultist
+      if(@unusedCulstist == Array.new)
+        aux_t = @usedCultist
+        @usedCultist = @unusedCultist
+        @unusedCultist = aux
+        shuffleCultist
+      end
+      
+      aux = @unusedCultist[0]
+      @usedCultist<< aux
+      @unusedCultist.delete_at(0)
+      aux
     end
 
     def initCards

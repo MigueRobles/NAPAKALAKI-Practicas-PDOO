@@ -33,6 +33,11 @@ public class Player {
     
     public String getName(){ return name; }
     
+    public String toString() {
+        String s = this.getName() + "\nNivel de combate: " + this.getCombatLevel() + "\tNivel actual: " + this.getLevels() + "\n";
+        return s;
+    }
+    
     private void bringToLife(){ dead = false;  }
     
     private int getCombatLevel(){

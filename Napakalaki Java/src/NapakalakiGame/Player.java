@@ -218,11 +218,8 @@ public class Player {
     private Treasure giveMeATreasure(){
         int i;
         i = (int) (Math.random() * (hiddenTreasures.size()));
-        Treasure tr;        
-        tr = new Treasure(hiddenTreasures.get(i).getName(),hiddenTreasures.get(i).getBonus(),hiddenTreasures.get(i).getType());
-        hiddenTreasures.remove(hiddenTreasures.get(i));  
         
-       return tr;
+       return hiddenTreasures.remove(i); /*remove(índice) devuelve el objeto eliminadao*/
     }
 
     

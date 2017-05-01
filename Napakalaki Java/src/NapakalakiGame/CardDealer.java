@@ -147,7 +147,6 @@ public class CardDealer {
     
     
     public Treasure nextTreasure() {
-        initTreasureCardDeck();
         if(unusedTreasures.isEmpty()){
             ArrayList<Treasure> aux_t = usedTreasures;
             usedTreasures = unusedTreasures;

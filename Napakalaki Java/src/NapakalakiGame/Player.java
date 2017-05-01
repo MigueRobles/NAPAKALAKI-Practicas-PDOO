@@ -166,7 +166,7 @@ public class Player {
     public void discardVisibleTreasure(Treasure t){
         visibleTreasures.remove(t); 
         if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty())){
-            pendingBadConsequence.substractVisibleTreasures(t);
+            pendingBadConsequence.substractVisibleTreasure(t);
         }
         dieIfNoTreasures();        
     }
@@ -176,7 +176,7 @@ public class Player {
     public void discardHiddenTreasure(Treasure t){
         hiddenTreasures.remove(t); 
         if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty())){
-            pendingBadConsequence.substractHiddenTreasures(t);
+            pendingBadConsequence.substractHiddenTreasure(t);
         }
         dieIfNoTreasures();      
     }

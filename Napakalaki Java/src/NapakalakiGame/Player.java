@@ -198,7 +198,12 @@ public class Player {
     }
     
     
-    public boolean validState(){ return (pendingBadConsequence.isEmpty() || pendingBadConsequence== null) && hiddenTreasures.size() < 5; }
+    public boolean validState(){ 
+        if(pendingBadConsequence== null )
+            return true;
+        else
+            return pendingBadConsequence.isEmpty() && hiddenTreasures.size() < 5; 
+    }
     
     public void initTreasures(){
         CardDealer dealer = CardDealer.getInstance();

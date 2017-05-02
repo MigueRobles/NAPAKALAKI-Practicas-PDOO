@@ -196,14 +196,13 @@ module NapakalakiGame
     end 
     
     def nextTreasure
-
-        if(@unusedTreasures == Array.new )
-            
-             aux_t = @usedTreasures
-            @usedTreasures = @unusedTreasures
-            @unusedTreasures = aux_t           
-            shuffleTreasures
-        end
+      
+      if(@unusedTreasures == Array.new )           
+        aux_t = @usedTreasures
+        @usedTreasures = @unusedTreasures
+        @unusedTreasures = aux_t           
+        shuffleTreasures
+      end
 
      
       aux = @unusedTreasures[0]

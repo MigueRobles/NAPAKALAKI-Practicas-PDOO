@@ -1,5 +1,6 @@
 package NapakalakiGame;
 
+import static java.lang.Math.max;
 import java.util.ArrayList;
 
 /**
@@ -77,16 +78,26 @@ public class BadConsequence {
     }
     
     public void substractVisibleTreasure(Treasure t) {
-        if(specificVisibleTreasures.contains(t.getType())){
-            specificVisibleTreasures.remove(t.getType());
-            nVisibleTreasures--;
+        if(!isEmpty()){
+            if(specificVisibleTreasures.contains(t.getType())){
+                specificVisibleTreasures.remove(t.getType());
+                nVisibleTreasures = specificVisibleTreasures.size();
+            }
+            else
+                nVisibleTreasures = max(0, nVisibleTreasures -1);
         }
+        
     }
-    public void substractHiddenTreasure(Treasure t) {
-        if(specificHiddenTreasures.contains(t.getType())){
-            specificHiddenTreasures.remove(t.getType());
-            nHiddenTreasures--;
+      public void substractHiddenTreasure(Treasure t) {
+        if(!isEmpty()){
+            if(specificHiddenTreasures.contains(t.getType())){
+                specificHiddenTreasures.remove(t.getType());
+                nHiddenTreasures = specificHiddenTreasures.size();
+            }
+            else
+                nHiddenTreasures = max(0, nHiddenTreasures -1);
         }
+        
     }
     
     /*  adjustToFitTreasureList:

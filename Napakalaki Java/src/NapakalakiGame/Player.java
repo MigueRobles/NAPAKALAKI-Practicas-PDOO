@@ -11,7 +11,7 @@ public class Player {
     static final int MAXLEVEL = 10;
 
 
-    private final String name;
+    private String name = null;
     private int level;
     private boolean dead = true;
     private boolean canISteal = true;
@@ -49,8 +49,18 @@ public class Player {
     }
     
     public int getLevels(){ return this.level; }    
-    private void incrementLevels(int l){ level += l; }
-    private void decrementLevels(int l){ level -= l; }    
+    private void incrementLevels(int l){ 
+        if(level + l > 10)
+            level = 10;
+        else
+            level += l;
+            }
+    private void decrementLevels(int l){
+        if(l >= level)
+            level = 1;
+        else
+            level -= l;
+            }
     private void setPendingBadconsequence(BadConsequence b){ pendingBadConsequence = b;} 
     
     private void applyPrize(Monster monster){ 
@@ -168,6 +178,9 @@ public class Player {
         if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty())){
             pendingBadConsequence.substractVisibleTreasure(t);
         }
+        if((pendingBadConsequence.getNVisibleTreasures() == 0) && (pendingBadConsequence.getNHiddenTreasures() == 0)){
+            pendingBadConsequence = null;
+        }
         dieIfNoTreasures();        
     }
     
@@ -176,13 +189,16 @@ public class Player {
     public void discardHiddenTreasure(Treasure t){
         hiddenTreasures.remove(t); 
         if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty())){
-            pendingBadConsequence.substractHiddenTreasure(t);
+            pendingBadConsequence.substractVisibleTreasure(t);
+        }
+        if((pendingBadConsequence.getNVisibleTreasures() == 0) && (pendingBadConsequence.getNHiddenTreasures() == 0)){
+            pendingBadConsequence = null;
         }
         dieIfNoTreasures();      
     }
     
     
-    public boolean validState(){ return pendingBadConsequence.isEmpty() && hiddenTreasures.size() < 5; }
+    public boolean validState(){ return (pendingBadConsequence.isEmpty() || pendingBadConsequence== null) && hiddenTreasures.size() < 5; }
     
     public void initTreasures(){
         CardDealer dealer = CardDealer.getInstance();
@@ -206,9 +222,9 @@ public class Player {
     public Treasure stealTreasure(){
         
         if(canISteal()){
-            if(this.enemy.canYouGiveMeATreasure()) {
-                Treasure treasure = this.enemy.giveMeATreasure();
-                this.hiddenTreasures.add(treasure);
+            if(enemy.canYouGiveMeATreasure()) {
+                Treasure treasure = enemy.giveMeATreasure();
+                hiddenTreasures.add(treasure);
                 haveStolen();
                 return treasure;
             }
@@ -217,7 +233,7 @@ public class Player {
     }
     
     
-    public void setEnemy(Player enemy){ enemy = enemy; }
+    public void setEnemy(Player enemy){ this.enemy = enemy; }
     
 
     private Treasure giveMeATreasure(){

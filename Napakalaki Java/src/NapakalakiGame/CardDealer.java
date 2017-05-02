@@ -51,7 +51,7 @@ public class CardDealer {
       unusedTreasures.add(new Treasure("Tentáculo de pega", 2, TreasureKind.HELMET));
       unusedTreasures.add(new Treasure("Zapato deja-amigos", 1, TreasureKind.SHOE));
       
-      this.shuffleTreasures();
+      shuffleTreasures();
           }
     
     private void initMonsterCardDeck() {
@@ -132,7 +132,7 @@ public class CardDealer {
         prize = new Prize(1,1);
         unusedMonster.add(new Monster("El espía sordo", 5, badConsequence, prize));
               
-        this.shuffleMonster();
+        shuffleMonster();
     }
     
     private void shuffleTreasures() { Collections.shuffle(unusedTreasures); }    
@@ -146,7 +146,7 @@ public class CardDealer {
     }
     
     
-    public Treasure nextTreasure() {
+    public Treasure nextTreasure() {    
         if(unusedTreasures.isEmpty()){
             ArrayList<Treasure> aux_t = usedTreasures;
             usedTreasures = unusedTreasures;
@@ -181,8 +181,10 @@ public class CardDealer {
     public void giveMonsterBack (Monster m) { usedMonster.add(m); }
     
     public void initCards() {
-        this.initMonsterCardDeck();
-        this.initTreasureCardDeck();
+        initMonsterCardDeck();
+        initTreasureCardDeck();
+        shuffleMonster();
+        shuffleTreasures();
     }
     
     

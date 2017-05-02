@@ -76,13 +76,13 @@ public class BadConsequence {
         }
     }
     
-    public void substractVisibleTreasures(Treasure t) {
+    public void substractVisibleTreasure(Treasure t) {
         if(specificVisibleTreasures.contains(t.getType())){
             specificVisibleTreasures.remove(t.getType());
             nVisibleTreasures--;
         }
     }
-    public void substractHiddenTreasures(Treasure t) {
+    public void substractHiddenTreasure(Treasure t) {
         if(specificHiddenTreasures.contains(t.getType())){
             specificHiddenTreasures.remove(t.getType());
             nHiddenTreasures--;

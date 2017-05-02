@@ -33,6 +33,11 @@ public class Player {
     
     public String getName(){ return name; }
     
+    public String toString() {
+        String s = this.getName() + "\nNivel de combate: " + this.getCombatLevel() + "\tNivel actual: " + this.getLevels() + "\n";
+        return s;
+    }
+    
     private void bringToLife(){ dead = false;  }
     
     private int getCombatLevel(){
@@ -54,7 +59,7 @@ public class Player {
         
         if(nTreasures > 0){
          CardDealer dealer = CardDealer.getInstance();
-         for(int i = 1; i < nTreasures; i++)
+         for(int i = 0; i < nTreasures; i++)
             hiddenTreasures.add(dealer.nextTreasure());
         }
     }
@@ -161,7 +166,7 @@ public class Player {
     public void discardVisibleTreasure(Treasure t){
         visibleTreasures.remove(t); 
         if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty())){
-            pendingBadConsequence.substractVisibleTreasures(t);
+            pendingBadConsequence.substractVisibleTreasure(t);
         }
         dieIfNoTreasures();        
     }
@@ -171,7 +176,7 @@ public class Player {
     public void discardHiddenTreasure(Treasure t){
         hiddenTreasures.remove(t); 
         if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty())){
-            pendingBadConsequence.substractHiddenTreasures(t);
+            pendingBadConsequence.substractHiddenTreasure(t);
         }
         dieIfNoTreasures();      
     }
@@ -218,11 +223,8 @@ public class Player {
     private Treasure giveMeATreasure(){
         int i;
         i = (int) (Math.random() * (hiddenTreasures.size()));
-        Treasure tr;        
-        tr = new Treasure(hiddenTreasures.get(i).getName(),hiddenTreasures.get(i).getBonus(),hiddenTreasures.get(i).getType());
-        hiddenTreasures.remove(hiddenTreasures.get(i));  
         
-       return tr;
+       return hiddenTreasures.remove(i); /*remove(índice) devuelve el objeto eliminadao*/
     }
 
     

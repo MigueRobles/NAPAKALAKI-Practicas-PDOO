@@ -196,7 +196,6 @@ module NapakalakiGame
     end 
     
     def nextTreasure
-      initTreasureCardDeck
 
         if(@unusedTreasures == Array.new )
             

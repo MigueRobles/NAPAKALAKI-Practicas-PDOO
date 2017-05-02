@@ -47,10 +47,6 @@ module NapakalakiGame
       "#{@name} \nNivel del jugador: #{@level}\nNivel de combate: #{c_level}"
     end
     
-    def checkPending
-      puts @pendingBadConsequence.to_s
-    end
-      
     def bringToLife
       @dead = false
     end
@@ -236,7 +232,7 @@ module NapakalakiGame
       end
       if (myLevel > monsterLevel)
         applyPrize(m)
-        if (@level >= 10)
+        if (@level >= @@MAXLEVEL)
           combatResult = CombatResult::WINGAME
         else
           combatResult = CombatResult::WIN

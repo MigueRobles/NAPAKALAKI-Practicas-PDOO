@@ -85,18 +85,6 @@ public class Player {
        
        BadConsequence b = monster.getBadConsequence();
        
-       
-       /*
-       ArrayList<Treasure> v_treasures = new ArrayList();
-       ArrayList<Treasure> h_treasures = new ArrayList();
-       
-       for(Treasure t:this.visibleTreasures) // Esto se hace en adjusToFit (?)
-           v_treasures.add(t.getType());
-       
-       for(Treasure t:this.hiddenTreasures)
-           h_treasures.add(t.getType());
-       */
-       
        BadConsequence pendingBad = b.adjustToFitTreasureLists(this.visibleTreasures, this.hiddenTreasures);
        setPendingBadconsequence(pendingBad);
       

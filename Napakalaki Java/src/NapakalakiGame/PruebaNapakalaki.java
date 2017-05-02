@@ -9,6 +9,7 @@ import java.util.Arrays;
  */
 public class PruebaNapakalaki {
     
+    
    // static ArrayList<Monster> monstruos = new ArrayList();
    /*
     static ArrayList<Monster> lvlTenUp(){
@@ -205,6 +206,9 @@ public class PruebaNapakalaki {
     
     CardDealer c = new CardDealer();
     //Probados todos lo metodos que eran privados
+    
+    String ciao = "Ciao";
+    System.out.println(ciao);
       
   }
 }

@@ -129,7 +129,8 @@ public class Napakalaki {
         }
         
         if(!stateOK){
-            System.out.println("Mal rollo pendiente:\n");
+            System.out.println("\nMal rollo pendiente:");
+            this.currentPlayer.checkPending();
             
         }
   

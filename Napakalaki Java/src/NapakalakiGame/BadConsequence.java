@@ -109,7 +109,7 @@ public class BadConsequence {
     */
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h){
         
-        if(this.isEmpty()){
+        if(!this.isEmpty()){
             this.nVisibleTreasures = Math.min(this.nVisibleTreasures, v.size());
             this.nHiddenTreasures = Math.min(this.nHiddenTreasures, h.size());
             
@@ -144,7 +144,7 @@ public class BadConsequence {
                 }
             }
             
-            for(TreasureKind t_kind:visibleTypes) {
+            for(TreasureKind t_kind:hiddenTypes) {
                 if(cpySpecificHiddenTreasures.contains(t_kind)) {
                     specificHiddenTreasures.add(t_kind);
                     cpySpecificHiddenTreasures.remove(t_kind);

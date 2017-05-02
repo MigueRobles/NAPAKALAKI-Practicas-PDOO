@@ -70,9 +70,12 @@ module NapakalakiGame
     public
 
     def developCombat
+      
       combatResult = @currentPlayer.combat(@currentMonster)
+      if(combatResult == CombatResult::LOSEANDCONVERT)
       @dealer.giveMonsterBack(@currentMonster)
       return combatResult
+      end
     end
 
     def discardVisibleTreasures(treasures)
@@ -129,5 +132,5 @@ module NapakalakiGame
     end
     
     private :initPlayers, :nextPlayer, :nextTurnAllowed, :setEnemies
+    end
   end
-end

@@ -224,7 +224,7 @@ module NapakalakiGame
 
    def combat(m)
       myLevel = getCombatLevel
-      monsterLevel = m.getCombatLevel
+      monsterLevel = getOponentLevel m
       if (@canISteal == false)
         dice = Dice.instance
         number = dice.nextNumber
@@ -240,11 +240,15 @@ module NapakalakiGame
         else
           combatResult = CombatResult::WIN
         end
-      else
+      else 
         applyBadConsequence(m)
-        combatResult = CombatResult::LOSE
+        if(shouldConvert)
+          combatResult = CombatResult::LOSEANDCONVERT
+        else
+          combatResult = CombatResult::LOSE
+        end     
       end
-      return combatResult
+      combatResult
     end
     
    def makeTreasureVisible(t)

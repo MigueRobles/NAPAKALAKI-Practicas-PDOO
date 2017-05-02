@@ -12,14 +12,14 @@ public class Napakalaki {
     
     private static Napakalaki instance = null;
     private Monster currentMonster;
-    private CardDealer dealer;
+    private CardDealer dealer = new CardDealer();
     private Player currentPlayer;
     private ArrayList<Player> players;
     private int turno;
     
     private Napakalaki() {
         currentMonster= null;
-        dealer=new CardDealer();
+        dealer = CardDealer.getInstance();
         currentPlayer=null;
         players=new ArrayList();
     }
@@ -133,9 +133,9 @@ public class Napakalaki {
     }
     
     public void initGame(ArrayList<String> players) {
+        dealer.initCards();
         initPlayers(players);
         setEnemies();
-        dealer.initCards();
         nextTurn();   
     }
 

@@ -28,7 +28,7 @@ public class Player {
         dead = true;
         canISteal = true;
         enemy = null;
-        pendingBadConsequence = new BadConsequence(new String(),true);
+        pendingBadConsequence = null;
     }
     
     public String getName(){ return name; }

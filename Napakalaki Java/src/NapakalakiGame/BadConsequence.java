@@ -107,7 +107,29 @@ public class BadConsequence {
         se pretenden eliminar están entre los tesoros del jugador para añadirlos al mal rollo final. Al finalizar se devuelve el mal rollo resultante.
     
     */
-    public BadConsequence adjustToFitTreasureLists(ArrayList<TreasureKind> v,ArrayList<TreasureKind> h){
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h){
+        
+        if(this.isEmpty()){
+            this.nVisibleTreasures = Math.min(this.nVisibleTreasures, v.size());
+            this.nHiddenTreasures = Math.min(this.nHiddenTreasures, h.size());
+            
+            ArrayList<TreasureKind> visibleTypes = new ArrayList();
+            for(Treasure t:v){
+                visibleTypes.add(t.getType());
+            }
+            
+            ArrayList<TreasureKind> hiddenTypes = new ArrayList();
+            for(Treasure t:h){
+                visibleTypes.add(t.getType());
+            }
+            
+            this.specificVisibleTreasures = new ArrayList();
+            ArrayList<Treasure> cpySpecificVisibleTreasures = new ArrayList();
+            
+            
+        }
+        // ↑↑ Intento de nueva implementación ↑↑
+        
         if(this.nHiddenTreasures > 0 || this.nVisibleTreasures > 0) {
             int n_visibles, n_ocultos;
 

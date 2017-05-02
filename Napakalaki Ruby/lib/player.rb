@@ -11,11 +11,12 @@ module NapakalakiGame
 
   class Player
     @@MAXLEVEL = 10
+    @@INITIALLEVEL = 1
 
     def initialize(name)
 
       @name = name
-      @level = 1
+      @level = @@INITIALLEVEL
       @dead = true
       @canISteal = true
       @hiddenTreasures = Array.new

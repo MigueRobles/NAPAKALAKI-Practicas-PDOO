@@ -15,7 +15,6 @@ public class Napakalaki {
     private CardDealer dealer = new CardDealer();
     private Player currentPlayer;
     private ArrayList<Player> players;
-    private int turno;
     
     private Napakalaki() {
         currentMonster= null;
@@ -127,6 +126,11 @@ public class Napakalaki {
 
            if(currentPlayer.isDead())
             currentPlayer.initTreasures();
+        }
+        
+        if(!stateOK){
+            System.out.println("Mal rollo pendiente:\n");
+            
         }
   
        return stateOK;

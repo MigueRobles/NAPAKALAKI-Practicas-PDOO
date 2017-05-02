@@ -38,6 +38,10 @@ public class Player {
         return s;
     }
     
+    public void checkPending() {
+        System.out.println(this.pendingBadConsequence.toString());
+    }
+    
     private void bringToLife(){ dead = false;  }
     
     private int getCombatLevel(){
@@ -81,17 +85,19 @@ public class Player {
        
        BadConsequence b = monster.getBadConsequence();
        
-       ArrayList<TreasureKind> v_treasures = new ArrayList();
-       ArrayList<TreasureKind> h_treasures = new ArrayList();
        
-       for(Treasure t:this.visibleTreasures)
+       /*
+       ArrayList<Treasure> v_treasures = new ArrayList();
+       ArrayList<Treasure> h_treasures = new ArrayList();
+       
+       for(Treasure t:this.visibleTreasures) // Esto se hace en adjusToFit (?)
            v_treasures.add(t.getType());
        
        for(Treasure t:this.hiddenTreasures)
            h_treasures.add(t.getType());
+       */
        
-       
-       BadConsequence pendingBad = b.adjustToFitTreasureLists(v_treasures, h_treasures);
+       BadConsequence pendingBad = b.adjustToFitTreasureLists(this.visibleTreasures, this.hiddenTreasures);
        setPendingBadconsequence(pendingBad);
       
     }

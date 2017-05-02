@@ -124,49 +124,41 @@ public class BadConsequence {
             }
             
             this.specificVisibleTreasures = new ArrayList();
-            ArrayList<Treasure> cpySpecificVisibleTreasures = new ArrayList();
+            ArrayList<TreasureKind> cpySpecificVisibleTreasures = new ArrayList();
             
-            
-        }
-        // ↑↑ Intento de nueva implementación ↑↑
-        
-        if(this.nHiddenTreasures > 0 || this.nVisibleTreasures > 0) {
-            int n_visibles, n_ocultos;
-
-            if(this.nHiddenTreasures > h.size())
-                n_ocultos = h.size();
-            else
-                n_ocultos = this.nHiddenTreasures;
-
-            if(this.nVisibleTreasures > v.size())
-                n_visibles = v.size();
-            else
-                n_visibles = this.nVisibleTreasures;
-
-            BadConsequence final_bc = new BadConsequence(this.text, this.levels, n_visibles, n_ocultos);
-            
-            return final_bc;    
-        }
-        else {
-            ArrayList<TreasureKind> v_visible = new ArrayList();
-            ArrayList<TreasureKind> v_oculto = new ArrayList();
-            
-            for(TreasureKind visible:this.specificVisibleTreasures){
-                if(v.contains(visible))
-                    v_visible.add(visible);
+            for(TreasureKind t:this.specificVisibleTreasures) {
+                cpySpecificVisibleTreasures.add(t);
             }
             
-            for(TreasureKind oculto:this.specificHiddenTreasures){
-                if(h.contains(oculto))
-                    v_oculto.add(oculto);
+            this.specificHiddenTreasures = new ArrayList();
+            ArrayList<TreasureKind> cpySpecificHiddenTreasures = new ArrayList();
+            
+            for(TreasureKind t:this.specificHiddenTreasures){
+                cpySpecificHiddenTreasures.add(t);
             }
             
-            BadConsequence final_bc = new BadConsequence(this.text, this.levels, v_visible, v_oculto);
-        
-            return final_bc;    
+            for(TreasureKind t_kind:visibleTypes) {
+                if(cpySpecificVisibleTreasures.contains(t_kind)) {
+                    specificVisibleTreasures.add(t_kind);
+                    cpySpecificVisibleTreasures.remove(t_kind);
+                }
+            }
+            
+            for(TreasureKind t_kind:visibleTypes) {
+                if(cpySpecificHiddenTreasures.contains(t_kind)) {
+                    specificHiddenTreasures.add(t_kind);
+                    cpySpecificHiddenTreasures.remove(t_kind);
+                }
+            }
+            
+            if(specificHiddenTreasures.isEmpty()) {
+                return new BadConsequence(this.text, this.levels, nVisibleTreasures, nHiddenTreasures);
+            }
+            else
+                return new BadConsequence(this.text, this.levels, specificVisibleTreasures, specificHiddenTreasures);
+            
         }
-        
-        
+        return this;
     }
 
 }

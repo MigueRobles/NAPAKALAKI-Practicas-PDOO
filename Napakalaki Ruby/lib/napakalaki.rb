@@ -73,7 +73,22 @@ module NapakalakiGame
       
       combatResult = @currentPlayer.combat(@currentMonster)
       if(combatResult == CombatResult::LOSEANDCONVERT)
-      @dealer.giveMonsterBack(@currentMonster)
+        @dealer.giveMonsterBack(@currentMonster)
+        cultist_card = @dealer.nextCultist
+        cultist_player = CultistPlayer.new(cultist_card)
+      
+        # Cambiamos el jugador actual en el array de jugadores por su versión cultista
+        @players[@players.index(@currentPlayer)] = cultist_player
+      
+      
+        # Cambiamos los correspondientes enemigos
+        @players.each do |p| 
+          if(p.getEnemy == @currentPlayer)
+            p.setEnemy(cultist_player)
+          end
+        end
+        
+      @currentPlayer = cultist_player
       return combatResult
       end
     end

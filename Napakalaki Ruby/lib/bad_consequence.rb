@@ -16,27 +16,14 @@ module NapakalakiGame
     attr_reader :specificHiddenTreasures
 
 
-    def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
+    def initialize(aText, someLevels)
 
       @text = aText
       @levels = someLevels
-      @nVisibleTreasures = someVisibleTreasures
-      @nHiddenTreasures = someHiddenTreasures
-      @death = death
-      @specificVisibleTreasures = someSpecificVisibleTreasures
-      @specificHiddenTreasures = someSpecificHiddenTreasures
     end 
 
 
-  def self.newLevelNumberOfTreasures (aText, someLevels, someVisibleTreasures, someHiddenTreasures)
-      new(aText, someLevels, someVisibleTreasures, someHiddenTreasures, Array.new(), Array.new(), false)
-    end
-
-    def self.newLevelSpecificTreasures (aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
-      new(aText, someLevels, 0, 0 , someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
-    end
-
-    def self.newDeath (aText, death)
+     def self.newDeath (aText, death)
       new(aText, Player.MAXLEVEL, @@MAXTREASURES, @@MAXTREASURES, Array.new(), Array.new(), death)
     end
 

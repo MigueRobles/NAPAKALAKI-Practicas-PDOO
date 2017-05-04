@@ -1,9 +1,28 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+# By: Miguel Robles Urquiza
+#     Jesús Sánchez de Lechina Tejada
+
+  require_relative "monster"
+  require_relative "prize"
+  require_relative "treasure_kind"
 
 class SpecificBadConsequence < BadConsequence
-  def initialize
+  public_class_method :new
+
+  def initialize(aText, levels,someSpecificVisibleTreasures, someSpecificHiddenTreasures)
+    super(aText, levels)
+    @specificVisibleTreasures = someSpecificVisibleTreasures
+    @specificHiddenTreasures = someSpecificHiddenTreasures
     
   end
+  
+  def isEmpty
+    if @specificVisibleTreasures == Array.new and @specificHiddenTreasures == Array.new
+      true
+    else
+      false
+    end
+  end
+  
+  def
+    
 end

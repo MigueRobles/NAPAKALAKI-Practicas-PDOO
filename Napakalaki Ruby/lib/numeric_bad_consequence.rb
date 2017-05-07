@@ -19,7 +19,7 @@ module NapakalakiGame
     end
     
     def to_s
-      mensaje = "#{super}Pierdes: #{@nVisbleTreasures} tesoros visibles y #{@nHiddenTreasures} tesoros ocultos"
+      mensaje = "#{super}Pierdes: #{@nVisibleTreasures} tesoros visibles y #{@nHiddenTreasures} tesoros ocultos"
     end
     
     def isEmpty
@@ -47,7 +47,7 @@ module NapakalakiGame
         nVisibleTreasures = [@nVisibleTreasures, v.size].min
         nHiddenTreasures = [@nHiddenTreasures, h.size].min
         
-        n = NumericBadConsequence.new(@aText,@someLevels, nVisibleTreasures, nHiddenTreasures)
+        NumericBadConsequence.new(@aText,@someLevels, nVisibleTreasures, nHiddenTreasures)
       
       else
         self

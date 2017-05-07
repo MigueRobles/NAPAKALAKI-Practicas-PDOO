@@ -150,7 +150,7 @@ module NapakalakiGame
 
       
       prize = Prize.new(2, 1)
-      bc = SpecificBadConsequence.new("Pierdes tus tesoros visibles. Jajaja.", 0, 5, 0)
+      bc = NumericBadConsequence.new("Pierdes tus tesoros visibles. Jajaja.", 0, 5, 0)
       @unusedMonsters << Monster.new("Testigos oculares", 6, bc, prize,2)
 
       prize = Prize.new(2, 5)

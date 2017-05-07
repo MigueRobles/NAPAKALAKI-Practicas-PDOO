@@ -62,7 +62,7 @@ module NapakalakiGame
     end
     
     def shouldConvert
-      d = Dice.Instance
+      d = Dice.instance
       d.nextNumber
       true if(d == 6)
       false
@@ -260,7 +260,7 @@ module NapakalakiGame
       @visibleTreasures.delete(t)
       if (@pendingBadConsequence != nil && @pendingBadConsequence.isEmpty() == false)
         @pendingBadConsequence.substractVisibleTreasure t
-        if @pendingBadConsequence.nVisibleTreasures == 0 && @pendingBadConsequence.nHiddenTreasures == 0
+        if @pendingBadConsequence.getNVisibleTreasures == 0 && @pendingBadConsequence.getNHiddenTreasures == 0
           @pendingBadConsequence = nil
         end
       end

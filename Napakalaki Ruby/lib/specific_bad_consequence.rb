@@ -50,7 +50,7 @@
 
 
 
-    def adjustToFitTreasureList(v,h)
+    def adjustToFitTreasureLists(v,h)
 
       if !isEmpty
         visibleTypes = v.collect { |t| t.getType }

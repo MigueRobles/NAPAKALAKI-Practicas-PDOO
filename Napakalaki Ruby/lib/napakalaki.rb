@@ -89,8 +89,9 @@ module NapakalakiGame
         end
         
       @currentPlayer = cultist_player
-      return combatResult
+      
       end
+      return combatResult
     end
 
     def discardVisibleTreasures(treasures)
@@ -137,7 +138,7 @@ module NapakalakiGame
             @currentPlayer.initTreasures
         end
       else
-        @currentPlayer.checkPending
+        puts "No se puede pasar de turno. Existe mal rollo pendiente\n"
       end
       return stateOK
     end

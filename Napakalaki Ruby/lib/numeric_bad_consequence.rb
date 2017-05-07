@@ -34,15 +34,15 @@ module NapakalakiGame
       @nHiddenTreasures
     end
     
-    def substractHiddenTreasure
+    def substractHiddenTreasure(t)
       @nHiddenTreasures = [0,@nHiddenTreasures - 1].max
     end
     
-    def substractVisibleTreasure
+    def substractVisibleTreasure(t)
       @nVisibleTreasures = [0,@nVisibleTreasures - 1].max
     end
     
-    def adjustToFitTreasureList(v,h)
+    def adjustToFitTreasureLists(v,h)
       if !isEmpty
         nVisibleTreasures = [@nVisibleTreasures, v.size].min
         nHiddenTreasures = [@nHiddenTreasures, h.size].min

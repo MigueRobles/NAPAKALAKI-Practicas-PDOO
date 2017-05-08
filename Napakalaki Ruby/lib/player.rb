@@ -62,9 +62,8 @@ module NapakalakiGame
     end
     
     def shouldConvert
-      d = Dice.instance
-      d.nextNumber
-      return true if(d == 6)
+     
+      return true if(Dice.instance.nextNumber == 6)
       return false
     end
     

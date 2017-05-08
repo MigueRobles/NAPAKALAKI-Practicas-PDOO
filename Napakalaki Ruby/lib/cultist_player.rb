@@ -1,26 +1,31 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
+
+require_relative "player"
+
 module NapakalakiGame
 
   class CultistPlayer < Player
     
-    @totalCultistPlayers = 0
+    @@totalCultistPlayers = 0
     
     def initialize(p,c)
       @name = p.getName
       @level = p.getLevels
       @dead = p.isDead
-      @canISteal = p.CanI
-      @hiddenTreasures = Array.new p.getHT
-      @visibleTreasures = Array.new p.getVT
+      @canISteal = p.canISteal
+      @hiddenTreasures = Array.new p.getHiddenTreasures
+      @visibleTreasures = Array.new p.getVisibleTreasures
       @pendingBadConsequence = p.getPendingBadConsequence
       @enemy = p.getEnemy
       @myCultistCard = c
+      @@totalCultistPlayers += 1
+
 
     end
-    
+    @Override
     def getCombatLevel
-      super.getCombatLevel*1.7 + @myCultistCard.getGainedLevels + @totalCultistPlayers      
+      (super * 1.7).truncate + @@totalCultistPlayers * @myCultistCard.getGainedLevels   
     end
     
     def getOponentLevel(m)

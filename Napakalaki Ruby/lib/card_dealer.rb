@@ -3,6 +3,7 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
   require "singleton"
+  require_relative "cultist"
   require_relative "monster"
   require_relative "prize"
   require_relative "bad_consequence"
@@ -233,7 +234,7 @@ module NapakalakiGame
     end
     
     def nextCultist
-      if(@unusedCulstist == Array.new)
+      if(@unusedCultist == Array.new)
         aux_t = @usedCultist
         @usedCultist = @unusedCultist
         @unusedCultist = aux
@@ -249,8 +250,10 @@ module NapakalakiGame
     def initCards
       initMonsterCardDeck
       initTreasureCardDeck
+      initCultistCardDeck
       shuffleTreasures
       shuffleMonsters
+      shuffleCultist
     end
 
     private :initTreasureCardDeck, :initMonsterCardDeck, :shuffleTreasures, :shuffleMonsters

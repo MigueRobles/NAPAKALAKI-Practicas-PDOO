@@ -1,6 +1,7 @@
 # By: Miguel Robles Urquiza
 #     Jesús Sánchez de Lechina Tejada
   require_relative "prize"
+  require_relative "cultist_player"
   require_relative "player"
   require_relative "card_dealer"
   require_relative "bad_consequence"
@@ -75,7 +76,7 @@ module NapakalakiGame
       if(combatResult == CombatResult::LOSEANDCONVERT)
         @dealer.giveMonsterBack(@currentMonster)
         cultist_card = @dealer.nextCultist
-        cultist_player = CultistPlayer.new(cultist_card)
+        cultist_player = CultistPlayer.new(@currentPlayer,cultist_card)
       
         # Cambiamos el jugador actual en el array de jugadores por su versión cultista
         @players[@players.index(@currentPlayer)] = cultist_player

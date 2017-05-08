@@ -64,8 +64,8 @@ module NapakalakiGame
     def shouldConvert
       d = Dice.instance
       d.nextNumber
-      true if(d == 6)
-      false
+      return true if(d == 6)
+      return false
     end
     
 
@@ -129,11 +129,12 @@ module NapakalakiGame
     
     def isDead
       @dead
-    end 
-    
-    def getCanI
+    end     
+   
+    def canISteal
       @canISteal
-    end    
+    end
+      
     
     def getName
       @name
@@ -176,10 +177,6 @@ module NapakalakiGame
     end
     
 
-    def canISteal
-      @canISteal
-    end
-    
     def canYouGiveMeATreasure
       return true if (@hiddenTreasures.size() > 0)
       return false
@@ -329,7 +326,7 @@ module NapakalakiGame
     end
     
   private :bringToLife, :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence, :canMakeTreasureVisible, :howManyVisibleTreasures, :dieIfNoTreasures, :haveStolen
-  protected :canYouGiveMeATreasure, :giveMeATreasure, :getCombatLevel, :getCanI, :getName,:getLevels, :getEnemy, :getPendingBadConsequence
+  protected :canYouGiveMeATreasure, :giveMeATreasure, :getCombatLevel, :getName,:getLevels,  :getPendingBadConsequence
   end
 
 end

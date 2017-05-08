@@ -57,9 +57,9 @@
         hiddenTypes = h.collect { |t| t.getType}
 
         specificVisibleTreasures = Array.new
-        cpySpecificVisibleTreasures = @specificVisibleTreasures.clone
+        cpySpecificVisibleTreasures = @specificVisibleTreasures.dup
         specificHiddenTreasures = Array.new
-        cpySpecificHiddenTreasures = @specificHiddenTreasures.clone
+        cpySpecificHiddenTreasures = @specificHiddenTreasures.dup
 
         visibleTypes.each do |t|
           if cpySpecificVisibleTreasures.include?(t)

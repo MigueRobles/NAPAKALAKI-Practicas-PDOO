@@ -76,6 +76,7 @@ module NapakalakiGame
       if(combatResult == CombatResult::LOSEANDCONVERT)
         @dealer.giveMonsterBack(@currentMonster)
         cultist_card = @dealer.nextCultist
+        puts "Se ha obtenido la carta: #{cultist_card.to_s}\n"
         cultist_player = CultistPlayer.new(@currentPlayer,cultist_card)
       
         # Cambiamos el jugador actual en el array de jugadores por su versión cultista

@@ -10,6 +10,10 @@ module NapakalakiGame
       @gainedLevels = gainedLevels
 
     end
+    
+    def to_s
+      return "#{@name} (CombatLevel +#{@gainedLevels}) "
+    end
 
     def getGainedLevels
       @gainedLevels

@@ -45,7 +45,7 @@ module NapakalakiGame
     end
     
     def to_s
-      "Name: #{@name} \nCombatLevel: #{@combatLevel} \nPrize: #{@prize} \nBadConsequence: #{@badConsequence} \n\n"
+      "Name: #{@name} \nCombatLevel: #{@combatLevel} (#{getCombatLevelAgainstCultistPlayer} si eres sectario) \nPrize: #{@prize} \nBadConsequence: #{@badConsequence} \n\n"
     end
 
   end

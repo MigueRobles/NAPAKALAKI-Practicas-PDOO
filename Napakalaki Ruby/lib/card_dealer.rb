@@ -159,7 +159,7 @@ module NapakalakiGame
       @unusedMonsters << Monster.new("El gran cthulu", 20, bc, prize,4)
 
       prize = Prize.new(2, 1)
-      bc = SpecificBadConsequence.new("El gobierno te recorta 2 niveles.", 0, 0, 0)
+      bc = NumericBadConsequence.new("El gobierno te recorta 2 niveles.", 0, 0, 0)
       @unusedMonsters << Monster.new("Serpiente Político", 8, bc, prize,-2)
       
       prize = Prize.new(2, 1)

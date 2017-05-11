@@ -19,7 +19,7 @@ module NapakalakiGame
     end
     
     def to_s
-      mensaje = "#{super}Pierdes: #{@nVisibleTreasures} tesoros visibles y #{@nHiddenTreasures} tesoros ocultos"
+      "#{super}Pierdes: #{@nVisibleTreasures} tesoros visibles y #{@nHiddenTreasures} tesoros ocultos"
     end
     
     def isEmpty

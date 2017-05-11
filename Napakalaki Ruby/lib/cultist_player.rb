@@ -10,7 +10,7 @@ module NapakalakiGame
     @@totalCultistPlayers = 0
     
     def initialize(p,c)
-      @name = p.getName
+      super(p.getName)
       @level = p.getLevels
       @dead = p.isDead
       @canISteal = p.canISteal
@@ -23,9 +23,13 @@ module NapakalakiGame
 
 
     end
-    @Override
+    
     def getCombatLevel
       (super * 1.7).truncate + @@totalCultistPlayers * @myCultistCard.getGainedLevels   
+    end
+    
+    def to_s
+      "#{super} (sectario)"
     end
     
     def getOponentLevel(m)

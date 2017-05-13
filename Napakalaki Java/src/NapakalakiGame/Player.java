@@ -44,7 +44,7 @@ public class Player {
     
     private void bringToLife(){ dead = false;  }
     
-    private int getCombatLevel(){
+    protected int getCombatLevel(){
         int total = this.level;
         for(int i = 0; i < this.visibleTreasures.size(); i++){
             total += this.visibleTreasures.get(i).getBonus();

@@ -12,15 +12,15 @@ public class Player {
 
 
     private String name = null;
-    private int level;
-    private boolean dead = true;
-    private boolean canISteal = true;
-    private Player enemy;
-    private BadConsequence pendingBadConsequence;
+    protected int level;
+    protected boolean dead = true;
+    protected boolean canISteal = true;
+    protected Player enemy;
+    protected BadConsequence pendingBadConsequence;
 
     
-    private ArrayList<Treasure> hiddenTreasures = new ArrayList();
-    private ArrayList<Treasure> visibleTreasures = new ArrayList();
+    protected ArrayList<Treasure> hiddenTreasures = new ArrayList();
+    protected ArrayList<Treasure> visibleTreasures = new ArrayList();
     
     public Player(String name){
         this.name = name;
@@ -66,6 +66,8 @@ public class Player {
             level -= l;
             }
     private void setPendingBadconsequence(BadConsequence b){ pendingBadConsequence = b;} 
+    
+    public BadConsequence getPendingBadConsequence() {return this.pendingBadConsequence;}
     
     private void applyPrize(Monster monster){ 
         incrementLevels(monster.getLevelsGained());
@@ -233,6 +235,8 @@ public class Player {
     
     
     public void setEnemy(Player enemy){ this.enemy = enemy; }
+    
+    public Player getEnemy(){return this.enemy;}
     
 
     private Treasure giveMeATreasure(){

@@ -15,6 +15,9 @@ public class CardDealer {
     private ArrayList<Monster> unusedMonster = new ArrayList();
     private ArrayList<Treasure> usedTreasures = new ArrayList();
     private ArrayList<Treasure> unusedTreasures = new ArrayList();
+    private ArrayList<Cultist> usedCultist = new ArrayList();
+    private ArrayList<Cultist> unusedCultist = new ArrayList();
+    
     
     
     private void initTreasureCardDeck() {
@@ -133,9 +136,21 @@ public class CardDealer {
               
     }
     
+    private void initCultistCardDeck() {
+      Cultist cultist = new Cultist("Sectario: +1 por cada sectario en juego",1);
+      unusedCultist.add(cultist);
+      unusedCultist.add(cultist);
+      unusedCultist.add(cultist);
+      unusedCultist.add(cultist);
+      
+      cultist = new Cultist("Sectario: +2 por cada sectario en juego",2);
+      unusedCultist.add(cultist);
+      unusedCultist.add(cultist);
+    }
+    
     private void shuffleTreasures() { Collections.shuffle(unusedTreasures); }    
     private void shuffleMonster() { Collections.shuffle(unusedMonster); }
-    
+    private void shuffleCultist() { Collections.shuffle(unusedCultist); }
     
     public static CardDealer getInstance() {
         if (instance == null)
@@ -176,14 +191,25 @@ public class CardDealer {
         
     }
     
+    public Cultist nextCultist() {
+        if(unusedCultist.isEmpty()){
+            ArrayList<Cultist> aux_c = usedCultist;
+            usedCultist = unusedCultist;
+            unusedCultist = aux_c;
+            shuffleCultist();
+        }
+        Cultist aux = unusedCultist.get(0);
+        usedCultist.add(aux);
+        return aux;
+    }
+    
     public void giveTreasureBack (Treasure t) { usedTreasures.add(t); }    
     public void giveMonsterBack (Monster m) { usedMonster.add(m); }
     
     public void initCards() {
         initMonsterCardDeck();
         initTreasureCardDeck();
-        shuffleMonster();
-        shuffleTreasures();
+        initCultistCardDeck();
     }
     
     

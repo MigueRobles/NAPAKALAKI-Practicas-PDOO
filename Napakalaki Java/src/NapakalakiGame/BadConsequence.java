@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
-public class BadConsequence {
+public abstract class BadConsequence {
     static final int MAXTREASURES = 10;
             
     protected String text;
@@ -23,9 +23,22 @@ public class BadConsequence {
     }  
     
 
+    @Override
     public String toString(){
         return text + "\nPierdes " + levels + " niveles.\n";
     }
+    
+    abstract boolean isEmpty();
+    
+    abstract void substractVisibleTreasure(Treasure t);
+    
+    abstract void substractHiddenTreasure(Treasure t);
+    
+    abstract BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h);
+    
+    abstract int getNVisibleTreasures();
+    
+    abstract int getNHiddenTreasures();
     
         /*
         if(death){

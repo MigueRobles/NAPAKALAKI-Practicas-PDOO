@@ -17,19 +17,33 @@ public class SpecificBadConsequence extends BadConsequence{
     }   
 
     @Override
-    public String toString() {
+    public String toString(){
       return super.toString() + "\nSpecificVisibleTreasures: " + sVisibleTreasures + "\nSpecificHiddenTreasures: " + sHiddenTreasures;
       
     }
 
+    @Override
     boolean isEmpty(){
         return sVisibleTreasures == new ArrayList() && sHiddenTreasures == new ArrayList();
     }
     
+    @Override
     void substractVisibleTreasure(Treasure t){
         if (sVisibleTreasures.isEmpty())
             sVisibleTreasures.remove(t.getType());
     }
+    
+    @Override
+    int getNVisibleTreasures(){
+        return this.sVisibleTreasures.size();
+    }
+    
+    @Override
+    int getNHiddenTreasures(){
+        return this.sHiddenTreasures.size();
+    }
+    
+    @Override
     void substractHiddenTreasure(Treasure t){
        if (sHiddenTreasures.isEmpty())
            sHiddenTreasures.remove(t.getType());
@@ -41,6 +55,7 @@ public class SpecificBadConsequence extends BadConsequence{
         return sHiddenTreasures;
     }
     
+    @Override
     SpecificBadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h){
      if(!isEmpty()){
                        

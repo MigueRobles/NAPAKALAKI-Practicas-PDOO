@@ -76,5 +76,13 @@
         SpecificBadConsequence.new @text, @levels, specificVisibleTreasures, specificHiddenTreasures
       end
     end  
+    
+    def getNVisibleTreasures
+      @specificVisibleTreasures.size
+    end
+    
+    def getNHiddenTreasures
+      @specificHiddenTreasures.size
+    end
   end
 end 

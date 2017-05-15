@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
 package NapakalakiGame;
 
-/**
-  * @author Jesús Sánchez de Lechina Tejada
-  * @author Miguel Robles Urquiza  
-  **/
 
 public class CultistPlayer extends Player {
     public static int totalCultistPlayers = 0;
@@ -29,11 +24,11 @@ public class CultistPlayer extends Player {
     
     @Override
     protected int getCombatLevel() {
-        return (int) (Math.round(super.getCombatLevel() * 1.7) + totalCultistPlayers * myCulstistCard.getGainedLevels());
+        return (int) (Math.round(super.getCombatLevel() * 1.7) + totalCultistPlayers * myCultistCard.getGainedLevels());
     }
     
     protected int getOponentLevel(Monster m) {
-        return m.getLevelAgainstCultistPlayer();
+        return m.getCombatLevelAgainstCultistPlayer();
     }
     
     protected boolean shouldConvert() {

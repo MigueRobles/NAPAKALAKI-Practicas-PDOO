@@ -66,7 +66,7 @@ public class CardDealer {
         prize = new Prize(2,1);
         unusedMonster.add(new Monster("Tongue", 19, badConsequence, prize,0));
                    
-        badConsequence = new SpecificBadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos",3,Integer.MAX_VALUE,0);
+        badConsequence = new NumericBadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos",3,Integer.MAX_VALUE,0);
         prize = new Prize(2,1);
         unusedMonster.add(new Monster("Bicéfalo", 21, badConsequence, prize,0));
         
@@ -110,7 +110,7 @@ public class CardDealer {
         prize = new Prize(2,1);
         unusedMonster.add(new Monster("Semillas Cthulhu", 4, badConsequence, prize,0));
                    
-        badConsequence = new SpecificBadConsequence("Pasa algo e intentas escaquear. Pierdes 1 mano visible",0,new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),0);
+        badConsequence = new SpecificBadConsequence("Pasa algo e intentas escaquear. Pierdes 1 mano visible",0,new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),new ArrayList());
         prize = new Prize(2,1);
         unusedMonster.add(new Monster("Dameargo", 1, badConsequence, prize,0));
                    
@@ -152,7 +152,7 @@ public class CardDealer {
         prize = new Prize(2,1);
         unusedMonster.add(new Monster("Serpiente Político", 10, badConsequence, prize,2));
         
-        badConsequence = new SpecificBadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos", 0, new ArrayList(Arrays.asList(TreasureKind.ONEHAND,TreasureKind.ONEHAND,TreasureKind.BOTHANDS)), new ArrayList());
+        badConsequence = new SpecificBadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos", 3, new ArrayList(Arrays.asList(TreasureKind.ONEHAND,TreasureKind.ONEHAND,TreasureKind.BOTHHANDS)), new ArrayList());
         prize = new Prize(2,1);
         unusedMonster.add(new Monster("Bicéfalo", 10, badConsequence, prize,0));
         

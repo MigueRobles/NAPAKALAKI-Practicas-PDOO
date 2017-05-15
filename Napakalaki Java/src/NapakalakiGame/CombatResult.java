@@ -7,5 +7,6 @@ package NapakalakiGame;
 public enum CombatResult {
     WINGAME,
     WIN,
-    LOSE;
+    LOSE,
+    LOSEANDCONVERT;
 }

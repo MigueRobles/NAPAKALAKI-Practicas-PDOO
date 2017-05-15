@@ -203,7 +203,7 @@ public class CardDealer {
             ArrayList<Monster> aux_t = usedMonster;
             usedMonster = unusedMonster;
             unusedMonster = aux_t;      
-            shuffleTreasures();
+            shuffleMonster();
         }
         
         Monster aux = unusedMonster.get(0);

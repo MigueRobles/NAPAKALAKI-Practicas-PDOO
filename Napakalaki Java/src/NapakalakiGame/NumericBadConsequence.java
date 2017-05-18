@@ -26,32 +26,32 @@ public class NumericBadConsequence  extends BadConsequence {
     }
 
     @Override
-    boolean isEmpty(){
+    public boolean isEmpty(){
         return nVisibleTreasures == 0 && nHiddenTreasures == 0;
     }
     
     @Override
-    void substractVisibleTreasure(Treasure t){
+    public void substractVisibleTreasure(Treasure t){
         nVisibleTreasures = max(0,nVisibleTreasures -1);
     }
     
     @Override
-    void substractHiddenTreasure(Treasure t){
+    public void substractHiddenTreasure(Treasure t){
         nHiddenTreasures = max(0,nHiddenTreasures -1);
     }
     
     @Override
-    int getNVisibleTreasures(){
+    public int getNVisibleTreasures(){
         return nVisibleTreasures;
     }
     
     @Override
-    int getNHiddenTreasures(){
+    public int getNHiddenTreasures(){
         return nHiddenTreasures;
     }
     
     @Override
-    NumericBadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h){
+    public NumericBadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h){
         if(!isEmpty()){
             nVisibleTreasures = min(nVisibleTreasures,v.size());
             nHiddenTreasures = min(nHiddenTreasures,h.size());

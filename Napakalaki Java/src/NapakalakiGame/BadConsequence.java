@@ -28,17 +28,17 @@ public abstract class BadConsequence {
         return text + "\nPierdes " + levels + " niveles.\n";
     }
     
-    abstract boolean isEmpty();
+    public abstract boolean isEmpty();
     
-    abstract void substractVisibleTreasure(Treasure t);
+    public abstract void substractVisibleTreasure(Treasure t);
     
-    abstract void substractHiddenTreasure(Treasure t);
+    public abstract void substractHiddenTreasure(Treasure t);
     
-    abstract BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h);
+    public abstract BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h);
     
-    abstract int getNVisibleTreasures();
+    public abstract int getNVisibleTreasures();
     
-    abstract int getNHiddenTreasures();
+    public abstract int getNHiddenTreasures();
     
         /*
         if(death){

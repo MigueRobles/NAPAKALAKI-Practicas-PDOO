@@ -42,28 +42,28 @@ public class SpecificBadConsequence extends BadConsequence{
     
 
     @Override
-    boolean isEmpty(){
+    public boolean isEmpty(){
         return sVisibleTreasures == new ArrayList() && sHiddenTreasures == new ArrayList();
     }
     
     @Override
-    void substractVisibleTreasure(Treasure t){
+    public void substractVisibleTreasure(Treasure t){
         if (sVisibleTreasures.isEmpty())
             sVisibleTreasures.remove(t.getType());
     }
     
     @Override
-    int getNVisibleTreasures(){
+    public int getNVisibleTreasures(){
         return this.sVisibleTreasures.size();
     }
     
     @Override
-    int getNHiddenTreasures(){
+    public int getNHiddenTreasures(){
         return this.sHiddenTreasures.size();
     }
     
     @Override
-    void substractHiddenTreasure(Treasure t){
+    public void substractHiddenTreasure(Treasure t){
        if (sHiddenTreasures.isEmpty())
            sHiddenTreasures.remove(t.getType());
     }
@@ -74,6 +74,7 @@ public class SpecificBadConsequence extends BadConsequence{
         return sHiddenTreasures;
     }
     
+    /*
     @Override
     SpecificBadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h){
      if(!isEmpty()){
@@ -118,4 +119,32 @@ public class SpecificBadConsequence extends BadConsequence{
      else
          return this;
     }
+    */
+    
+    // Probamos implementación alternativa
+    @Override
+     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h) {
+        BadConsequence b;
+        ArrayList<TreasureKind> sV = new ArrayList<TreasureKind>();
+        ArrayList<TreasureKind> sH = new ArrayList<TreasureKind>();
+
+        for (Treasure tv : v) {
+            sV.add(tv.getType());
+        }
+
+        ArrayList<TreasureKind> intersectionV = new ArrayList(sV);
+
+        intersectionV.retainAll(this.sVisibleTreasures);
+
+        for (Treasure th : h) {
+            sH.add(th.getType());
+        }
+
+        ArrayList<TreasureKind> intersectionH = new ArrayList(sH);
+
+        intersectionH.retainAll(this.sHiddenTreasures);
+        b = new SpecificBadConsequence(this.text, this.levels, intersectionV, intersectionH);
+
+        return b;
+}
 }

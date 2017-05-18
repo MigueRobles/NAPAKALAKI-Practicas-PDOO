@@ -173,9 +173,10 @@ public class Player {
         visibleTreasures.remove(t); 
         if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty())){
             pendingBadConsequence.substractVisibleTreasure(t);
-        }
-        if((pendingBadConsequence.getNVisibleTreasures() == 0) && (pendingBadConsequence.getNHiddenTreasures() == 0)){
-            pendingBadConsequence = null;
+        
+            if((pendingBadConsequence.getNVisibleTreasures() == 0) && (pendingBadConsequence.getNHiddenTreasures() == 0)){
+                pendingBadConsequence = null;
+            }
         }
         dieIfNoTreasures();        
     }
@@ -185,10 +186,11 @@ public class Player {
     public void discardHiddenTreasure(Treasure t){
         hiddenTreasures.remove(t); 
         if((pendingBadConsequence!=null) && (!pendingBadConsequence.isEmpty())){
-            pendingBadConsequence.substractVisibleTreasure(t);
-        }
-        if((pendingBadConsequence.getNVisibleTreasures() == 0) && (pendingBadConsequence.getNHiddenTreasures() == 0)){
-            pendingBadConsequence = null;
+            pendingBadConsequence.substractHiddenTreasure(t);
+        
+            if((pendingBadConsequence.getNVisibleTreasures() == 0) && (pendingBadConsequence.getNHiddenTreasures() == 0)){
+                pendingBadConsequence = null;
+            }
         }
         dieIfNoTreasures();      
     }

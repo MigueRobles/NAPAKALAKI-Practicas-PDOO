@@ -18,9 +18,28 @@ public class SpecificBadConsequence extends BadConsequence{
 
     @Override
     public String toString(){
-      return super.toString() + "\nSpecificVisibleTreasures: " + sVisibleTreasures + "\nSpecificHiddenTreasures: " + sHiddenTreasures;
+      return super.toString() + "\nSpecificVisibleTreasures: " + visibleToString() + "\nSpecificHiddenTreasures: " + hiddenToString();
       
     }
+    
+    private String visibleToString(){
+        String visible = "";
+        
+        for(TreasureKind t:sVisibleTreasures){
+            visible += (t + " ");
+        }
+        return visible;
+    }
+    
+    private String hiddenToString(){
+        String hidden = "";
+        
+        for(TreasureKind t:sHiddenTreasures){
+            hidden += (t + " ");
+        }
+        return hidden;
+    }
+    
 
     @Override
     boolean isEmpty(){

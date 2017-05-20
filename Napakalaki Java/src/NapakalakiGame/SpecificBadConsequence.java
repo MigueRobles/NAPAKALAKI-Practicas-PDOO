@@ -124,7 +124,6 @@ public class SpecificBadConsequence extends BadConsequence{
     // Probamos implementación alternativa
     @Override
      public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h) {
-        BadConsequence b;
         ArrayList<TreasureKind> sV = new ArrayList<TreasureKind>();
         ArrayList<TreasureKind> sH = new ArrayList<TreasureKind>();
 
@@ -143,8 +142,8 @@ public class SpecificBadConsequence extends BadConsequence{
         ArrayList<TreasureKind> intersectionH = new ArrayList(sH);
 
         intersectionH.retainAll(this.sHiddenTreasures);
-        b = new SpecificBadConsequence(this.text, this.levels, intersectionV, intersectionH);
+         return (new SpecificBadConsequence(this.text, this.levels, intersectionV, intersectionH));
 
-        return b;
-}
+     
+    }
 }

@@ -53,8 +53,8 @@ public class Dice extends javax.swing.JDialog {
     };
   
   public int nextNumber () {
-    return nextNumber ("Puedes llamar al método",
-            "Pasándole 2 cadenas como parámetros");
+    return nextNumber ("Vamos a tirar el dado",
+            "¿Estas listo para ello?");
     
   }
   public int nextNumber (String message1, String message2) {
@@ -109,7 +109,7 @@ public class Dice extends javax.swing.JDialog {
     });
 
     jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel1.setText("pincha sobre el dado para detenerlo");
+    jLabel1.setText("Pincha sobre el dado para detenerlo");
 
     jL_message2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     jL_message2.setText("jLabel1");

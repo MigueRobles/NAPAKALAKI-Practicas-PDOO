@@ -43,7 +43,7 @@ public class SpecificBadConsequence extends BadConsequence{
 
     @Override
     public boolean isEmpty(){
-        return sVisibleTreasures == new ArrayList() && sHiddenTreasures == new ArrayList();
+        return sVisibleTreasures.size() == 0 && sHiddenTreasures.size() == 0;
     }
     
     @Override

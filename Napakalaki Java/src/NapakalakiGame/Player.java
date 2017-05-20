@@ -155,11 +155,16 @@ public class Player {
         }
         else{
             applyBadConsequence(monster);
+            if (shouldConvert())
+                return CombatResult.LOSEANDCONVERT;
             return CombatResult.LOSE;
         }
         
     }
     
+    private boolean shouldConvert(){
+        return (int) (Math.random()*6) + 1 == 6;
+    }
     
     public void makeTreasureVisible(Treasure t){
         boolean canI = canMakeTreasureVisible(t);

@@ -48,7 +48,7 @@ public class SpecificBadConsequence extends BadConsequence{
     
     @Override
     public void substractVisibleTreasure(Treasure t){
-        if (sVisibleTreasures.isEmpty())
+        if (!sVisibleTreasures.isEmpty())
             sVisibleTreasures.remove(t.getType());
     }
     
@@ -64,7 +64,7 @@ public class SpecificBadConsequence extends BadConsequence{
     
     @Override
     public void substractHiddenTreasure(Treasure t){
-       if (sHiddenTreasures.isEmpty())
+       if (!sHiddenTreasures.isEmpty())
            sHiddenTreasures.remove(t.getType());
     }
     ArrayList<TreasureKind> getSpecificVisibleTreasures(){

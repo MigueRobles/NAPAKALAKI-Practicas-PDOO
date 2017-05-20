@@ -148,7 +148,7 @@ public class CardDealer {
         prize = new Prize(2,5);
         unusedMonster.add(new Monster("El gran cthulu", 20, badConsequence, prize,4));
         
-        badConsequence = new NumericBadConsequence("El gobierno te recorta 2 niveles",0,0,-2);
+        badConsequence = new NumericBadConsequence("El gobierno te recorta 2 niveles",2,0,0);
         prize = new Prize(2,1);
         unusedMonster.add(new Monster("Serpiente Político", 10, badConsequence, prize,2));
         
@@ -230,8 +230,11 @@ public class CardDealer {
     
     public void initCards() {
         initMonsterCardDeck();
+        shuffleMonster();
         initTreasureCardDeck();
+        shuffleTreasures();
         initCultistCardDeck();
+        shuffleCultist();
     }
     
     

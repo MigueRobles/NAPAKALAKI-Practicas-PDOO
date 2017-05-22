@@ -22,7 +22,9 @@ public class Monster {
     public String getName(){ return name; }    
     public int getCombatLevel(){ return combatLevel; }    
     public int getCombatLevelAgainstCultistPlayer(){ return combatLevel + levelChangeAgainstCultistPlayer;}
-    public BadConsequence getBadConsequence(){ return badconsequence; }   
+    public BadConsequence getBadConsequence(){ return badconsequence; }
+    public Prize getPrize(){ return prize; }  
+
     public int getLevelsGained(){ return prize.getLevel(); }    
     public int getTreasuresGained(){ return prize.getTreasures(); }    
 

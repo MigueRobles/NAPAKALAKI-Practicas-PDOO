@@ -67,10 +67,10 @@ public class SpecificBadConsequence extends BadConsequence{
        if (!sHiddenTreasures.isEmpty())
            sHiddenTreasures.remove(t.getType());
     }
-    ArrayList<TreasureKind> getSpecificVisibleTreasures(){
+    public ArrayList<TreasureKind> getSpecificVisibleTreasures(){
         return sVisibleTreasures;
     }
-    ArrayList<TreasureKind> getSpecificHiddenTreasures(){
+    public ArrayList<TreasureKind> getSpecificHiddenTreasures(){
         return sHiddenTreasures;
     }
     

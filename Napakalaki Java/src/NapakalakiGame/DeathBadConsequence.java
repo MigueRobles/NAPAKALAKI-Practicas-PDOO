@@ -18,7 +18,7 @@ public class DeathBadConsequence extends NumericBadConsequence{
       return text+ "Pierdes todos los tesoros y vuelves al nivel uno.\n";
     }
 
-    boolean getDeath(){
+    public boolean getDeath(){
         return death;
     }
      

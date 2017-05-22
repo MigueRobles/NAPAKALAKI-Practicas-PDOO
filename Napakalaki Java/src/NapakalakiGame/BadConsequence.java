@@ -16,6 +16,8 @@ public abstract class BadConsequence {
       
     public int getLevels(){ return levels; }    
     
+    public  String getText(){return text;}    
+
     public BadConsequence(String text, int levels){
         
         this.text = text;
@@ -27,6 +29,7 @@ public abstract class BadConsequence {
     public String toString(){
         return text + "\nPierdes " + levels + " niveles.\n";
     }
+    
     
     public abstract boolean isEmpty();
     

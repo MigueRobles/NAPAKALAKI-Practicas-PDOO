@@ -54,19 +54,20 @@ public class Napakalaki {
         return currentPlayer.validState();
     }   
     
-    private void setEnemies() {
-    ArrayList<Player> pl = players;
-    Collections.shuffle(pl);
-    
-    int j;
-     for (int i = 0; i < players.size();i++) {
-         do {
-             j = (int) (Math.random() * (players.size()));
-         } while(players.get(i).getName() == pl.get(j).getName());
-         
-        players.get(i).setEnemy(pl.get(j));
-      }
+private void setEnemies(){
+        int indice;
+        
+        for(int i=0; i<players.size(); i++){
+            indice = (int) (Math.random()*players.size()-1);
+            
+            if(indice==i)
+                indice = players.size()-1;
+            players.get(i).setEnemy(players.get(indice));
+        }
     }
+
+    
+    
 
     public static Napakalaki getInstance() {
         if (instance == null)

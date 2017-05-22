@@ -23,9 +23,15 @@ public class TreasureView extends javax.swing.JPanel {
     /**
      * Update view's components
      */
-    public void setTreasure(Treasure t){
-        treasureModel = t;
-    }
+     public void setTreasure (Treasure aTreasure) {
+        treasureModel = aTreasure;
+        this.name.setText (treasureModel.getName());
+        this.bonus.setText("Bonus :" + treasureModel.getBonus());
+        this.type.setText("Tipo:" + treasureModel.getType().toString());
+
+        // la siguiente instrucción hace que los cambios en la vista sean efectivos
+        repaint();
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,27 +43,18 @@ public class TreasureView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        name_field = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        treasure_kind_field = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        bonus_field = new javax.swing.JTextField();
+        name = new javax.swing.JLabel();
+        type = new javax.swing.JLabel();
+        bonus = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tesoro"));
         jPanel1.setName(""); // NOI18N
 
-        jLabel1.setText("Nombre:");
+        name.setText("Nombre");
 
-        name_field.setText("jTextField1");
+        type.setText("Tipo");
 
-        jLabel2.setText("Tipo:");
-
-        treasure_kind_field.setText("jTextField2");
-
-        jLabel3.setText("Bonus:");
-
-        bonus_field.setText("jTextField3");
+        bonus.setText("Bonus");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,31 +63,21 @@ public class TreasureView extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(name_field, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(treasure_kind_field)
-                    .addComponent(bonus_field))
-                .addContainerGap())
+                    .addComponent(name)
+                    .addComponent(type)
+                    .addComponent(bonus))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(name_field, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(treasure_kind_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addComponent(name)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(bonus_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addComponent(type)
+                .addGap(18, 18, 18)
+                .addComponent(bonus)
+                .addGap(0, 37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -107,18 +94,15 @@ public class TreasureView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField bonus_field;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel bonus;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField name_field;
-    private javax.swing.JTextField treasure_kind_field;
+    private javax.swing.JLabel name;
+    private javax.swing.JLabel type;
     // End of variables declaration//GEN-END:variables
 }

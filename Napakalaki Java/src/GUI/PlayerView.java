@@ -7,7 +7,7 @@ package GUI;
 
 /**
  *
- * @author migue
+ * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
  */
 public class PlayerView extends javax.swing.JPanel {
 

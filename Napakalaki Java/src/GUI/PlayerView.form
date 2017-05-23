@@ -37,28 +37,26 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panel" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="visibleTreasures" min="-2" pref="38" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="hiddenTreasures" min="-2" pref="39" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="visibleTreasures" min="-2" pref="38" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="pendingBadConsequenceView1" min="-2" pref="323" max="-2" attributes="0"/>
+                      <Component id="hiddenTreasures" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panel" alignment="0" min="-2" pref="292" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="stealButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="makeVisibleButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="discardButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="discardAllButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="pendingBadConsequenceView1" min="-2" pref="316" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="discardButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="makeVisibleButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -72,22 +70,24 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="panel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="hiddenTreasures" pref="67" max="32767" attributes="0"/>
                           <Component id="visibleTreasures" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="pendingBadConsequenceView1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="55" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="stealButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="makeVisibleButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="discardButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="discardAllButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pendingBadConsequenceView1" min="-2" pref="209" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="stealButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="discardAllButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="makeVisibleButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="discardButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,18 +112,18 @@
                       <Component id="level" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="combatLevel" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="canISteal" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="enemy" min="-2" max="-2" attributes="0"/>
                       <Component id="death" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="76" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="cultist" min="-2" max="-2" attributes="0"/>
                       <Component id="nCultist" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -147,7 +147,7 @@
                       <Component id="combatLevel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="enemy" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -236,7 +236,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="discardButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Descatar tesoro"/>
+        <Property name="text" type="java.lang.String" value="Descartar tesoro"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="discardAllButton">

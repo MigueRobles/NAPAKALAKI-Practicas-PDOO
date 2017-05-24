@@ -8,6 +8,7 @@ import NapakalakiGame.Treasure;
 public class TreasureView extends javax.swing.JPanel {
 
     Treasure treasureModel;
+    private boolean selected = false;
     /**
      * Creates new form TreasureView
      */
@@ -16,6 +17,19 @@ public class TreasureView extends javax.swing.JPanel {
     }
     
     /**
+     * Consultor de selected
+     */
+    
+    public boolean isSelected(){
+        return selected;
+    }
+    
+    public Treasure getTreasure(){
+        return treasureModel;
+    }
+    
+    
+    /** 
      * Update view's components
      */
      public void setTreasure (Treasure aTreasure) {
@@ -41,6 +55,12 @@ public class TreasureView extends javax.swing.JPanel {
         name = new javax.swing.JLabel();
         type = new javax.swing.JLabel();
         bonus = new javax.swing.JLabel();
+
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Tesoro"));
         panel.setName(""); // NOI18N
@@ -89,9 +109,22 @@ public class TreasureView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        if(selected == true){
+            selected = false;
+            setOpaque(false);
+        }
+        else {
+            selected = true;
+            setOpaque(true);
+        }
+        
+        repaint();
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

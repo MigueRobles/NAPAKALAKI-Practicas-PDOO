@@ -1,17 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package GUI;
 import NapakalakiGame.Napakalaki;
 
-
 /**
  *
- * @author Jesús Sánchez de Lechina Tejada & Miguel Ángel Robles Urquiza
+ * @author Jesús Sánchez de Lechina y Miguel Robles
  */
 public class NapakalakiView extends javax.swing.JFrame {
     Napakalaki napakalakiModel;
     
     public void setNapakalaki(Napakalaki n){
         napakalakiModel = n;
-    }
+}
     
     /**
      * Creates new form NapakalakiView
@@ -29,63 +33,72 @@ public class NapakalakiView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        textField1 = new java.awt.TextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        meetTheMonster = new javax.swing.JButton();
+        combat = new javax.swing.JButton();
+        nextTurn = new javax.swing.JButton();
+        messagesLabel = new javax.swing.JLabel();
 
-        jLabel3.setText("Player 3");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        textField1.setText("textField1");
-        textField1.addActionListener(new java.awt.event.ActionListener() {
+        meetTheMonster.setText("Conoce al monstruo");
+
+        combat.setText("¡Combate!");
+        combat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField1ActionPerformed(evt);
+                combatActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Player 1");
+        nextTurn.setText("Siguiente turno");
 
-        jLabel2.setText("Player 2");
-
-        jLabel4.setText("jLabel4");
-
-        jLabel5.setText("jLabel5");
-
-        jLabel6.setText("jLabel6");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        messagesLabel.setText("Messages");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(meetTheMonster))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(combat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nextTurn)
+                        .addGap(80, 80, 80)
+                        .addComponent(messagesLabel)))
+                .addContainerGap(470, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 427, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(352, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combat)
+                    .addComponent(nextTurn)
+                    .addComponent(messagesLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(meetTheMonster)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public void showView() {
+    private void combatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combatActionPerformed
+
+     public void showView() {
      this.setVisible(true);
-    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private java.awt.TextField textField1;
+    private javax.swing.JButton combat;
+    private javax.swing.JButton meetTheMonster;
+    private javax.swing.JLabel messagesLabel;
+    private javax.swing.JButton nextTurn;
     // End of variables declaration//GEN-END:variables
 }

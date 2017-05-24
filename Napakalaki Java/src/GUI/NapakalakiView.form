@@ -25,29 +25,32 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                      <Component id="meetTheMonster" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="currentPlayer" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="combat" min="-2" max="-2" attributes="0"/>
+                              <Component id="combatButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="nextTurn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="messagesLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="nextTurnButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="currentPlayer" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="meetTheMonsterButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="currentMonster" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="combatResult" min="-2" max="-2" attributes="0"/>
+                          <Component id="messages" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="currentMonster" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -61,9 +64,9 @@
                       <Component id="currentPlayer" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="combat" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nextTurn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="messagesLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="combatButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nextTurnButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="messages" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -72,39 +75,47 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="meetTheMonster" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="meetTheMonsterButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="combatResult" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="meetTheMonster">
+    <Component class="javax.swing.JButton" name="meetTheMonsterButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Conoce al monstruo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="combat">
+    <Component class="javax.swing.JButton" name="combatButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xa1;Combate!"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combatActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combatButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="nextTurn">
+    <Component class="javax.swing.JButton" name="nextTurnButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Siguiente turno"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="messagesLabel">
+    <Component class="javax.swing.JLabel" name="messages">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Messages"/>
+        <Property name="text" type="java.lang.String" value="Mensajes"/>
       </Properties>
     </Component>
     <Component class="GUI.PlayerView" name="currentPlayer">
     </Component>
     <Component class="GUI.MonsterView" name="currentMonster">
+    </Component>
+    <Component class="javax.swing.JLabel" name="combatResult">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Resultado del combate"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

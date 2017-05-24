@@ -15,6 +15,12 @@ public class NapakalakiView extends javax.swing.JFrame {
     
     public void setNapakalaki(Napakalaki n){
         napakalakiModel = n;
+        if(n.getCurrentPlayer() != null)
+            this.currentPlayer.setPlayer(n.getCurrentPlayer());
+        if(n.getCurrentMonster() != null)
+            this.currentMonster.setMonster(n.getCurrentMonster());
+        
+        repaint();
 }
     
     /**
@@ -37,6 +43,8 @@ public class NapakalakiView extends javax.swing.JFrame {
         combat = new javax.swing.JButton();
         nextTurn = new javax.swing.JButton();
         messagesLabel = new javax.swing.JLabel();
+        currentPlayer = new GUI.PlayerView();
+        currentMonster = new GUI.MonsterView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,22 +71,36 @@ public class NapakalakiView extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(meetTheMonster))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(combat)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(combat)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nextTurn)
+                                .addGap(80, 80, 80)
+                                .addComponent(messagesLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(currentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nextTurn)
-                        .addGap(80, 80, 80)
-                        .addComponent(messagesLabel)))
-                .addContainerGap(470, Short.MAX_VALUE))
+                        .addComponent(currentMonster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(352, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combat)
-                    .addComponent(nextTurn)
-                    .addComponent(messagesLabel))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(currentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(combat)
+                            .addComponent(nextTurn)
+                            .addComponent(messagesLabel)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(currentMonster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(meetTheMonster)
                 .addContainerGap())
@@ -97,6 +119,8 @@ public class NapakalakiView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton combat;
+    private GUI.MonsterView currentMonster;
+    private GUI.PlayerView currentPlayer;
     private javax.swing.JButton meetTheMonster;
     private javax.swing.JLabel messagesLabel;
     private javax.swing.JButton nextTurn;

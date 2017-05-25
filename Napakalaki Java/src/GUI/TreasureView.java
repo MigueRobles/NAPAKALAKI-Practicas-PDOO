@@ -1,5 +1,6 @@
 package GUI;
 import NapakalakiGame.Treasure;
+import java.awt.Color;
 
 /**
  *
@@ -115,11 +116,11 @@ public class TreasureView extends javax.swing.JPanel {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         if(selected == true){
             selected = false;
-            setOpaque(false);
+            setBackground(Color.BLUE);
         }
         else {
             selected = true;
-            setOpaque(true);
+            setBackground(Color.BLUE);
         }
         
         repaint();

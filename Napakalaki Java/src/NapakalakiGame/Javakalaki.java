@@ -24,13 +24,13 @@ public class Javakalaki {
         
         Dice.createInstance (napakalakiView);
         
-        napakalakiView.setNapakalaki(game);
-        
         ArrayList<String> names = new ArrayList();
         PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);
         names = namesCapture.getNames();
         
         game.initGame(names);
+        
+        napakalakiView.setNapakalaki(game);
         
         napakalakiView.setVisible(true);
     }

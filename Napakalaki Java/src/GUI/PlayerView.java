@@ -32,21 +32,28 @@ public class PlayerView extends javax.swing.JPanel {
         napakalakiModel = n;
     }
     
+    public static String boolToSiONo(boolean b){
+        if(b)
+            return "Sí";
+        else
+            return "No";
+    }
+    
     public void setPlayer(Player p){
        playerModel = p;
        
        this.name.setText(playerModel.getName());
-       this.level.setText(Integer.toString(playerModel.getLevels()));
-       this.combatLevel.setText(Integer.toString(playerModel.getCombatLevel()));
-       this.canISteal.setText(Boolean.toString(playerModel.canISteal()));
-       this.death.setText(Boolean.toString(playerModel.isDead()));
+       this.level.setText("Nivel: "+Integer.toString(playerModel.getLevels()));
+       this.combatLevel.setText("Nivel de combate: " + Integer.toString(playerModel.getCombatLevel()));
+       this.canISteal.setText("¿Puede robar? :" + boolToSiONo(playerModel.canISteal()));
+       this.death.setText("¿Muerto?:" + boolToSiONo(playerModel.isDead()));
        this.pendingBadConsequenceView1.setPendingBadConsequencer(playerModel.getPendingBadConsequence());
        
        if(playerModel.getEnemy()!=null)
-          this.enemy.setText(playerModel.getEnemy().getName());
+          this.enemy.setText("Enemigo: " + playerModel.getEnemy().getName());
        
-       this.cultist.setText(Boolean.toString(playerModel instanceof CultistPlayer));
-       this.nCultist.setText(Integer.toString(CultistPlayer.getTotalCultistPlayers()));
+       this.cultist.setText("¿Sectario? " + boolToSiONo(playerModel instanceof CultistPlayer));
+       this.nCultist.setText("Número de sectarios: " + Integer.toString(CultistPlayer.getTotalCultistPlayers()));
               
        fillTreasurePanel (visibleTreasures, playerModel.getVisibleTreasures());
        fillTreasurePanel (hiddenTreasures, playerModel.getHiddenTreasures());

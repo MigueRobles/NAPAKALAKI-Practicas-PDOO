@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
 import NapakalakiGame.CultistPlayer;
@@ -19,7 +14,7 @@ import javax.swing.JPanel;
  */
 public class PlayerView extends javax.swing.JPanel {
     
-    Napakalaki napakalakiModel;
+    private Napakalaki napakalakiModel;
     Player playerModel;
     /**
      * Creates new form PlayerView
@@ -47,11 +42,12 @@ public class PlayerView extends javax.swing.JPanel {
        this.combatLevel.setText("Nivel de combate: " + Integer.toString(playerModel.getCombatLevel()));
        this.canISteal.setText("¿Puede robar? " + boolToSiONo(playerModel.canISteal()));
        this.death.setText("¿Muerto? " + boolToSiONo(playerModel.isDead()));
-       this.pendingBadConsequenceView1.setPendingBadConsequencer(playerModel.getPendingBadConsequence());
+       this.pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence());
        
        if(playerModel.getEnemy()!=null)
           this.enemy.setText("Enemigo: " + playerModel.getEnemy().getName());
        
+       this.pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence());
        this.cultist.setText("¿Sectario? " + boolToSiONo(playerModel instanceof CultistPlayer));
        this.nCultist.setText("Número de sectarios: " + Integer.toString(CultistPlayer.getTotalCultistPlayers()));
               
@@ -81,14 +77,21 @@ public class PlayerView extends javax.swing.JPanel {
         aPanel.removeAll();
         // Se recorre la lista de tesoros construyendo y añadiendo sus vistas al panel
         for (Treasure t : aList) {
-        TreasureView aTreasureView = new TreasureView();
-        aTreasureView.setTreasure (t);
-        aTreasureView.setVisible (true);
-        aPanel.add (aTreasureView);
+            TreasureView aTreasureView = new TreasureView();
+            aTreasureView.setTreasure (t);
+            aTreasureView.setVisible (true);
+            aPanel.add (aTreasureView);
         }
         // Se fuerza la actualización visual del panel
         aPanel.repaint();
         aPanel.revalidate();
+    }
+    
+    public void setEnableButtons(boolean set){
+        discardButton.setEnabled(set);
+        makeVisibleButton.setEnabled(set);
+        stealButton.setEnabled(set);
+        discardAllButton.setEnabled(set);
     }
 
     /**
@@ -209,8 +212,18 @@ public class PlayerView extends javax.swing.JPanel {
         });
 
         discardButton.setText("Descartar tesoro");
+        discardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardButtonActionPerformed(evt);
+            }
+        });
 
         discardAllButton.setText("Descartar todos los tesoros");
+        discardAllButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardAllButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -263,14 +276,28 @@ public class PlayerView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void stealButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stealButtonActionPerformed
-        // TODO add your handling code here:
+        napakalakiModel.getCurrentPlayer().stealTreasure();
+        setPlayer (napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_stealButtonActionPerformed
 
     private void makeVisibleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeVisibleButtonActionPerformed
-    ArrayList<Treasure> selHidden = getSelectedTreasures (hiddenTreasures);
-    napakalakiModel.makeTreasuresVisible (selHidden);
-    setPlayer (napakalakiModel.getCurrentPlayer());
+        ArrayList<Treasure> selHidden = getSelectedTreasures (hiddenTreasures);
+        napakalakiModel.makeTreasuresVisible (selHidden);
+        setPlayer (napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_makeVisibleButtonActionPerformed
+
+    private void discardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardButtonActionPerformed
+        ArrayList<Treasure> sel1 = getSelectedTreasures (hiddenTreasures);
+        ArrayList<Treasure> sel2 = getSelectedTreasures (visibleTreasures);
+        napakalakiModel.discardVisibleTreasures(sel2);
+        napakalakiModel.discardHiddenTreasures(sel1);
+        setPlayer (napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_discardButtonActionPerformed
+
+    private void discardAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardAllButtonActionPerformed
+        napakalakiModel.getCurrentPlayer().discardAllTreasures();
+        setPlayer (napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_discardAllButtonActionPerformed
     
 
 

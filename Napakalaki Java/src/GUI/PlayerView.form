@@ -253,11 +253,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Descartar tesoro"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discardButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="discardAllButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Descartar todos los tesoros"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discardAllButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="GUI.PendingBadConsequenceView" name="pendingBadConsequenceView1">
     </Component>

@@ -19,8 +19,8 @@ public class MonsterView extends javax.swing.JPanel {
        monsterModel = aMonster;
        
        this.name.setText(monsterModel.getName());
-       this.level.setText(Integer.toString(monsterModel.getCombatLevel()));
-       this.levelCultist.setText(Integer.toString(monsterModel.getCombatLevelAgainstCultistPlayer()));
+       this.level.setText("Nivel: " + (monsterModel.getCombatLevel()));
+       this.levelCultist.setText("Nivel contra cultistas: "+(monsterModel.getCombatLevelAgainstCultistPlayer()));
        
        this.prizeMonster.setPrize(aMonster.getPrize());
        this.badConsequenceMonster.setBadConsequence(aMonster.getBadConsequence());

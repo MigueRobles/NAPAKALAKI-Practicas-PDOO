@@ -269,7 +269,7 @@ public class PlayerView extends javax.swing.JPanel {
     private void makeVisibleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeVisibleButtonActionPerformed
     ArrayList<Treasure> selHidden = getSelectedTreasures (hiddenTreasures);
     napakalakiModel.makeTreasuresVisible (selHidden);
-    napakalakiModel.makeTreasuresVisible (selHidden);
+    setPlayer (napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_makeVisibleButtonActionPerformed
     
 

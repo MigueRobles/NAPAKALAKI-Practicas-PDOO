@@ -27,22 +27,31 @@ public class BadConsequenceView extends javax.swing.JPanel {
      badConsequenceModel = bc;
 
      this.text.setText(badConsequenceModel.getText());
-     this.level.setText(Integer.toString(badConsequenceModel.getLevels()));
+     this.level.setText("Niveles a perder:" + Integer.toString(badConsequenceModel.getLevels()));
 
      if(badConsequenceModel instanceof NumericBadConsequence){
-        this.visible.setText(Integer.toString(((NumericBadConsequence)badConsequenceModel).getNVisibleTreasures()));
-        this.hidden.setText(Integer.toString(((NumericBadConsequence)badConsequenceModel).getNHiddenTreasures()));
+        this.visible.setText("Nº visibles:" + Integer.toString(((NumericBadConsequence)badConsequenceModel).getNVisibleTreasures()));
+        this.hidden.setText("Nº ocultos:" + Integer.toString(((NumericBadConsequence)badConsequenceModel).getNHiddenTreasures()));
+     }
+     else{
+        this.visible.setText("");
+        this.hidden.setText("");
      }
 
      if(badConsequenceModel instanceof SpecificBadConsequence){
-        this.specificVisible.setText(((SpecificBadConsequence)badConsequenceModel).getSpecificVisibleTreasures().toString());
-        this.specificHidden.setText(((SpecificBadConsequence)badConsequenceModel).getSpecificHiddenTreasures().toString());
+        this.specificVisible.setText("Visibles específicios:" + ((SpecificBadConsequence)badConsequenceModel).getSpecificVisibleTreasures().toString());
+        this.specificHidden.setText("Ocultos específicos:" + ((SpecificBadConsequence)badConsequenceModel).getSpecificHiddenTreasures().toString());
+     }
+     else{
+        this.specificVisible.setText("");
+        this.specificHidden.setText("");
      }
      
      if(badConsequenceModel instanceof DeathBadConsequence){
-        this.death.setText(Boolean.toString(((DeathBadConsequence)badConsequenceModel).getDeath()));
+        this.death.setText("¿Le mata? " + PlayerView.boolToSiONo(((DeathBadConsequence)badConsequenceModel).getDeath()));
      }
-
+     else
+         this.death.setText("¿Le mata? No");
      repaint();
     }
 
@@ -85,38 +94,44 @@ public class BadConsequenceView extends javax.swing.JPanel {
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(text)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addComponent(level)
-                        .addGap(55, 55, 55)
+                        .addGap(59, 59, 59)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(hidden)
-                            .addComponent(visible)
-                            .addComponent(specificHidden)
-                            .addComponent(specificVisible)))
-                    .addComponent(death)))
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(hidden)
+                                .addGap(18, 18, 18)
+                                .addComponent(specificHidden))
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(visible)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(specificVisible)))
+                        .addContainerGap(111, Short.MAX_VALUE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(death)
+                            .addComponent(text))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addContainerGap()
                 .addComponent(text)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
                 .addComponent(death)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(specificVisible)
                     .addComponent(level)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addComponent(specificVisible)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(visible)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(specificHidden)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(hidden)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(visible))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hidden)
+                    .addComponent(specificHidden))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -125,15 +140,15 @@ public class BadConsequenceView extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

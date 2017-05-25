@@ -22,13 +22,13 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
         pendingBadConsequenceModel = aPendingBadConsequence;
        
         if(pendingBadConsequenceModel instanceof NumericBadConsequence){
-            this.nVisibleTreasures.setText(Integer.toString(((NumericBadConsequence)pendingBadConsequenceModel).getNVisibleTreasures()));
-            this.nHiddenTreasures.setText(Integer.toString(((NumericBadConsequence)pendingBadConsequenceModel).getNHiddenTreasures()));
+            this.nVisibleTreasures.setText("Tesoros visibles: "+ (((NumericBadConsequence)pendingBadConsequenceModel).getNVisibleTreasures()));
+            this.nHiddenTreasures.setText("Tesoros ocultos: " +(((NumericBadConsequence)pendingBadConsequenceModel).getNHiddenTreasures()));
         }
 
         if(pendingBadConsequenceModel instanceof SpecificBadConsequence){
-            this.specificVisibleTreasures.setText(((SpecificBadConsequence)pendingBadConsequenceModel).getSpecificVisibleTreasures().toString());
-            this.specificHiddenTreasures.setText(((SpecificBadConsequence)pendingBadConsequenceModel).getSpecificHiddenTreasures().toString());
+            this.specificVisibleTreasures.setText("Tesoros visibles especificos: "+((SpecificBadConsequence)pendingBadConsequenceModel).getSpecificVisibleTreasures().toString());
+            this.specificHiddenTreasures.setText("Tesoros ocultos especificos: "+((SpecificBadConsequence)pendingBadConsequenceModel).getSpecificHiddenTreasures().toString());
         }
       
        repaint();
@@ -73,7 +73,7 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
                     .addComponent(nHiddenTreasures)
                     .addComponent(specificVisibleTreasures)
                     .addComponent(specificHiddenTreasures))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,17 +94,14 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

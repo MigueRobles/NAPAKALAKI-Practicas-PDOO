@@ -45,8 +45,9 @@ public class NapakalakiView extends javax.swing.JFrame {
         combatButton = new javax.swing.JButton();
         nextTurnButton = new javax.swing.JButton();
         messages = new javax.swing.JLabel();
-        currentMonster = new GUI.MonsterView();
         combatResult = new javax.swing.JLabel();
+        currentPlayer = new GUI.PlayerView();
+        currentMonster = new GUI.MonsterView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,6 +61,11 @@ public class NapakalakiView extends javax.swing.JFrame {
         });
 
         nextTurnButton.setText("Siguiente turno");
+        nextTurnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextTurnButtonActionPerformed(evt);
+            }
+        });
 
         messages.setText("Mensajes");
 
@@ -70,38 +76,42 @@ public class NapakalakiView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                        .addGap(6, 6, 6)
                         .addComponent(combatButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nextTurnButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(meetTheMonsterButton)))
-                .addGap(51, 51, 51)
+                        .addComponent(nextTurnButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(meetTheMonsterButton))
+                    .addComponent(currentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(combatResult)
-                    .addComponent(messages))
-                .addGap(172, 172, 172)
-                .addComponent(currentMonster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                    .addComponent(messages)
+                    .addComponent(currentMonster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(combatButton)
-                        .addComponent(nextTurnButton)
-                        .addComponent(messages))
-                    .addComponent(currentMonster, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(meetTheMonsterButton)
-                    .addComponent(combatResult))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(currentMonster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(messages)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(combatResult))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(currentPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(combatButton)
+                            .addComponent(nextTurnButton)
+                            .addComponent(meetTheMonsterButton))))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -111,6 +121,10 @@ public class NapakalakiView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_combatButtonActionPerformed
 
+    private void nextTurnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTurnButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextTurnButtonActionPerformed
+
      public void showView() {
      this.setVisible(true);
 }
@@ -119,6 +133,7 @@ public class NapakalakiView extends javax.swing.JFrame {
     private javax.swing.JButton combatButton;
     private javax.swing.JLabel combatResult;
     private GUI.MonsterView currentMonster;
+    private GUI.PlayerView currentPlayer;
     private javax.swing.JButton meetTheMonsterButton;
     private javax.swing.JLabel messages;
     private javax.swing.JButton nextTurnButton;

@@ -81,7 +81,7 @@ public class TreasureView extends javax.swing.JPanel {
                     .addComponent(name)
                     .addComponent(type)
                     .addComponent(bonus))
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

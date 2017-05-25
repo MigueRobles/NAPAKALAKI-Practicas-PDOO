@@ -24,47 +24,51 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="combatButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="nextTurnButton" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="meetTheMonsterButton" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="currentPlayer" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="combatResult" min="-2" max="-2" attributes="0"/>
                   <Component id="messages" min="-2" max="-2" attributes="0"/>
+                  <Component id="currentMonster" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
-              <Component id="currentMonster" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="150" max="32767" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="combatButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nextTurnButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="messages" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="currentMonster" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="messages" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="combatResult" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="currentMonster" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="currentPlayer" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="combatButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nextTurnButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="meetTheMonsterButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="meetTheMonsterButton" min="-2" max="-2" attributes="0"/>
-                  <Component id="combatResult" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,18 +91,23 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Siguiente turno"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextTurnButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="messages">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mensajes"/>
       </Properties>
     </Component>
-    <Component class="GUI.MonsterView" name="currentMonster">
-    </Component>
     <Component class="javax.swing.JLabel" name="combatResult">
       <Properties>
         <Property name="text" type="java.lang.String" value="Resultado del combate"/>
       </Properties>
+    </Component>
+    <Component class="GUI.PlayerView" name="currentPlayer">
+    </Component>
+    <Component class="GUI.MonsterView" name="currentMonster">
     </Component>
   </SubComponents>
 </Form>

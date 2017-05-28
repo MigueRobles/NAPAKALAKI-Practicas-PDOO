@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+import NapakalakiGame.CombatResult;
 import NapakalakiGame.Napakalaki;
 import static java.lang.System.exit;
 
@@ -23,6 +24,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         if(n.getCurrentMonster() != null)
             this.currentMonster.setMonster(n.getCurrentMonster());
         
+        resultPannel.setVisible(false);
         nextTurnButton.setEnabled(false);
         combatButton.setEnabled(false);
         currentMonster.setVisible(false);
@@ -57,23 +59,17 @@ public class NapakalakiView extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         warningPanel = new javax.swing.JOptionPane();
-        messages = new javax.swing.JLabel();
-        combatResult = new javax.swing.JLabel();
         combatButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
         meetTheMonsterButton = new javax.swing.JButton();
         nextTurnButton = new javax.swing.JButton();
         currentMonster = new GUI.MonsterView();
         currentPlayer = new GUI.PlayerView();
+        resultPannel = new javax.swing.JPanel();
+        messages = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        messages.setText("Mensajes");
-        getContentPane().add(messages, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 36, -1, -1));
-
-        combatResult.setText("Resultado del combate");
-        getContentPane().add(combatResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 59, -1, -1));
 
         combatButton.setText("¡Combate!");
         combatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -109,11 +105,28 @@ public class NapakalakiView extends javax.swing.JFrame {
         getContentPane().add(currentMonster, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, -1, 214));
         getContentPane().add(currentPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 960, 450));
 
+        resultPannel.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado combate"));
+
+        messages.setText("Mensajes");
+        resultPannel.add(messages);
+
+        getContentPane().add(resultPannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 90));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void combatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combatButtonActionPerformed
-        napakalakiModel.developCombat();
+        
+        switch(napakalakiModel.developCombat()){
+            case WIN: messages.setText("Has ganado el combate");
+                break;
+            case LOSE: messages.setText("Has perdido el combate");
+                break;
+            case LOSEANDCONVERT: messages.setText("¡Ahora eres sectario!");
+                break;
+            case WINGAME: messages.setText("Has ganado el combate y la partida!!");
+                break;
+        }
         currentPlayer.setPendingVisible();
         this.currentPlayer.setPlayer(napakalakiModel.getCurrentPlayer());
         nextTurnButton.setEnabled(true);
@@ -121,6 +134,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         meetTheMonsterButton.setEnabled(false);
         combatButton.setEnabled(false);
         currentPlayer.setEnableButtons(true);
+        resultPannel.setVisible(true);
         repaint();
         revalidate();
     }//GEN-LAST:event_combatButtonActionPerformed
@@ -138,6 +152,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         this.currentPlayer.setPlayer(napakalakiModel.getCurrentPlayer());
         this.currentMonster.setMonster(napakalakiModel.getCurrentMonster());
         combatButton.setEnabled(false);
+        resultPannel.setVisible(false);
         repaint();
         revalidate();    }//GEN-LAST:event_nextTurnButtonActionPerformed
 
@@ -162,13 +177,13 @@ public class NapakalakiView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton combatButton;
-    private javax.swing.JLabel combatResult;
     private GUI.MonsterView currentMonster;
     private GUI.PlayerView currentPlayer;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton meetTheMonsterButton;
     private javax.swing.JLabel messages;
     private javax.swing.JButton nextTurnButton;
+    private javax.swing.JPanel resultPannel;
     private javax.swing.JOptionPane warningPanel;
     // End of variables declaration//GEN-END:variables
 }

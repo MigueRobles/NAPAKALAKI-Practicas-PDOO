@@ -110,7 +110,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         messages.setText("Mensajes");
         resultPannel.add(messages);
 
-        getContentPane().add(resultPannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 90));
+        getContentPane().add(resultPannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 190, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

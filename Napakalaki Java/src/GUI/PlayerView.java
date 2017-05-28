@@ -38,7 +38,8 @@ public class PlayerView extends javax.swing.JPanel {
     
     public void setPlayer(Player p){
        playerModel = p;
-       
+      this.pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence());
+
        this.name.setText(playerModel.getName());
        this.level.setText("Nivel: "+Integer.toString(playerModel.getLevels()));
        this.combatLevel.setText("Nivel de combate: " + Integer.toString(playerModel.getCombatLevel()));
@@ -48,7 +49,6 @@ public class PlayerView extends javax.swing.JPanel {
        if(playerModel.getEnemy()!=null)
           this.enemy.setText("Enemigo: " + playerModel.getEnemy().getName());
               
-       this.pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence());
        this.cultist.setText("¿Sectario? " + boolToSiONo(playerModel instanceof CultistPlayer));
        this.nCultist.setText("Número de sectarios: " + Integer.toString(CultistPlayer.getTotalCultistPlayers()));
               

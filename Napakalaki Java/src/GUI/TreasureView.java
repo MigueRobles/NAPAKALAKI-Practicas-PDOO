@@ -1,6 +1,7 @@
 package GUI;
 import NapakalakiGame.Treasure;
 import java.awt.Color;
+import java.awt.Font;
 
 /**
  *
@@ -35,6 +36,11 @@ public class TreasureView extends javax.swing.JPanel {
      */
      public void setTreasure (Treasure aTreasure) {
         treasureModel = aTreasure;
+        Font auxFont=name.getFont(); 
+        name.setFont(new Font(auxFont.getFontName(), auxFont.getStyle(), 10));
+
+
+        
         this.name.setText (treasureModel.getName());
         this.bonus.setText("Bonus :" + treasureModel.getBonus());
         this.type.setText("Tipo:" + treasureModel.getType().toString());
@@ -77,21 +83,21 @@ public class TreasureView extends javax.swing.JPanel {
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(2, 2, 2)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(name)
                     .addComponent(type)
                     .addComponent(bonus))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(name)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(type)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bonus))
         );
 
@@ -100,16 +106,16 @@ public class TreasureView extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(3, 3, 3)
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(3, 3, 3))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(3, 3, 3)
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(3, 3, 3))
         );
     }// </editor-fold>//GEN-END:initComponents
 

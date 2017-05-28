@@ -22,7 +22,11 @@ public class NapakalakiView extends javax.swing.JFrame {
         }
         if(n.getCurrentMonster() != null)
             this.currentMonster.setMonster(n.getCurrentMonster());
+        
+        nextTurnButton.setEnabled(false);
+        combatButton.setEnabled(false);
         currentMonster.setVisible(false);
+        currentPlayer.setEnableSteal(false);
 
         repaint();
         revalidate();
@@ -116,6 +120,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         currentPlayer.setEnableButtons(true);
         meetTheMonsterButton.setEnabled(false);
         combatButton.setEnabled(false);
+        currentPlayer.setEnableButtons(true);
         repaint();
         revalidate();
     }//GEN-LAST:event_combatButtonActionPerformed
@@ -138,8 +143,12 @@ public class NapakalakiView extends javax.swing.JFrame {
 
     private void meetTheMonsterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meetTheMonsterButtonActionPerformed
        currentMonster.setVisible(true);
+       combatButton.setEnabled(true);
+       meetTheMonsterButton.setEnabled(false);
+       currentPlayer.setEnableButtons(false);
+       
+       revalidate();
        repaint();
-       revalidate();  
     }//GEN-LAST:event_meetTheMonsterButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed

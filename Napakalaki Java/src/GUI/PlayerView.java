@@ -98,6 +98,10 @@ public class PlayerView extends javax.swing.JPanel {
         stealButton.setEnabled(set);
         discardAllButton.setEnabled(set);
     }
+    
+    public void setEnableSteal(boolean set){
+        stealButton.setEnabled(set);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -301,11 +305,17 @@ public class PlayerView extends javax.swing.JPanel {
         napakalakiModel.discardVisibleTreasures(sel2);
         napakalakiModel.discardHiddenTreasures(sel1);
         setPlayer (napakalakiModel.getCurrentPlayer());
+        //pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence()); // Esto debería de actualizar el mal  rollo
+        
+        repaint();
     }//GEN-LAST:event_discardButtonActionPerformed
 
     private void discardAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardAllButtonActionPerformed
         napakalakiModel.getCurrentPlayer().discardAllTreasures();
         setPlayer (napakalakiModel.getCurrentPlayer());
+        //pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence()); // Esto también debería pero tampoco lo hace
+        
+        repaint();
     }//GEN-LAST:event_discardAllButtonActionPerformed
     
 

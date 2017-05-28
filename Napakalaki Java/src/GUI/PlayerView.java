@@ -44,11 +44,10 @@ public class PlayerView extends javax.swing.JPanel {
        this.combatLevel.setText("Nivel de combate: " + Integer.toString(playerModel.getCombatLevel()));
        this.canISteal.setText("¿Puede robar? " + boolToSiONo(playerModel.canISteal()));
        this.death.setText("¿Muerto? " + boolToSiONo(playerModel.isDead()));
-       this.pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence());
        
        if(playerModel.getEnemy()!=null)
           this.enemy.setText("Enemigo: " + playerModel.getEnemy().getName());
-       
+              
        this.pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence());
        this.cultist.setText("¿Sectario? " + boolToSiONo(playerModel instanceof CultistPlayer));
        this.nCultist.setText("Número de sectarios: " + Integer.toString(CultistPlayer.getTotalCultistPlayers()));
@@ -60,7 +59,12 @@ public class PlayerView extends javax.swing.JPanel {
        revalidate();
     }
     protected void setPendingVisible(){
-       pendingBadConsequenceView1.setVisible(true);               
+       pendingBadConsequenceView1.setVisible(true);  
+       repaint();
+           }
+    protected void setPendingHidden(){
+       pendingBadConsequenceView1.setVisible(false);
+       repaint();
            }
     private ArrayList<Treasure> getSelectedTreasures(JPanel aPanel) {
     // Se recorren los tesoros que contiene el panel,
@@ -74,6 +78,7 @@ public class PlayerView extends javax.swing.JPanel {
             if ( tv.isSelected() )
              output.add ( tv.getTreasure() );
             }
+    repaint();
     return output;
     }
     
@@ -97,10 +102,12 @@ public class PlayerView extends javax.swing.JPanel {
         makeVisibleButton.setEnabled(set);
         stealButton.setEnabled(set);
         discardAllButton.setEnabled(set);
+        repaint();
     }
     
     public void setEnableSteal(boolean set){
         stealButton.setEnabled(set);
+        repaint();
     }
 
     /**
@@ -202,11 +209,11 @@ public class PlayerView extends javax.swing.JPanel {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        visibleTreasures.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(42, 196, 2)));
+        visibleTreasures.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tesoros Visibles", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(11, 147, 2))); // NOI18N
         visibleTreasures.setMaximumSize(new java.awt.Dimension(115, 122));
         visibleTreasures.setMinimumSize(new java.awt.Dimension(115, 122));
 
-        hiddenTreasures.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 0, 0)));
+        hiddenTreasures.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tesoros ocultos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 0, 0))); // NOI18N
         hiddenTreasures.setMaximumSize(new java.awt.Dimension(115, 122));
         hiddenTreasures.setMinimumSize(new java.awt.Dimension(115, 122));
 
@@ -238,7 +245,7 @@ public class PlayerView extends javax.swing.JPanel {
             }
         });
 
-        pendingBadConsequenceView1.setBorder(javax.swing.BorderFactory.createTitledBorder("Mal rollo pendiente"));
+        pendingBadConsequenceView1.setBorder(javax.swing.BorderFactory.createTitledBorder("Mal Rollo"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -247,13 +254,13 @@ public class PlayerView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(hiddenTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
-                            .addComponent(visibleTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(hiddenTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
+                            .addComponent(visibleTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(makeVisibleButton)
@@ -268,35 +275,36 @@ public class PlayerView extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(hiddenTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(makeVisibleButton)
                     .addComponent(discardButton)
                     .addComponent(discardAllButton)
                     .addComponent(stealButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void stealButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stealButtonActionPerformed
         napakalakiModel.getCurrentPlayer().stealTreasure();
         setPlayer (napakalakiModel.getCurrentPlayer());
+        repaint();
     }//GEN-LAST:event_stealButtonActionPerformed
 
     private void makeVisibleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeVisibleButtonActionPerformed
         ArrayList<Treasure> selHidden = getSelectedTreasures (hiddenTreasures);
         napakalakiModel.makeTreasuresVisible (selHidden);
         setPlayer (napakalakiModel.getCurrentPlayer());
+        repaint();
     }//GEN-LAST:event_makeVisibleButtonActionPerformed
 
     private void discardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardButtonActionPerformed
@@ -305,7 +313,6 @@ public class PlayerView extends javax.swing.JPanel {
         napakalakiModel.discardVisibleTreasures(sel2);
         napakalakiModel.discardHiddenTreasures(sel1);
         setPlayer (napakalakiModel.getCurrentPlayer());
-        //pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence()); // Esto debería de actualizar el mal  rollo
         
         repaint();
     }//GEN-LAST:event_discardButtonActionPerformed
@@ -313,7 +320,6 @@ public class PlayerView extends javax.swing.JPanel {
     private void discardAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardAllButtonActionPerformed
         napakalakiModel.getCurrentPlayer().discardAllTreasures();
         setPlayer (napakalakiModel.getCurrentPlayer());
-        //pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence()); // Esto también debería pero tampoco lo hace
         
         repaint();
     }//GEN-LAST:event_discardAllButtonActionPerformed

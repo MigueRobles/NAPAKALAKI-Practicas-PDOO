@@ -49,10 +49,10 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
         specificVisibleTreasures = new javax.swing.JLabel();
         specificHiddenTreasures = new javax.swing.JLabel();
 
-        nVisibleTreasures.setText("Número de tesoros visibles a descartar:");
+        nVisibleTreasures.setText("Tesoros visibles: ");
         nVisibleTreasures.setName(""); // NOI18N
 
-        nHiddenTreasures.setText("Número de tesoros ocultos a descartar:");
+        nHiddenTreasures.setText("Tesoros ocultos: ");
 
         specificVisibleTreasures.setText("Tesoros visibles específicos:");
 
@@ -69,35 +69,31 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
                     .addComponent(nHiddenTreasures)
                     .addComponent(specificVisibleTreasures)
                     .addComponent(specificHiddenTreasures))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(nVisibleTreasures)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(nHiddenTreasures)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(specificVisibleTreasures)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(specificHiddenTreasures)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

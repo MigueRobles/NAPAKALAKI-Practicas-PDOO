@@ -144,6 +144,8 @@ public class NapakalakiView extends javax.swing.JFrame {
             nextTurnButton.setEnabled(false);
             currentMonster.setVisible(false);
             meetTheMonsterButton.setEnabled(true);
+            currentPlayer.setPendingHidden();
+
         }
         else
             warningPanel.showMessageDialog(null, "No cumples las condiciones para pasar de turno."
@@ -153,6 +155,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         this.currentMonster.setMonster(napakalakiModel.getCurrentMonster());
         combatButton.setEnabled(false);
         resultPannel.setVisible(false);
+        
         repaint();
         revalidate();    }//GEN-LAST:event_nextTurnButtonActionPerformed
 
@@ -172,6 +175,7 @@ public class NapakalakiView extends javax.swing.JFrame {
 
      public void showView() {
      this.setVisible(true);
+     repaint();
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -66,7 +66,7 @@ public class CardDealer {
         prize = new Prize(2,1);
         unusedMonster.add(new Monster("Tongue", 19, badConsequence, prize,0));
                    
-        badConsequence = new NumericBadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos",3,Integer.MAX_VALUE,0);
+        badConsequence = new NumericBadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos",3,5,0);
         prize = new Prize(2,1);
         unusedMonster.add(new Monster("Bicéfalo", 21, badConsequence, prize,0));
         
@@ -82,7 +82,7 @@ public class CardDealer {
         prize = new Prize(4,1);
         unusedMonster.add(new Monster("Demonios de Magaluf", 2, badConsequence, prize,0));
         
-        badConsequence = new NumericBadConsequence("Pierdes todos tus tesoros visibles",0, Integer.MAX_VALUE, 0);
+        badConsequence = new NumericBadConsequence("Pierdes todos tus tesoros visibles",0, 5, 0);
         prize = new Prize(3,1);
         unusedMonster.add(new Monster("El gorrón en el umbral", 13, badConsequence, prize,0));
        

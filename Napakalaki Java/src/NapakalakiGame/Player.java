@@ -149,7 +149,7 @@ public class Player {
         }
         if(myLevel > monsterLevel){
             applyPrize(monster);
-            if(myLevel >= MAXLEVEL)
+            if(level >= MAXLEVEL)
                 return CombatResult.WINGAME;
             return CombatResult.WIN;
         }

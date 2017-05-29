@@ -96,6 +96,20 @@ private void setEnemies(){
     
     public CombatResult developCombat() {
         CombatResult result = currentPlayer.combat(currentMonster);
+        
+        if(result == CombatResult.LOSEANDCONVERT){
+            Cultist cultistCard = dealer.nextCultist();
+            CultistPlayer cultist = new CultistPlayer(currentPlayer, cultistCard);
+            players.add(players.indexOf(currentPlayer), cultist);
+            players.remove(currentPlayer);
+            
+            for(Player p:players){
+                if(p.getEnemy() == currentPlayer)
+                    p.setEnemy(cultist);
+            }
+            
+            currentPlayer = cultist;
+        }
         dealer.giveMonsterBack(currentMonster);
         return result;
     }

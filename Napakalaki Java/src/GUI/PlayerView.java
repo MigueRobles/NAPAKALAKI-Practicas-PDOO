@@ -22,8 +22,7 @@ public class PlayerView extends javax.swing.JPanel {
      */
     public PlayerView() {
         initComponents();
-        pendingBadConsequenceView1.setVisible(false);
-
+        jPanel1.setVisible(false);
     }
     
     public void setNapakalaki(Napakalaki n){
@@ -36,10 +35,19 @@ public class PlayerView extends javax.swing.JPanel {
         else
             return "No";
     }
+    public void updatePendingBadView()    {
+        //jPanel1.removeAll();
+        jPanel1.invalidate();
+        PendingBadConsequenceView bv = new PendingBadConsequenceView();
+        bv.setPendingBadConsequence(playerModel.getPendingBadConsequence());
+        jPanel1.add(bv);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+        
+    }
     
     public void setPlayer(Player p){
        playerModel = p;
-       this.pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence());
 
        this.name.setText(playerModel.getName());
        this.level.setText("Nivel: "+Integer.toString(playerModel.getLevels()));
@@ -54,7 +62,10 @@ public class PlayerView extends javax.swing.JPanel {
               
        this.cultist.setText("¿Sectario? " + boolToSiONo(playerModel instanceof CultistPlayer));
        this.nCultist.setText("Número de sectarios: " + Integer.toString(CultistPlayer.getTotalCultistPlayers()));
-              
+       
+       updatePendingBadView();
+       this.pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence());
+
        fillTreasurePanel (visibleTreasures, playerModel.getVisibleTreasures());
        fillTreasurePanel (hiddenTreasures, playerModel.getHiddenTreasures());
        
@@ -62,11 +73,14 @@ public class PlayerView extends javax.swing.JPanel {
        revalidate();
     }
     protected void setPendingVisible(){
-       pendingBadConsequenceView1.setVisible(true);  
-       repaint();
+        updatePendingBadView();
+        jPanel1.setVisible(true);  
+        pendingBadConsequenceView1.setVisible(true);
+
+        repaint();
            }
     protected void setPendingHidden(){
-       pendingBadConsequenceView1.setVisible(false);
+       jPanel1.setVisible(false);
        repaint();
            }
     private ArrayList<Treasure> getSelectedTreasures(JPanel aPanel) {
@@ -139,6 +153,7 @@ public class PlayerView extends javax.swing.JPanel {
         makeVisibleButton = new javax.swing.JButton();
         discardButton = new javax.swing.JButton();
         discardAllButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         pendingBadConsequenceView1 = new GUI.PendingBadConsequenceView();
 
         jLabel1.setText("jLabel1");
@@ -245,7 +260,23 @@ public class PlayerView extends javax.swing.JPanel {
             }
         });
 
-        pendingBadConsequenceView1.setBorder(javax.swing.BorderFactory.createTitledBorder("Mal Rollo"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Mal Rollo"));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 14, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -254,14 +285,6 @@ public class PlayerView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(hiddenTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
-                            .addComponent(visibleTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(makeVisibleButton)
                         .addGap(18, 18, 18)
@@ -269,25 +292,33 @@ public class PlayerView extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(discardAllButton)
                         .addGap(18, 18, 18)
-                        .addComponent(stealButton)))
+                        .addComponent(stealButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(visibleTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
+                            .addComponent(hiddenTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 12, Short.MAX_VALUE)
-                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)))
+                        .addGap(30, 30, 30)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(makeVisibleButton)
                     .addComponent(discardButton)
@@ -340,6 +371,7 @@ public class PlayerView extends javax.swing.JPanel {
     private javax.swing.JPanel hiddenTreasures;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel level;
     private javax.swing.JButton makeVisibleButton;
     private javax.swing.JLabel nCultist;

@@ -122,6 +122,7 @@ public class SpecificBadConsequence extends BadConsequence{
     */
     
     // Probamos implementación alternativa
+    /*
     @Override
      public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h) {
         ArrayList<TreasureKind> sV = new ArrayList<TreasureKind>();
@@ -145,5 +146,42 @@ public class SpecificBadConsequence extends BadConsequence{
          return (new SpecificBadConsequence(this.text, this.levels, intersectionV, intersectionH));
 
      
+    }*/
+    //Otra alternativa
+    @Override
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
+        ArrayList<TreasureKind> specV = new ArrayList();
+        ArrayList<TreasureKind> copy_spV = new ArrayList(sVisibleTreasures);
+        ArrayList<TreasureKind> specH = new ArrayList();
+        ArrayList<TreasureKind> copy_spH = new ArrayList(sHiddenTreasures);
+        ArrayList<TreasureKind> typesH = new ArrayList();
+        ArrayList<TreasureKind> typesV = new ArrayList();
+        
+        
+        for(Treasure t: v){
+            typesV.add(t.getType());
+        }
+        
+        for(Treasure t: h){
+            typesH.add(t.getType());
+        }
+                    
+        for(TreasureKind t: typesV){
+            if(copy_spV.contains(t)){
+                specV.add(t);
+                copy_spV.remove(t);
+            }
+        }
+        
+        for(TreasureKind t: typesH){
+            if(copy_spH.contains(t)){
+                specH.add(t);
+                copy_spH.remove(t);
+            }
+        }
+            
+        BadConsequence bc = new SpecificBadConsequence(text, levels, specV, specH);
+        
+        return bc;        
     }
 }

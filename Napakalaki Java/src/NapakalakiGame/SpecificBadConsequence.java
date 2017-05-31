@@ -74,7 +74,7 @@ public class SpecificBadConsequence extends BadConsequence{
         return sHiddenTreasures;
     }
     
-    /*
+    /* Alternativa inicial (FÁ, FuncionarÁ?)
     @Override
     SpecificBadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h){
      if(!isEmpty()){
@@ -119,9 +119,35 @@ public class SpecificBadConsequence extends BadConsequence{
      else
          return this;
     }
+    
+    // Alternativa muy parecida a la anterior (AS):
+    
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h) {
+        ArrayList<TreasureKind> vT = new ArrayList();
+        ArrayList<TreasureKind> hT = new ArrayList();
+        ArrayList<TreasureKind> sVT = new ArrayList(specificVisibleTreasures);
+        ArrayList<TreasureKind> sHT = new ArrayList(specificHiddenTreasures);
+
+        if (!v.isEmpty())
+            for (Treasure treasure : v) {
+                if (sVT.contains(treasure.getType())) {
+                    vT.add(treasure.getType());
+                    sVT.remove(treasure.getType());
+                }
+            }
+        if (!h.isEmpty())
+            for (Treasure treasure : h) {
+                if (sHT.contains(treasure.getType())) {
+                    hT.add(treasure.getType());
+                    sHT.remove(treasure.getType());
+                }
+            }
+        
+        return new SpecificBadConsequence(getText(), getLevels(), vT, hT);
+    }
     */
     
-    // Probamos implementación alternativa
+    // Probamos implementación alternativa (AP)
     /*
     @Override
      public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h) {
@@ -147,7 +173,7 @@ public class SpecificBadConsequence extends BadConsequence{
 
      
     }*/
-    //Otra alternativa
+    //Otra alternativa (AA)
     @Override
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
         ArrayList<TreasureKind> specV = new ArrayList();

@@ -224,11 +224,11 @@ public class PlayerView extends javax.swing.JPanel {
                 .addComponent(nCultist))
         );
 
-        visibleTreasures.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tesoros Visibles", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(11, 147, 2))); // NOI18N
+        visibleTreasures.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tesoros Visibles", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(11, 147, 2))); // NOI18N
         visibleTreasures.setMaximumSize(new java.awt.Dimension(115, 122));
         visibleTreasures.setMinimumSize(new java.awt.Dimension(115, 122));
 
-        hiddenTreasures.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tesoros ocultos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(255, 0, 0))); // NOI18N
+        hiddenTreasures.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tesoros ocultos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 0, 0))); // NOI18N
         hiddenTreasures.setMaximumSize(new java.awt.Dimension(115, 122));
         hiddenTreasures.setMinimumSize(new java.awt.Dimension(115, 122));
 

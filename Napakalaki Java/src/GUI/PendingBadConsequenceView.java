@@ -24,12 +24,23 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
         if(pendingBadConsequenceModel instanceof NumericBadConsequence){
             this.nVisibleTreasures.setText("Tesoros visibles: "+ (((NumericBadConsequence)pendingBadConsequenceModel).getNVisibleTreasures()));
             this.nHiddenTreasures.setText("Tesoros ocultos: " +(((NumericBadConsequence)pendingBadConsequenceModel).getNHiddenTreasures()));
+            this.specificVisibleTreasures.setText("Tesoros visibles especificos: ");
+            this.specificHiddenTreasures.setText("Tesoros ocultos especificos: ");
         }
 
         if(pendingBadConsequenceModel instanceof SpecificBadConsequence){
+            this.nVisibleTreasures.setText("Tesoros visibles: ");
+            this.nHiddenTreasures.setText("Tesoros ocultos: ");
             this.specificVisibleTreasures.setText("Tesoros visibles especificos: "+((SpecificBadConsequence)pendingBadConsequenceModel).getSpecificVisibleTreasures().toString());
             this.specificHiddenTreasures.setText("Tesoros ocultos especificos: "+((SpecificBadConsequence)pendingBadConsequenceModel).getSpecificHiddenTreasures().toString());
         }
+        
+        if(pendingBadConsequenceModel == null){
+            this.nVisibleTreasures.setText("Has cumplido el mal rollo");
+            this.nHiddenTreasures.setText("Tesoros ocultos: ");
+            this.specificVisibleTreasures.setText("Tesoros visibles especificos: ");
+            this.specificHiddenTreasures.setText("Tesoros ocultos especificos:");
+          }
       
        repaint();
     }

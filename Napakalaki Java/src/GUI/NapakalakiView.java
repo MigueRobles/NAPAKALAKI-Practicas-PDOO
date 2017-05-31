@@ -133,7 +133,6 @@ public class NapakalakiView extends javax.swing.JFrame {
         currentPlayer.setEnableButtons(true);
         meetTheMonsterButton.setEnabled(false);
         combatButton.setEnabled(false);
-        currentPlayer.setEnableButtons(true);
         resultPannel.setVisible(true);
         repaint();
         revalidate();
